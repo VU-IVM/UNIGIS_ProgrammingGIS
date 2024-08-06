@@ -1,0 +1,10 @@
+jupyter-book
+matplotlib
+numpy
+pandas
+geopandas
+osmnx
+geocube
+contextily
+ee
+geemap
