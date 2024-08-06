@@ -1,0 +1,1267 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Tutorial 1: Working with OpenStreetMap &#8212; Big Data for Sustainability Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week5/tutorial1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial 2: Natural Hazard Risk Assessment" href="tutorial2.html" />
+    <link rel="prev" title="Lecture: Big Data in the public domain" href="lecture.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Big Data for Sustainability Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Big Data for Sustainability Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/course_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/teachers.html">Teachers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/schedule.html">Course schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/lecture.html">Lecture: Course Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial1.html">Tutorial 1: Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial2.html">Tutorial 2: Introduction to NumPy and Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial3.html">Tutorial 3: Introduction to Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week2/lecture.html">Lecture: Introduction to Random Forests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/tutorial1.html">Tutorial 1: Data Exploration and regression analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/tutorial2.html">Tutorial 2: Random Forest Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/lecture.html">Lecture: Introduction to Artificial Neural Networks and model validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/tutorial1.html">Tutorial 1: Artificial neural networks (ANNs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/tutorial2.html">Tutorial 2: Model Validation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/lecture.html">Lecture: Earth Observation &amp; Google Earth Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/tutorial1.html">Tutorial 1: Land-cover classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/tutorial2.html">Tutorial 2: Drought Detection</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lecture.html">Lecture: Big Data in the public domain</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial 1: Working with OpenStreetMap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial2.html">Tutorial 2: Natural Hazard Risk Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/lecture.html">Lecture: Social Media and Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/tutorial1.html">Tutorial 1: Social Media &amp; Natural Hazards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/tutorial2.html">Tutorial 2: Social Media &amp; Valuation of Landscapes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week7/lecture.html">Lecture: A guide to visualisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/tutorial1.html">Tutorial: Visualizing your results</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week8/exam.html">Exam preparation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ElcoK/BigData_AED/blob/main/week5/tutorial1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ElcoK/BigData_AED" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ElcoK/BigData_AED/issues/new?title=Issue%20on%20page%20%2Fweek5/tutorial1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/week5/tutorial1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutorial 1: Working with OpenStreetMap</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1.Introducing the packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-and-visualize-land-use-information-from-openstreetmap">2. Extract and visualize land-use information from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">3. Rasterize land-use information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">4. Extracting buildings from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-and-visualize-building-stock">5. Analyze and visualize building stock</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-roads-from-openstreetmap">6. Extracting roads from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-routes-using-openstreetmap-and-folium">7. Plot Routes Using OpenStreetMap and Folium</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="tutorial-1-working-with-openstreetmap">
+<h1>Tutorial 1: Working with OpenStreetMap<a class="headerlink" href="#tutorial-1-working-with-openstreetmap" title="Permalink to this heading">#</a></h1>
+<p>Within this tutorial, we will explore the power of OpenStreetMap. We will learn how to extract information from OpenStreetMap, how you can explore and visualize this, and how to use it for some basic analysis.</p>
+<section id="important-before-we-start">
+<h2>Important before we start<a class="headerlink" href="#important-before-we-start" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Make sure that you save this file before you continue, else you will lose everything. To do so, go to <strong>Bestand/File</strong> and click on <strong>Een kopie opslaan in Drive/Save a Copy on Drive</strong>!</p>
+<p>Now, rename the file into Week5_Tutorial1.ipynb. You can do so by clicking on the name in the top of this screen.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<hr><ul class="simple">
+<li><p>To understand the use of <strong>OSMnx</strong> to extract geospatial data from OpenStreetmap.</p></li>
+<li><p>To know how to rasterize vector data through using <strong>Geocube</strong>.</p></li>
+<li><p>To know how to visualise vector and raster data.</p></li>
+<li><p>To understand the basic functioning of <strong>Matplotlib</strong> to create a map.</p></li>
+<li><p>To know how one can generate routes between two points using <strong>NetworkX</strong>.</p></li>
+<li><p>To visualize networks on an interactive map.</p></li>
+</ul>
+<h2>Tutorial Outline<span class="tocSkip"></span></h2>
+<hr>
+<div class="toc"><ul class="toc-item">
+<li><span><a href="#introducing-the-packages" data-toc-modified-id="1.-Introducing-the-packages-2">1. Introducing the packages</a></span></li>
+<li><span><a href="#extracting-land-use-information-from-openstreetmap" data-toc-modified-id="2.-Extracting-landuse-information-3">2. Extracting land-use information from OpenStreetMap</a></span></li>
+<li><span><a href="#rasterize-land-use-information" data-toc-modified-id="3.-Visualize-Rasterize-4">3. Rasterize land-use information</a></span></li>
+<li><span><a href="#extracting-buildings-from-openstreetmap" data-toc-modified-id="4.-Extracting-buildings-5">4. Extracting buildings from OpenStreetMap</a></span></li>
+<li><span><a href="#analyze-and-visualize-building-stock" data-toc-modified-id="5.-Analyze-buildings-6">5. Analyze and visualize building stock</a></span></li>
+<li><span><a href="#extracting-roads-from-openstreetmap" data-toc-modified-id="6.-Extracting-roads-5">6. Extracting roads from OpenStreetMap</a></span></li>
+<li><span><a href="#plot-routes-using-openstreetmap-and-folium" data-toc-modified-id="7.-Plot-routes-6">7. Plot Routes Using OpenStreetMap and Folium</a></span></li></ul></div></section>
+<section id="introducing-the-packages">
+<h2>1.Introducing the packages<a class="headerlink" href="#introducing-the-packages" title="Permalink to this heading">#</a></h2>
+<hr><p>Within this tutorial, we are going to make use of the following packages:</p>
+<p><a class="reference external" href="https://geopandas.org/"><strong>GeoPandas</strong></a> is a Python package that extends the datatypes used by pandas to allow spatial operations on geometric types.</p>
+<p><a class="reference external" href="https://osmnx.readthedocs.io/"><strong>OSMnx</strong></a> is a Python package that lets you download geospatial data from OpenStreetMap and model, project, visualize, and analyze real-world street networks and any other geospatial geometries. You can download and model walkable, drivable, or bikeable urban networks with a single line of Python code then easily analyze and visualize them. You can just as easily download and work with other infrastructure types, amenities/points of interest, building footprints, elevation data, street bearings/orientations, and speed/travel time.</p>
+<p><a class="reference external" href="https://networkx.org/"><strong>NetworkX</strong></a> is a Python package for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.</p>
+<p><a class="reference external" href="https://matplotlib.org/"><strong>Matplotlib</strong></a> is a comprehensive Python package for creating static, animated, and interactive visualizations in Python. Matplotlib makes easy things easy and hard things possible.</p>
+<p><a class="reference external" href="https://corteva.github.io/geocube"><strong>Geocube</strong></a> is a Python package to convert geopandas vector data into rasterized data.</p>
+<p><a class="reference external" href="https://docs.xarray.dev/"><strong>xarray</strong></a> is a Python package that allows for easy and efficient use of multi-dimensional arrays.</p>
+<p><em>We will first need to install these packages in the cell below. Uncomment them to make sure we can pip install them</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>osmnx
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>geocube
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>contextily
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will import these packages in the cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> 
+
+<span class="kn">import</span> <span class="nn">osmnx</span> <span class="k">as</span> <span class="nn">ox</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">contextily</span> <span class="k">as</span> <span class="nn">cx</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span><span class="n">ListedColormap</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Patch</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">geocube.api.core</span> <span class="kn">import</span> <span class="n">make_geocube</span>
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extract-and-visualize-land-use-information-from-openstreetmap">
+<h2>2. Extract and visualize land-use information from OpenStreetMap<a class="headerlink" href="#extract-and-visualize-land-use-information-from-openstreetmap" title="Permalink to this heading">#</a></h2>
+<hr><p>The first step is to define which area you want to focus on. In the cell below, you will now read “Zoeterwoude, The Netherlands”. Change this to any area or municipality in the Netherlands that (1) you can think of and (2) will work.</p>
+<p>In some cases, the function does not recognize the location. You could either try a different phrasing or try a different location. Many parts of the Netherlands should work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">place_name</span> <span class="o">=</span> <span class="s2">&quot;Zoeterwoude, The Netherlands&quot;</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="n">place_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let us visualize the bounding box of the area. As you will notice, we also estimate the size of the area. If the area size is above 50km2, or when you have many elements within your area (for example the amsterdam city centre), extracting the data from OpenStreetMap may take a little while.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_to_check</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3857</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">area_to_check</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">area_to_check</span><span class="o">.</span><span class="n">area</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">. Total area: </span><span class="si">{}</span><span class="s2"> km2&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span><span class="n">size</span><span class="p">),</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 1:</b> To make sure we understand which area you focus on, please submit the figure that outlines your area.
+</div><p>Now we are satisfied with the selected area, we are going to extract the land-use information from OpenStreetMap. To find the right information from OpenStreetMap, we use <strong>tags</strong>.</p>
+<p>As you will see in the cell below, we use the tags <em>“landuse”</em> and <em>“natural”</em>. We need to use the <em>“natural”</em> tag to ensure we also obtain water bodies and other natural elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;landuse&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;natural&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>   
+<span class="n">landuse</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">features_from_place</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In case the above does not work, you can continue the assignment by using the code below (make sure you remove the hashtags to run it). If you decide to use the data as specified below, also change the map at the start to ‘Kampen’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remote_url = &#39;https://github.com/ElcoK/BigData_AED/raw/main/week5/kampen_landuse.gpkg&#39;</span>
+<span class="c1"># file = &#39;kampen_landuse.gpkg&#39;</span>
+
+<span class="c1"># request.urlretrieve(remote_url, file)</span>
+<span class="c1">#landuse = gpd.GeoDataFrame.from_file(&#39;kampen_landuse.gpkg&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To ensure we really only get the area that we want, we use geopandas’s <code class="docutils literal notranslate"><span class="pre">clip</span></code> function to only keep the area we want. This function does exactly the same as the <code class="docutils literal notranslate"><span class="pre">clip</span></code> function in QGIS.</p>
+<p>When we want to visualize or analyse the data, we want all information in a single column. However, at the moment, all information that was tagged as <em>“natural”</em>, has no information stored in the <em>“landuse”</em> tags. It is, however, very convenient if we can just use a single column for further exploration of the data.</p>
+<p>To overcome this issue, we need to add the missing information to the landuse column, as done below. Let’s first have a look which categories we have in the <strong>natural</strong> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse</span><span class="o">.</span><span class="n">natural</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we can add them to the <strong>landuse</strong> column. We made a start, but its up to you to fill in the rest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">landuse</span><span class="o">.</span><span class="n">natural</span><span class="o">==</span><span class="s1">&#39;water&#39;</span><span class="p">,</span><span class="s1">&#39;landuse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;water&#39;</span>
+<span class="n">landuse</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">landuse</span><span class="o">.</span><span class="n">natural</span><span class="o">==</span><span class="s1">&#39;wetland&#39;</span><span class="p">,</span><span class="s1">&#39;landuse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;wetlands&#39;</span>
+
+
+<span class="n">landuse</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;landuse&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 2:</b> Please provide in the answer box in Canvas the code that you used to make sure that all land uses are now registered within the landuse column.
+</div><p>Our next step is to prepare the visualisation of a map. What better way to explore land-use information than plotting it on a map?</p>
+<p>As you will see below, we can create a dictionary with color codes that will color each land-use class based on the color code provided in this dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span>  <span class="s2">&quot;grass&quot;</span><span class="p">:</span><span class="s1">&#39;#c3eead&#39;</span><span class="p">,</span>               <span class="s2">&quot;railway&quot;</span><span class="p">:</span> <span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;forest&quot;</span><span class="p">:</span><span class="s1">&#39;#1c7426&#39;</span><span class="p">,</span>              <span class="s2">&quot;orchard&quot;</span><span class="p">:</span><span class="s1">&#39;#fe6729&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;residential&quot;</span><span class="p">:</span><span class="s1">&#39;#f13013&#39;</span><span class="p">,</span>         <span class="s2">&quot;industrial&quot;</span><span class="p">:</span><span class="s1">&#39;#0f045c&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;retail&quot;</span><span class="p">:</span><span class="s1">&#39;#b71456&#39;</span><span class="p">,</span>              <span class="s2">&quot;education&quot;</span><span class="p">:</span><span class="s1">&#39;#d61181&#39;</span><span class="p">,</span>              
+                <span class="s2">&quot;commercial&quot;</span><span class="p">:</span><span class="s1">&#39;#981cb8&#39;</span><span class="p">,</span>          <span class="s2">&quot;farmland&quot;</span><span class="p">:</span><span class="s1">&#39;#fcfcb9&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;cemetery&quot;</span><span class="p">:</span><span class="s1">&#39;#c39797&#39;</span><span class="p">,</span>            <span class="s2">&quot;construction&quot;</span><span class="p">:</span><span class="s1">&#39;#c0c0c0&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;meadow&quot;</span><span class="p">:</span><span class="s1">&#39;#c3eead&#39;</span><span class="p">,</span>              <span class="s2">&quot;farmyard&quot;</span><span class="p">:</span><span class="s1">&#39;#fcfcb9&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;plant_nursery&quot;</span><span class="p">:</span><span class="s1">&#39;#eaffe2&#39;</span><span class="p">,</span>       <span class="s2">&quot;scrub&quot;</span><span class="p">:</span><span class="s1">&#39;#98574d&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;allotments&quot;</span><span class="p">:</span><span class="s1">&#39;#fbffe2&#39;</span><span class="p">,</span>          <span class="s2">&quot;reservoir&quot;</span><span class="p">:</span><span class="s1">&#39;#8af4f2&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;static_caravan&quot;</span><span class="p">:</span><span class="s1">&#39;#ff3a55&#39;</span><span class="p">,</span>      <span class="s2">&quot;wetlands&quot;</span><span class="p">:</span> <span class="s2">&quot;#c9f5e5&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;water&quot;</span><span class="p">:</span> <span class="s2">&quot;#c9e5f5&quot;</span><span class="p">,</span>              <span class="s2">&quot;beach&quot;</span><span class="p">:</span> <span class="s2">&quot;#ffeead&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;landfill&quot;</span> <span class="p">:</span> <span class="s2">&quot;#B08C4D&quot;</span><span class="p">,</span>          <span class="s2">&quot;recreation_ground&quot;</span> <span class="p">:</span> <span class="s2">&quot;#c3eead&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;brownfield&quot;</span> <span class="p">:</span> <span class="s2">&quot;#B08C4D&quot;</span><span class="p">,</span>        <span class="s2">&quot;village_green&quot;</span> <span class="p">:</span> <span class="s2">&quot;#f13013&quot;</span> <span class="p">,</span>
+                <span class="s2">&quot;military&quot;</span><span class="p">:</span> <span class="s2">&quot;#52514E&quot;</span><span class="p">,</span>            <span class="s2">&quot;garden&quot;</span> <span class="p">:</span> <span class="s1">&#39;#c3eead&#39;</span>
+             <span class="p">}</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately, OpenSteetMap very often contains elements that have a unique tag. As such, it may be the case that some of our land-use categories are not in the dictionary yet.</p>
+<p>Let’s first create an overview of the unique land-use categories within our data through using the <code class="docutils literal notranslate"><span class="pre">.unique()</span></code> function within our dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ofcourse we can visually compare the array above with our color_dict, but it is much quicker to use <code class="docutils literal notranslate"><span class="pre">Sets</span></code> to check if there is anything missing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">color_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In case anything is missing, add them to the color_dict dictionairy and re-run that cell.</p>
+<div class="alert alert-block alert-success">
+<b>Question 3:</b> Show us in Canvas (i) which land-use categories you had to add, and (ii) how your final color dictionary looks like.
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can easily find hexcodes online to find the right colour for each land-use category. Just google hexcodes!</p>
+</div>
+<p>Our next step is to make sure that we can connect our color codes to our dataframe with land-use categories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">color_dict</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span>  <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">color_dict</span><span class="p">)</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">()))}</span>
+
+<span class="n">map_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">color_dict</span><span class="p">))]))</span>
+
+<span class="n">landuse</span><span class="p">[</span><span class="s1">&#39;col_landuse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can plot the figure!</p>
+<p>As you will see in the cell below, we first state that we want to create a figure with a specific figure size. You can change the dimensions to your liking.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># add color scheme</span>
+<span class="n">color_scheme_map</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;landuse&#39;</span><span class="p">,</span>
+                                     <span class="n">colors</span><span class="o">=</span><span class="n">color_scheme_map</span><span class="p">)</span>  
+
+<span class="c1"># and plot the land-use map.</span>
+<span class="n">landuse</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">landuse</span><span class="p">[</span><span class="s1">&#39;col_landuse&#39;</span><span class="p">],</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1"># add a legend:</span>
+<span class="n">legend_elements</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">iter_</span><span class="p">,</span><span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">color_dict</span><span class="p">):</span>
+    <span class="n">legend_elements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">color_scheme_map</span><span class="p">[</span><span class="n">iter_</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="n">item</span><span class="p">))</span>        
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#fefdfd&#39;</span><span class="p">,</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">},</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span> 
+
+<span class="c1"># add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 4:</b> Please upload a figure of your land-use map, using OpenStreetMap. 
+</div></section>
+<section id="rasterize-land-use-information">
+<h2>3. Rasterize land-use information<a class="headerlink" href="#rasterize-land-use-information" title="Permalink to this heading">#</a></h2>
+<hr><p>As you have noticed already during the lecture, and as we will again see next week when using the Google Earth Engine, most land-use data is in raster format.</p>
+<p>In OpenStreetMap everything is stored in vector format. As such, the land-use information we extracted from OpenStreetMap is also in vector format. While it is not always necessary to have this information in raster format, it is useful to know how to convert your data into a raster format.</p>
+<p>To do so, we can make use of the <strong>GeoCube</strong> package, which is a newly developed Python package that can very easily convert vector data into a raster format.</p>
+<p>The first thing we will need to do is to define all the unique land-use classes and store them in a dictionary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categorical_enums</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;landuse&#39;</span><span class="p">:</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we simply use the <code class="docutils literal notranslate"><span class="pre">make_geocube()</span></code> function to convert our vector data into raster data.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">make_geocube()</span></code> function, we have to specify several arguments:</p>
+<ul class="simple">
+<li><p>Through the <code class="docutils literal notranslate"><span class="pre">vector_data</span></code> argument we have to state which dataframe we want to rasterize.</p></li>
+<li><p>Through the <code class="docutils literal notranslate"><span class="pre">output_crs</span></code> argument we have to state the coordinate reference system (CRS). We use the OpenStreetMap default EPSG:4326.</p></li>
+<li><p>Through the <code class="docutils literal notranslate"><span class="pre">resolution</span></code> argument we have to state the resolution. In our case, we will have to set this in degrees. 0.01 degrees is equivalent to roughly 10km around the equator.</p></li>
+<li><p>Through the <code class="docutils literal notranslate"><span class="pre">categorical_enums</span></code> argument we specify the different land-use categories.</p></li>
+</ul>
+<p>Play around with the different resolutions to find the level of detail. The higher the resolution (i.e., the more zeros behind the comma), the longer it will take to rasterize.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_grid</span> <span class="o">=</span> <span class="n">make_geocube</span><span class="p">(</span>
+    <span class="n">vector_data</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>
+    <span class="n">output_crs</span><span class="o">=</span><span class="s2">&quot;epsg:4326&quot;</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">XXXX</span><span class="p">,</span> <span class="n">XXXX</span><span class="p">),</span>
+    <span class="n">categorical_enums</span><span class="o">=</span><span class="n">categorical_enums</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s explore what this function has given us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_grid</span><span class="p">[</span><span class="s2">&quot;landuse&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output above is a typical output of the <strong>xarray</strong> package.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">array</span></code> shows the numpy array with the actual values. As you can see, the rasterization process has used the value <code class="docutils literal notranslate"><span class="pre">-1</span></code> for NoData.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Coordinates</span></code> table shows the x (longitude) and y (latitude) coordinates of the array. It has the exact same size as the <code class="docutils literal notranslate"><span class="pre">array</span></code> with land-use values.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Attributes</span></code> table specifies the NoData value (the <code class="docutils literal notranslate"><span class="pre">_FillValue</span></code> element, which indeed shows <code class="docutils literal notranslate"><span class="pre">-1</span></code>) and the name of the dataset.</p></li>
+</ul>
+<p>Now let’s plot the data to see the result!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">landuse_grid</span><span class="p">[</span><span class="s2">&quot;landuse&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;tab20&#39;</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1">#add a title</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see in the figure above, the land-use categories have turned into numbers, instead of land-use categories described by a string value.</p>
+<p>This is of course a lot harder to interpret. Let’s re-do some parts to make sure we can properly link them back to the original data.</p>
+<p>To do so, we will first need to make sure that we know which values (numbers) are connected to each land-use category. Instead of trying to match, let’s predefine this ourselves!</p>
+<p>We will start with creating a dictionary that allows us to couple a number to each category:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value_dict</span><span class="p">[</span><span class="s1">&#39;nodata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we now use this dictionary to add a new column to the dataframe with the values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse</span><span class="p">[</span><span class="s1">&#39;landuse_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">value_dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let us use the <code class="docutils literal notranslate"><span class="pre">make_geocube()</span></code> function again to rasterize.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_valued</span> <span class="o">=</span> <span class="n">make_geocube</span><span class="p">(</span>
+    <span class="n">vector_data</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>
+    <span class="n">output_crs</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">XXXX</span><span class="p">,</span> <span class="n">XXXX</span><span class="p">),</span>
+    <span class="n">categorical_enums</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;landuse_value&#39;</span><span class="p">:</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse_value</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s use the original <code class="docutils literal notranslate"><span class="pre">color_dict</span></code> dictionary to find the right hex codes for each of the land-use categories</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unique_classes</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">colormap_raster</span> <span class="o">=</span> <span class="p">[</span><span class="n">color_dict</span><span class="p">[</span><span class="n">lu_class</span><span class="p">]</span> <span class="k">for</span> <span class="n">lu_class</span> <span class="ow">in</span> <span class="n">unique_classes</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>To plot the new result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">landuse_valued</span><span class="p">[</span><span class="s2">&quot;landuse_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_classes</span><span class="p">),</span><span class="n">colors</span><span class="o">=</span><span class="n">colormap_raster</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1"># add title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 5:</b> In the rasterization process, we use the `.make_geocube()` function. Please elaborate on the following: i)why is it important to specify the right coordinate system? What could happen if you choose the wrong coordinate system? ii) which resolution did you choose and why? iii)Why did the first result did not give us the right output with the correct colors? How did you solve this? 
+</div><p>But to be honest, this legend is still not entirely what we are looking for. So let’s do some Python magic to get a legend like we desire when plotting a land-use map</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unique_classes</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">colormap_raster</span> <span class="o">=</span> <span class="p">[</span><span class="n">color_dict</span><span class="p">[</span><span class="n">lu_class</span><span class="p">]</span> <span class="k">for</span> <span class="n">lu_class</span> <span class="ow">in</span> <span class="n">unique_classes</span><span class="p">]</span> 
+<span class="n">color_dict_raster</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),[</span><span class="s1">&#39;#ffffff&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">colormap_raster</span><span class="p">))</span>
+
+<span class="c1"># We create a colormar from our list of colors</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="n">color_dict_raster</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">color_dict_raster</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+
+<span class="c1"># Let&#39;s also define the description of each category. Order should be respected here!</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;nodata&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">unique_classes</span><span class="p">)</span>
+<span class="n">len_lab</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># prepare normalizer</span>
+<span class="c1">## Prepare bins for the normalizer</span>
+<span class="n">norm_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="o">*</span><span class="n">color_dict_raster</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">norm_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1">## Make normalizer and formatter</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">,</span> <span class="n">len_lab</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fmt</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">labels</span><span class="p">[</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the map again!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">landuse_valued</span><span class="p">[</span><span class="s2">&quot;landuse_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_classes</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">norm_bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">norm_bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">tickz</span> <span class="o">=</span> <span class="n">norm_bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">diff</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fmt</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">tickz</span><span class="p">)</span>
+
+<span class="c1"># set title again</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1"># for some weird reason we get two colorbars, so we remove one:</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">delaxes</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extracting-buildings-from-openstreetmap">
+<h2>4. Extracting buildings from OpenStreetMap<a class="headerlink" href="#extracting-buildings-from-openstreetmap" title="Permalink to this heading">#</a></h2>
+<hr><p>There is a lot more data to extract from OpenStreetMap besides land-use information. Let’s extract some building data. To do so, we use the <em>“building”</em> tag.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;building&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">buildings</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">features_from_place</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In case the above does not work, you can continue the assignment by using the code below (make sure you remove the hashtags to run it). If you decide to use the data as specified below, also change the map at the start to ‘Kampen’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remote_url = &#39;https://github.com/ElcoK/BigData_AED/raw/main/week5/kampen_buildings.gpkg&#39;</span>
+<span class="c1"># file = &#39;kampen_buildings.gpkg&#39;</span>
+<span class="c1">#  </span>
+<span class="c1"># #request.urlretrieve(remote_url, file)</span>
+<span class="c1"># buildings = gpd.GeoDataFrame.from_file(&#39;kampen_buildings.gpkg&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s see what information is actually extracted:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you notice in the output of the cell above, there are many columns which just contain “NaN”. And there even seem to be to many columns to even visualize properly in one view.</p>
+<p>Let’s check what information is collected for the different buildings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildings</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 6:</b>  Let's have a look at the extracted building information. Please describe in your own words the information it contains. Is there specific information that suprises you to see, and do you think anything is missing that you expected? 
+</div></section>
+<section id="analyze-and-visualize-building-stock">
+<h2>5. Analyze and visualize building stock<a class="headerlink" href="#analyze-and-visualize-building-stock" title="Permalink to this heading">#</a></h2>
+<hr><p>One interesting column is called <code class="docutils literal notranslate"><span class="pre">start_date</span></code>. This shows the building year per building.</p>
+<p>Let’s explore this year of building a bit more.</p>
+<p>First, it would be interesting to get an idea how many buildings are build in each year through using the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> function. Normally, that functions ranks the values in descending order (high to low). We are more interested in how this has developed over time. So we use the <code class="docutils literal notranslate"><span class="pre">sort_index()</span></code> function to sort the values by year. Add these two functions in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">building_year</span> <span class="o">=</span> <span class="n">buildings</span><span class="o">.</span><span class="n">start_date</span><span class="o">.</span> <span class="n">XXXX</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is not better way to further explore this years than through plotting it. Don’t forget to add things such as a x label, y label and title. Have a look at some of the matplotlib <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/quick_start.html">tutorials</a>. Note that you need to look at the code that also uses subplots and where they use the <code class="docutils literal notranslate"><span class="pre">ax</span></code> option.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">18</span><span class="p">))</span>
+
+<span class="n">building_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 7:</b>  Please upload a figure that shows the development of building stock over the years in your region of interest. Make sure it contains all the necessary elements (labels on the axis, title, etc.)
+</div><p>What we also noticed is that quite some buildings are identified as ‘yes’. This is not very useful as it does not really say much about the use of the building.</p>
+<p>Let’s see for how many buildings this is the case:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildings</span><span class="o">.</span><span class="n">building</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you have seen from the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> function, there are quite a few buildings with only very few tags. You could either consider to not include them in your plot at all (for example by using the <code class="docutils literal notranslate"><span class="pre">isin</span></code> function or the <code class="docutils literal notranslate"><span class="pre">query</span></code> function, see also <a class="reference external" href="https://stackoverflow.com/questions/12096252/use-a-list-of-values-to-select-rows-from-a-pandas-dataframe">here</a>), or rename them, similar to how you named the natural land cover classes for the land-use map.</p>
+<p>Now let’s visualize the buildings again. We need to create a similar color dictionary as we did for the land-use categories. Now its up to you to make it!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;yes&#39;</span> <span class="p">:</span> <span class="s2">&quot;#f1134b&quot;</span><span class="p">,</span> 
+              <span class="s1">&#39;house&#39;</span><span class="p">:</span><span class="s1">&#39;#f13013&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;industrial&#39;</span><span class="p">:</span><span class="s1">&#39;#0f045c&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;farm&#39;</span><span class="p">:</span><span class="s1">&#39;#fcfcb9&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;bungalow&#39;</span><span class="p">:</span><span class="s1">&#39;#f13013&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;service&#39;</span><span class="p">:</span><span class="s1">&#39;#CB8DDB&#39;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove multiple keys from dictionary</span>
+<span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">color_dict</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span>  <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">color_dict</span><span class="p">)</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">buildings</span><span class="o">.</span><span class="n">building</span><span class="o">.</span><span class="n">unique</span><span class="p">()))}</span>
+
+<span class="n">map_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">color_dict</span><span class="p">))]))</span>
+<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;col_landuse&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">buildings</span><span class="o">.</span><span class="n">building</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And plot the figure in the same manner!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># add color scheme</span>
+<span class="n">color_scheme_map</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;landuse&#39;</span><span class="p">,</span>
+                                     <span class="n">colors</span><span class="o">=</span><span class="n">color_scheme_map</span><span class="p">)</span>  
+
+<span class="c1"># and plot the land-use map.</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;col_landuse&#39;</span><span class="p">],</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1"># add a legend:</span>
+<span class="n">legend_elements</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">iter_</span><span class="p">,</span><span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">color_dict</span><span class="p">):</span>
+    <span class="n">legend_elements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">color_scheme_map</span><span class="p">[</span><span class="n">iter_</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="n">item</span><span class="p">))</span>        
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#fefdfd&#39;</span><span class="p">,</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">},</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span> 
+
+<span class="c1"># add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 8:</b>  Please upload a figure of your building stock map of your region of interest. Make sure that the interpretation is clear. If necessary, merge multiple categories into one (i.e., when some categories only contain 1 or 2 buildings).
+</div></section>
+<section id="extracting-roads-from-openstreetmap">
+<h2>6. Extracting roads from OpenStreetMap<a class="headerlink" href="#extracting-roads-from-openstreetmap" title="Permalink to this heading">#</a></h2>
+<hr><p>Let’s continue (and end) this tutorial with the core data in OpenStreetMap (it is even in the name): roads!</p>
+<p>Now, instead of using tags, we want to identify what type of roads we would like to extract. Let’s first only extract roads that can be used to drive.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">graph_from_place()</span></code> function returns a <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> Graph element. You can read more about these graph elements in the introduction page of <a class="reference external" href="https://networkx.org/documentation/stable/reference/introduction.html">NetworkX</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;drive&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately, it is  bit difficult to easily view all the roads within such a Graph element. To be able to explore the data, we are going to convert it to a <code class="docutils literal notranslate"><span class="pre">Geopandas</span> <span class="pre">GeoDataFrame</span></code>, using the <code class="docutils literal notranslate"><span class="pre">to_pandas_edgelist()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roads</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">to_pandas_edgelist</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In some cases, roads are classified with more than one category. If that is the case, they are captured within a <code class="docutils literal notranslate"><span class="pre">list</span></code>. To overcome this issue, we specify that we want the entire <code class="docutils literal notranslate"><span class="pre">highway</span></code> column as a <code class="docutils literal notranslate"><span class="pre">string</span></code> dtype.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roads</span><span class="o">.</span><span class="n">highway</span> <span class="o">=</span> <span class="n">roads</span><span class="o">.</span><span class="n">highway</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can create a plot to see how the road network is configured.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+
+<span class="n">roads</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;highway&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">legend_kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="s1">&#39;lower right&#39;</span><span class="p">});</span>
+
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It would also be interesting to explore the network a little but more interactively. <strong>OSMnx</strong> has a function called <code class="docutils literal notranslate"><span class="pre">plot_graph_folium()</span></code>, which allow us to use the <a class="reference external" href="https://python-visualization.github.io/folium/quickstart.html#Getting-Started">folium</a> package to plot data interactively on a map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m1</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">plot_graph_folium</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">popup_attribute</span><span class="o">=</span><span class="s2">&quot;highway&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#8b0000&quot;</span><span class="p">)</span>
+<span class="n">m1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-routes-using-openstreetmap-and-folium">
+<h2>7. Plot Routes Using OpenStreetMap and Folium<a class="headerlink" href="#plot-routes-using-openstreetmap-and-folium" title="Permalink to this heading">#</a></h2>
+<hr><p>One of the exiting things we can do with this data is that we can compute and plot routes between two points on a map.</p>
+<p>Let’s first select two random start and end points from the graph and compute the shortest route between them through using the <code class="docutils literal notranslate"><span class="pre">shortest_path()</span></code> function of the <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> package.</p>
+<p>The function  <code class="docutils literal notranslate"><span class="pre">ox.nearest_nodes()</span></code> looks for the nearest point in your network based on a <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> coordinate. For example, in the code below, the origin node is based on the northwestern corner of your bounding box, whereas the destination node is based on the coordinates of the southeastern corner of your bounding box.</p>
+<p>So this can also be rewritten as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">origin_node</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">nearest_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="mf">4.65465</span><span class="p">,</span> <span class="mf">56.6778</span><span class="p">)</span> 
+<span class="n">destination_node</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">nearest_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="mf">4.61055</span><span class="p">,</span> <span class="mf">59.5487</span><span class="p">)</span> 
+<span class="n">route</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">origin_node</span><span class="p">,</span> <span class="n">destination_node</span><span class="p">)</span> 
+</pre></div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 9:</b>  The last element of this tutorial is to play around with routing. Please explain in your own words what the .shortest_path() algorithm does. Include the term 'Dijkstra algorithm' in your answer.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">origin_node</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">nearest_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">area</span><span class="p">[</span><span class="s1">&#39;bbox_west&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">area</span><span class="p">[</span><span class="s1">&#39;bbox_north&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">destination_node</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">nearest_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">area</span><span class="p">[</span><span class="s1">&#39;bbox_east&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">area</span><span class="p">[</span><span class="s1">&#39;bbox_south&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">route</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">origin_node</span><span class="p">,</span> <span class="n">destination_node</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can plot the route with folium. Like above, you can pass keyword args along to folium PolyLine to style the lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">plot_route_folium</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">m2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the route with folium on top of the previously created map</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m3</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">plot_route_folium</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">route_map</span><span class="o">=</span><span class="n">m1</span><span class="p">,</span> <span class="n">popup_attribute</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">m3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 10:</b>  Please add one more routes on a map and upload the resulting figure here.
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lecture.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture: Big Data in the public domain</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tutorial2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial 2: Natural Hazard Risk Assessment</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1.Introducing the packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-and-visualize-land-use-information-from-openstreetmap">2. Extract and visualize land-use information from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">3. Rasterize land-use information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">4. Extracting buildings from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-and-visualize-building-stock">5. Analyze and visualize building stock</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-roads-from-openstreetmap">6. Extracting roads from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-routes-using-openstreetmap-and-folium">7. Plot Routes Using OpenStreetMap and Folium</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Elco Koks & Dr Thales Pupo-West
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

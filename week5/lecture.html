@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture: Big Data in the public domain &#8212; Big Data for Sustainability Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week5/lecture';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial 1: Working with OpenStreetMap" href="tutorial1.html" />
+    <link rel="prev" title="Tutorial 2: Drought Detection" href="../week4/tutorial2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Big Data for Sustainability Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Big Data for Sustainability Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/course_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/teachers.html">Teachers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/schedule.html">Course schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/lecture.html">Lecture: Course Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial1.html">Tutorial 1: Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial2.html">Tutorial 2: Introduction to NumPy and Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial3.html">Tutorial 3: Introduction to Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week2/lecture.html">Lecture: Introduction to Random Forests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/tutorial1.html">Tutorial 1: Data Exploration and regression analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/tutorial2.html">Tutorial 2: Random Forest Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/lecture.html">Lecture: Introduction to Artificial Neural Networks and model validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/tutorial1.html">Tutorial 1: Artificial neural networks (ANNs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/tutorial2.html">Tutorial 2: Model Validation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/lecture.html">Lecture: Earth Observation &amp; Google Earth Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/tutorial1.html">Tutorial 1: Land-cover classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/tutorial2.html">Tutorial 2: Drought Detection</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture: Big Data in the public domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial1.html">Tutorial 1: Working with OpenStreetMap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial2.html">Tutorial 2: Natural Hazard Risk Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/lecture.html">Lecture: Social Media and Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/tutorial1.html">Tutorial 1: Social Media &amp; Natural Hazards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/tutorial2.html">Tutorial 2: Social Media &amp; Valuation of Landscapes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week7/lecture.html">Lecture: A guide to visualisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/tutorial1.html">Tutorial: Visualizing your results</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week8/exam.html">Exam preparation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ElcoK/BigData_AED/blob/main/week5/lecture.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ElcoK/BigData_AED" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ElcoK/BigData_AED/issues/new?title=Issue%20on%20page%20%2Fweek5/lecture.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/week5/lecture.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/week5/lecture.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture: Big Data in the public domain</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-data-sources">Overview of data sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licensing-of-data-in-the-public-domain">Licensing of data in the public domain</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fair-principles">FAIR - principles</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lecture-big-data-in-the-public-domain">
+<h1>Lecture: Big Data in the public domain<a class="headerlink" href="#lecture-big-data-in-the-public-domain" title="Permalink to this heading">#</a></h1>
+<p>This week we will focus on the large amount of data available in the public domain that we can utilize within our research in sustainability sciences.</p>
+<div class="important admonition">
+<p class="admonition-title">Learning objectives week 5</p>
+<ul class="simple">
+<li><p>Understand what type of data is available.</p></li>
+<li><p>Understand how licensing works.</p></li>
+<li><p>Know how to access OpenStreetMap and perform basic spatial analysis on this data.</p></li>
+<li><p>Know how to combine different open-access spatial datasets to perform a natural hazards risk assessment.</p></li>
+</ul>
+</div>
+<section id="overview-of-data-sources">
+<h2>Overview of data sources<a class="headerlink" href="#overview-of-data-sources" title="Permalink to this heading">#</a></h2>
+<p>There are many places on online where we can find large amounts of public data to be used within our discipline. Below we highlight a few of the most used data sources.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets"><strong>Google Earth Engine Data Catalogue</strong></a>.Earth Engine’s public data archive includes more than forty years of historical imagery and scientific datasets, updated and expanded daily.</p></li>
+<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/#!/home"><strong>Copernicus Climate Data Store</strong></a>. CDS datasets include observations, historical climate data records, estimates of Essential Climate Variables (ECVs) derived from Earth observations, global and regional climate reanalyses of past observations, seasonal forecasts and climate projections. Access to data is open, free and unrestricted.</p></li>
+<li><p><a class="reference external" href="https://ourworldindata.org/"><strong>Our World in Data</strong></a>. Our World in Data (OWID) is a scientific online publication that focuses on large global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.</p></li>
+<li><p><a class="reference external" href="https://www.worldpop.org/"><strong>Worldpop</strong></a>. Open access spatial demographic datasets built using transparent approaches.</p></li>
+<li><p><a class="reference external" href="https://www.wcrp-climate.org/about-wcrp/wcrp-overview"><strong>CMIP6</strong></a>. Coupled Model Intercomparison Project Phase 6. The objective of CMIP is to better understand past, present and future climate changes arising from natural, unforced variability or in response to changes in radiative forcing in a multi-model context. This understanding includes assessments of model performance during the historical period and quantifications of the causes of the spread in future projections. An important goal of CMIP is to make the multi-model output publicly available in a standardized format.</p></li>
+<li><p><a class="reference external" href="https://www.openstreetmap.org/"><strong>OpenStreetMap</strong></a>. A  free, editable map of the whole world that is being built by volunteers largely from scratch and released with an open-content license.</p></li>
+<li><p><a class="reference external" href="https://thinkhazard.org/en/"><strong>ThinkHazard</strong></a>. ThinkHazard! provides a general view of the hazards, for a given location. The hazard levels provided are based on published hazard data, provided by a range of private, academic and public organizations.</p></li>
+<li><p><a class="reference external" href="https://ec.europa.eu/eurostat"><strong>Eurostat</strong></a>. Statistics and data on Europe. Both tabular and spatially explicit.</p></li>
+<li><p><a class="reference external" href="https://www.emdat.be/"><strong>EM-DAT</strong></a>.EM-DAT contains essential core data on the occurrence and effects of over 22,000 mass disasters in the world from 1900 to the present day.</p></li>
+<li><p><a class="reference external" href="https://www.ipums.org/"><strong>IPUMS</strong></a>. IPUMS provides census and survey data from around the world integrated across time and space.</p></li>
+<li><p><a class="reference external" href="https://gadm.org/"><strong>GADM</strong></a>. GADM provides maps and spatial data for all countries and their sub-divisions.</p></li>
+<li><p><a class="reference external" href="https://global-flood-database.cloudtostreet.ai/"><strong>Global Flood Database</strong></a>. The Global Flood Database contains maps of the extent and temporal distribution of 913 flood events occurring between 2000-2018.</p></li>
+</ul>
+</section>
+<section id="licensing-of-data-in-the-public-domain">
+<h2>Licensing of data in the public domain<a class="headerlink" href="#licensing-of-data-in-the-public-domain" title="Permalink to this heading">#</a></h2>
+<p>The most common license for public data is the Creative Commons license. Creative Commons licenses give everyone from individual creators to large institutions a standardized way to grant the public permission to use their creative work under copyright law. From the reuser’s perspective, the presence of a Creative Commons license on a copyrighted work answers the question, “What can I do with this work?”</p>
+<p>You can find all the information about the Creative Commons license <a class="reference external" href="https://creativecommons.org/about/cclicenses/">here</a>.</p>
+</section>
+<section id="fair-principles">
+<h2>FAIR - principles<a class="headerlink" href="#fair-principles" title="Permalink to this heading">#</a></h2>
+<p>The FAIR principles constitute a set of guidelines for effective data management, formally introduced in a pivotal 2016 paper authored by a collaborative consortium of scientists and organizations, <a class="reference external" href="https://www.nature.com/articles/sdata201618">published in the journal Scientific Data</a>. FAIR stands for  <strong>F</strong>indability, <strong>A</strong>ccessibility, <strong>I</strong>nteroperability, and <strong>R</strong>euse. These principles prioritize ensuring that data is easily discoverable, accessible, interoperable, and reusable. At its core, the FAIR framework seeks to address the challenges posed by the ever-expanding volume and complexity of data, coupled with the accelerating pace at which new data is generated. Especially when dealing with big and publicly accessible data, a clear set of rules and principles are essential to ensure the reproducability of your work.</p>
+<p>The acronym FAIR encapsulates a set of principles that extend beyond mere data organization; they underscore the necessity for machine-actionability. As our dependence on computational systems continues to intensify, the FAIR principles emphasize the importance of enabling these systems to autonomously discover, access, interoperate, and reuse data with minimal human intervention. This distinctive feature ensures that the principles remain relevant in the face of evolving technological landscapes and the increasing reliance on automated processes in data management.</p>
+<div class="tip admonition">
+<p class="admonition-title">The FAIR-principles</p>
+<p><strong>To be Findable</strong>:</p>
+<p>F1. (meta)data are assigned a globally unique and persistent identifier</p>
+<p>F2. data are described with rich metadata (defined by R1 below)</p>
+<p>F3. metadata clearly and explicitly include the identifier of the data it describes</p>
+<p>F4. (meta)data are registered or indexed in a searchable resource</p>
+<p><strong>To be Accessible</strong>:</p>
+<p>A1. (meta)data are retrievable by their identifier using a standardized communications protocol</p>
+<p>A1.1 the protocol is open, free, and universally implementable</p>
+<p>A1.2 the protocol allows for an authentication and authorization procedure, where necessary</p>
+<p>A2. metadata are accessible, even when the data are no longer available</p>
+<p><strong>To be Interoperable</strong>:</p>
+<p>I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.</p>
+<p>I2. (meta)data use vocabularies that follow FAIR principles</p>
+<p>I3. (meta)data include qualified references to other (meta)data</p>
+<p><strong>To be Reusable</strong>:</p>
+<p>R1. meta(data) are richly described with a plurality of accurate and relevant attributes</p>
+<p>R1.1. (meta)data are released with a clear and accessible data usage license</p>
+<p>R1.2. (meta)data are associated with detailed provenance</p>
+<p>R1.3. (meta)data meet domain-relevant community standards</p>
+</div>
+<p>You can read more about the FAIR-principes <a class="reference external" href="https://www.go-fair.org/fair-principles/">here</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week4/tutorial2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorial 2: Drought Detection</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tutorial1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial 1: Working with OpenStreetMap</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-data-sources">Overview of data sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licensing-of-data-in-the-public-domain">Licensing of data in the public domain</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fair-principles">FAIR - principles</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Elco Koks & Dr Thales Pupo-West
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
