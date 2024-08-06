@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title           : Big Data for Sustainability Sciences
-author          : Dr Elco Koks & Dr Thales Pupo-West
+title           : UNIGIS - Programming for GIS
+author          : Dr Elco Koks & Dr Alex Levering
 logo            : _static/images/logo.png
 announcement    : "This course is work in progress!" # A banner announcement at the top of the site.
 
@@ -33,7 +33,7 @@ launch_buttons:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/ElcoK/BigData_AED  # Online location of your book
+  url: https://github.com/VU-IVM/UNIGIS_ProgrammingGIS # Online location of your book
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
