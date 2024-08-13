@@ -1,3 +1,2 @@
-# Programming for GIS
-
-This repository contains the course manual for the course Programming for GIS for the UNIGIS master programme.
+# Big Data in Sustainability Science
+This repository contains the course manual for the course *Big Data in Sustainability Science* for the UNIGIS master programme.
