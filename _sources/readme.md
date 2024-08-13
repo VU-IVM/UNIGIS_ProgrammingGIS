@@ -1,3 +1,3 @@
-# Big Data for Sustainability Sciences
+# Programming for GIS
 
-This repository contains the course manual for the course Big Data for Sustainability Sciences for the bachelor programme 'Aarde, Economie & Duurzaamheid'.
+This repository contains the course manual for the course Programming for GIS for the UNIGIS master programme.
