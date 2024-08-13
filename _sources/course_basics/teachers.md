@@ -15,32 +15,32 @@ table th:nth-of-type(2) {
 
 |Dr Elco Koks|Course coordinator|
 |:-:|:--|
-| <img src="../_static/images/Elco.jpg" class="bg-primary" width="150px"> |Elco Koks is an Associate Professor within the department of Water and Climate Risk group at the Institute for Environmental Studies (IVM) and Honorary Research Fellow at the Oxford Programme for Sustainable Infrastructure Systems (OPSIS) at the University of Oxford, UK. His research combines knowledge from disaster impact modelling, critical infrastructure, network analysis and macroeconomics.|
+| <img src="../_static/images/koks-profile.jpg" class="bg-primary" width="150px"> |Elco Koks is an Associate Professor within the department of Water and Climate Risk group at the Institute for Environmental Studies (IVM) and Honorary Research Fellow at the Oxford Programme for Sustainable Infrastructure Systems (OPSIS) at the University of Oxford, UK. His research combines knowledge from disaster impact modelling, critical infrastructure, network analysis and macroeconomics.|
   
 &nbsp;
 &nbsp;  
 
-|Dr Thales Pupo-West||
+|Dr Alex Levering||
 |:-:|:--|
-|<img src="../_static/images/Thales.jpg"  class="bg-primary" width="150px">|Thales A.P. West is an Assistant Professor at the department of Environmental Geography and the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam and Fellow of the Centre for Environment, Energy and Natural Resource Governance (C-EENRG) at the University of Cambridge, UK. His research is focused on the sustainability of coupled human-natural systems and topics like land-use/cover change, resource management, environmental economics, impact evaluation (econometrics), climate governance, and payments for environmental services, e.g., REDD+ schemes.|
+|<img src="../_static/images/levering-profile.jpg"  class="bg-primary" width="150px">|Alex Levering is an Assistant Professor at the department of Environmental Geography and the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. His background is in remote sensing and geo-information sciences, with a specialisation in computer vision methods. His research focuses on studying the semantics of landscapes from image materials in both natural and urban environments. He has studied how well landscape quality preferences can be predicted using computer vision methods. He has also studied the interpretability of models, the combination of visual and non-visual information for predictive models, and approaches for modelling with small datasets. |
 
 &nbsp;
 &nbsp;  
 
-|Marijn Ton, MSc||
+|Dr.-Ing. Shadi Shirazian||
 |:-:|:--|
-|<img src="../_static/images/Marijn.jpg" class="bg-primary" width="150px">|Marijn Ton is a PhD candidate in the department of Water and Climate Risk of the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam (VU). She obtained a bachelor’s degree in Economics & Governance at Wageningen University and then continued her studies at VU Amsterdam, where she completed a master’s degree in Econometrics & Operations Research. In her PhD research, she studies coastal migration caused by climate change and sea level rise. She develops a global agent based model to simulate migration flows between 2020-2100 integrating flood projections and human migration decisions.|
+|<img src="../_static/images/shirazian-profile.jpg" class="bg-primary" width="150px">|Shadi Shirazian is a postdoctoral researcher in the department of Water and Climate Risk of the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam (VU). She holds a PhD in Civil Engineering and Environmental Science from the Karlsruhe Institute of Technology (KIT) in Germany, where her research was primarily focused on developing data reduction methodologies for stochastic seismic risk assessment of infrastructures. She develops solutions that not only advance academic understanding but also benefit communities facing the challenges of climate change and natural hazards.|
 
 &nbsp;
 &nbsp;  
 
-|Rhoda Odongo, MSc||
+|Sadhana Nirandjan, MSc||
 |:-:|:--|
-|<img src="../_static/images/Rhoda.jpg" class="bg-primary" width="150px">|Rhoda Odongo is a PhD candidate in the department of Water and Climate Risk of the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. She has a background in Water Resources Engineering from the Katholieke Universiteit Leuven and Biosystems Engineering from the University of Nairobi. She works on data-driven assessment of drought risk to understand existing and possible future interactions between climate, hydrology, land and water use, and management focusing mainly on the drought and subsurface water storage.
+|<img src="../_static/images/nirandjan-profile.jpg" class="bg-primary" width="150px">|Sadhana Nirandjan is a PhD researcher within the department of Water and Climate Risk (WCR) at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. In her current research, she aims to increase our understanding of the multi-hazard risk to critical infrastructure at the global scale. She developed the Critical Infrastructure Spatial Index (CISI) to identify the geospatial location of critical infrastructure and its density for each part of the world. Other aspects that are covered by her research are, under which, the vulnerability of assets, and the quantification of risks on our critical infrastructure due to natural hazards.
 
 &nbsp;
 &nbsp;  
 
-|Maria Fonseca, MSc||
+|Surender Raj, MSc||
 |:-:|:--|
-|<img src="../_static/images/Maria.jpg" class="bg-primary" width="150px">|Maria Fonseca is a PhD candidate in the department of Water and Climate Risk of the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam (VU). She obtained a bachelor’s degree in Civil Engineering at Western Institute of Technology and Higher Education in Mexico, and a master’s degree in Water Management at TU Delft. In her PhD research, she assesses climate risk of current and future wind and hail storm events, how the affects urban areas, communities and investments, and the available adaptation options to reduce the risks. |
+|<img src="../_static/images/raj-profile.jpg" class="bg-primary" width="150px">|Surender Raj is a Ph.D. candidate in the Water and Climate Risk (WCR) department at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. His research interests include infrastructure resilience, vulnerability modeling, and the economic impacts of natural hazards. His current research focusses on quantifying the macro economic impacts of infrastructure failures due to natural hazards. |
