@@ -427,24 +427,34 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Summative Assignment 1: Natural Hazard Risk Assessment of Infrastructure</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-windstorm-damage-assessment">Section 1: Windstorm damage assessment</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1.Introducing the packages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-accessing-natural-hazard-data">2. Downloading and accessing natural hazard data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-data">Windstorm Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-data">Flood Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-location-to-explore">Set location to explore</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-the-hazard-data">3. Visualising the hazard data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">4. Extracting buildings from OpenStreetMap</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-and-visualize-building-stock">5. Analyze and visualize building stock</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-the-natural-hazard-data">3. Visualising the natural hazard data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Windstorm Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Flood Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-exploring-land-cover-data-and-land-use-data">4. Downloading and exploring Land Cover data and Land Use data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-access-copernicus-land-cover-data">Download and access Copernicus Land Cover data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-and-visualize-land-use-information-from-openstreetmap">Extract and visualize land-use information from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">Rasterize land-use information</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-using-coring-land-cover">5. Perform a damage assessment using Coring Land Cover</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-high-resolution-data-from-openstreetmap">6. Extracting high-resolution data from OpenStreetMap</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">Extracting buildings from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-and-visualize-building-stock">Analyze and visualize building stock</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-roads-from-openstreetmap">Extracting roads from OpenStreetMap</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">6. Windstorm Damage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-tasks">Section 2: Tasks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-extraction-of-buildings-roads-and-power-infrstaructure-assets-from-osm">A. Extraction of buildings, roads and power infrstaructure assets from OSM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-hazard-data-extraction-from-cds">B. Hazard data extraction from CDS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-flood-damage-assesment-of-roads">C. Flood damage assesment of roads</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-windstorm-damage-assessment-of-buildings">D. Windstorm damage assessment of buildings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-quiz">Section 3: Quiz</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-the-function-damage-scanner-has-been-used-quite-extensively-in-this-assignment-explain-in-detail-the-sequantial-flow-of-this-functions-can-be-added-as-comments-cell-size-parameter">Example 1:  ThE function damage scanner has been used quite extensively in this assignment. Explain in detail the sequantial flow of this functions (Can be added as comments)? CELL SIZE PARAMETER ??</a></li>
 </ul>
@@ -465,17 +475,8 @@ document.write(`
                   
   <section id="summative-assignment-1-natural-hazard-risk-assessment-of-infrastructure">
 <h1>Summative Assignment 1: Natural Hazard Risk Assessment of Infrastructure<a class="headerlink" href="#summative-assignment-1-natural-hazard-risk-assessment-of-infrastructure" title="Permalink to this heading">#</a></h1>
-<p>The assignment is divided into three sections:</p>
-<p>Section 1: We will look at damage assement of buildings/landuse classes subjected to windstorms</p>
-<p>Section 2: The students are expected to perform the following tasks:</p>
-<ul class="simple">
-<li><p>a) Extract buildings, power infrastructure and roads from OSM (15%)</p></li>
-<li><p>b) Download flood and windstorm (specific storm) from Climate store (15%)</p></li>
-<li><p>c) Flood damage assessment of roads (30%)</p></li>
-<li><p>d) Windstorm damage assessment of builings / power infrastructure(30%)</p></li>
-</ul>
-<p>The students can chose between any of the following two regions</p>
-<p>Section 3: A brief assessment quiz (20%)</p>
+<p>Within this tutorial, we are going to use publicly available hazard data and exposure data to do a risk assessment for - AREA -. More specifically we will look at damage due to wind storms and flooding. We will use both Copernicus Land Cover data and OpenStreetMap to estimate the potential damage of natural hazards to the built environment.</p>
+<p>We will first download, access and explore hazard data retrieved from the Copernicus Climate Data Copernicus Store and the European Commission Joint Research Centre. After this, we will learn how to download and access Copernicus Land Cover data. We will also explore the power of OpenStreetMap that provides vector data. We will learn how to extract information from OpenStreetMap, how you can explore and visualize this. Lastly, we will use Copernicus Land Cover data to estimate the damage to specific land-uses, whereas we will use OpenStreetMap to assess the potential damage to the road system.</p>
 </section>
 <section id="learning-objectives">
 <h1>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h1>
@@ -493,18 +494,17 @@ document.write(`
 <li><p>To be able to use the <code class="docutils literal notranslate"><span class="pre">DamageScanner</span></code> to do a damage assessment.</p></li>
 <li><p>To interpret and compare the damage estimates.</p></li>
 </ul>
-<section id="section-1-windstorm-damage-assessment">
-<h2>Section 1: Windstorm damage assessment<a class="headerlink" href="#section-1-windstorm-damage-assessment" title="Permalink to this heading">#</a></h2>
-</section>
 </section>
 <section id="introducing-the-packages">
-<h1>1.Introducing the packages<a class="headerlink" href="#introducing-the-packages" title="Permalink to this heading">#</a></h1>
+<h1>1. Introducing the packages<a class="headerlink" href="#introducing-the-packages" title="Permalink to this heading">#</a></h1>
 <hr><p>Within this tutorial, we are going to make use of the following packages:</p>
-<p><a class="reference external" href="https://geopandas.org/"><strong>GeoPandas</strong></a> is a Python packagee that extends the datatypes used by pandas to allow spatial operations on geometric types.</p>
+<p><a class="reference external" href="https://geopandas.org/"><strong>GeoPandas</strong></a> is a Python package that extends the datatypes used by pandas to allow spatial operations on geometric types.</p>
 <p><a class="reference external" href="https://osmnx.readthedocs.io/"><strong>OSMnx</strong></a> is a Python package that lets you download geospatial data from OpenStreetMap and model, project, visualize, and analyze real-world street networks and any other geospatial geometries. You can download and model walkable, drivable, or bikeable urban networks with a single line of Python code then easily analyze and visualize them. You can just as easily download and work with other infrastructure types, amenities/points of interest, building footprints, elevation data, street bearings/orientations, and speed/travel time.</p>
-<p><a class="reference external" href="https://docs.xarray.dev/"><strong>xarray</strong></a> is a Python package that allows for easy and efficient use of multi-dimensional arrays.</p>
+<p><a class="reference external" href="https://networkx.org/"><strong>NetworkX</strong></a> is a Python package for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.</p>
 <p><a class="reference external" href="https://matplotlib.org/"><strong>Matplotlib</strong></a> is a comprehensive Python package for creating static, animated, and interactive visualizations in Python. Matplotlib makes easy things easy and hard things possible.</p>
-<p><em>We will first need to install the missing packages in the cell below. Uncomment them to make sure we can pip install them</em></p>
+<p><a class="reference external" href="https://corteva.github.io/geocube"><strong>Geocube</strong></a> is a Python package to convert geopandas vector data into rasterized data.</p>
+<p><a class="reference external" href="https://docs.xarray.dev/"><strong>xarray</strong></a> is a Python package that allows for easy and efficient use of multi-dimensional arrays.</p>
+<p>Import the packages in the cell below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -534,12 +534,14 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Import error? Not all of the packages were installed already. Make sure to install the missing packages using pip install in the cell below and then run the cell above again:</p>
 </section>
 <section id="downloading-and-accessing-natural-hazard-data">
 <h1>2. Downloading and accessing natural hazard data<a class="headerlink" href="#downloading-and-accessing-natural-hazard-data" title="Permalink to this heading">#</a></h1>
-<hr><p>We are going to perform a damage assessment using both windstorm data and flood data for Europe.</p>
+<hr><p>We will first download and explore windstorm and flood data for -AREA-.</p>
 <section id="windstorm-data">
 <h2>Windstorm Data<a class="headerlink" href="#windstorm-data" title="Permalink to this heading">#</a></h2>
+<hr>
 <p>The windstorm data will be downloaded from the <a class="reference external" href="https://cds.climate.copernicus.eu/">Copernicus Climate Data Store</a>. As we have seen during the lecture, and as you can also see by browsing on this website, there is an awful lot of climate data available through this Data Store. As such, it is very valuable to understand how to access and download this information to use within an analysis. To keep things simple, we only download one dataset today: <a class="reference external" href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-european-wind-storm-indicators?tab=overview">A winter windstorm</a>.</p>
 <p>We will do so using an <strong>API</strong>, which is the acronym for application programming interface. It is a software intermediary that allows two applications to talk to each other. APIs are an accessible way to extract and share data within and across organizations. APIs are all around us. Every time you use a rideshare app, send a mobile payment, or change the thermostat temperature from your phone, you’re using an API.</p>
 <p>However, before we can access this <strong>API</strong>, we need to take a few steps. Most importantly, we need to register ourselves on the <a class="reference external" href="https://cds.climate.copernicus.eu/">Copernicus Climate Data Store</a> portal. To do so, we need to register, as explained in the video clip below:</p>
@@ -568,24 +570,50 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">uid</span> <span class="o">=</span> <span class="n">XXX</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">apikey</span> <span class="o">=</span> <span class="s1">&#39;XXX&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">apikey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://cds.climate.copernicus.eu/api/v2&quot;</span><span class="p">)</span>
+</div>
+</section>
+<section id="flood-data">
+<h2>Flood Data<a class="headerlink" href="#flood-data" title="Permalink to this heading">#</a></h2>
+<hr>
+<p>The flood data we will extract from a repository maintained by the European Commission Joint Research Centre. We will download river flood hazard maps from their <a class="reference external" href="https://data.jrc.ec.europa.eu/dataset/1d128b6c-a4ee-4858-9e34-6210707f3c81">Flood Data Collection</a>.</p>
+<p>Here we do not need to use an API and we also do not need to register ourselves, so we can download any of the files directly. To do so, we use the <code class="docutils literal notranslate"><span class="pre">urllib</span></code> package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## this is the link to the 1/100 flood map for Europe</span>
+<span class="n">zipurl</span> <span class="o">=</span> <span class="s1">&#39;https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/FLOODS/EuropeanMaps/floodMap_RP100.zip&#39;</span>
 
-<span class="ne">NameError</span>: name &#39;XXX&#39; is not defined
+<span class="c1"># and now we open and extract the data</span>
+<span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">zipurl</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipresp</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">zipresp</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span> <span class="k">as</span> <span class="n">zfile</span><span class="p">:</span>
+        <span class="n">zfile</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The download and zip in the cell above sometimes does not work. If that is indeed the case (e.g., when it seems to remain stuck), download the files manually through the link and upload them in the data folder for this week (as explained at the start of this tutorial.)</p>
+</section>
+<section id="set-location-to-explore">
+<h2>Set location to explore<a class="headerlink" href="#set-location-to-explore" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Before we continue, we need to specify our location of interest. This should be a province that will have some flooding and relative high wind speeds occuring (else we will find zero damage). We specify the region of interest in the cell below by using the <code class="docutils literal notranslate"><span class="pre">geocode_to_gdf()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">place_name</span> <span class="o">=</span> <span class="s2">&quot;Gelderland, The Netherlands&quot;</span> <span class="c1">### CHECK IF WE WANT TO PROCEED WITH THIS LOCATION???</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="n">place_name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="visualising-the-hazard-data">
-<h1>3. Visualising the hazard data<a class="headerlink" href="#visualising-the-hazard-data" title="Permalink to this heading">#</a></h1>
-<hr><div class="cell docutils container">
+<section id="visualising-the-natural-hazard-data">
+<h1>3. Visualising the natural hazard data<a class="headerlink" href="#visualising-the-natural-hazard-data" title="Permalink to this heading">#</a></h1>
+<hr><p>Now we will explore our natural hazard data.</p>
+<section id="id1">
+<h2>Windstorm Data<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>As you can see in the section above, we have downloaded the storm footprint in a zipfile. Let’s open the zipfile and load the dataset using the <code class="docutils literal notranslate"><span class="pre">xarray</span></code> package through the <code class="docutils literal notranslate"><span class="pre">open_dataset()</span></code> function.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;Carmen.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">:</span>
     
@@ -599,6 +627,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Let’s have a look at the storm we have downloaded!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windstorm_europe</span><span class="p">[</span><span class="s1">&#39;FX&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -606,7 +635,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Unfortunately, our data does not have a proper coordinate system defined yet. As such, we will need to use the <code class="docutils literal notranslate"><span class="pre">rio.write_crs()</span></code> function to set the coordinate system to <strong>EPSG:4326</strong> (the standard global coordinate reference system).</p>
+<div class="alert alert-block alert-success">
+<b>Question 1:</b> Describe windstorm Carmen. When did this event happen, which areas were most affected? Can you say something about the maximum wind speeds in different areas, based on the plot? And what does FX mean?
+</div><p>Unfortunately, our data does not have a proper coordinate system defined yet. As such, we will need to use the <code class="docutils literal notranslate"><span class="pre">rio.write_crs()</span></code> function to set the coordinate system to <strong>EPSG:4326</strong> (the standard global coordinate reference system).</p>
 <p>We also need to make sure that the functions will know what the exact parameters are that we have to use for our spatial dimenions (e.g. longitude and latitude). It prefers to be named <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. So we use the <code class="docutils literal notranslate"><span class="pre">rename()</span></code> function before we use the <code class="docutils literal notranslate"><span class="pre">set_spatial_dims()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -617,6 +648,9 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="alert alert-block alert-success">
+<b>Question 2:</b> Climate data is often stored as a netCDF file. Please describe what a netCDF file is. Which information is stored in the netCDF file we have downloaded for the windstorm? What type of metadata does it contain?
+</div><p>Following, we also make sure it will be in the European coordinate system <strong>EPSG:3035</strong> to ensure we can easily use it together with the other data. To do so, we use the <code class="docutils literal notranslate"><span class="pre">reproject()</span></code> function. You can simple add the number of the coordinate system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windstorm_europe</span> <span class="o">=</span> <span class="n">windstorm_europe</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span><span class="n">XXXX</span><span class="p">)</span>
@@ -624,6 +658,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Now we have all the information to clip the windstorm data to our area of interest:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windstorm_map</span> <span class="o">=</span> <span class="n">windstorm_europe</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">area</span><span class="o">.</span><span class="n">envelope</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">area</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
@@ -631,6 +666,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>And let’s have a look as well by using the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function. Please note that the legend is in meters per second.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windstorm_map</span><span class="p">[</span><span class="s1">&#39;FX&#39;</span><span class="p">]</span><span class="o">.</span> <span class="n">XXXX</span>
@@ -639,9 +675,541 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="extracting-buildings-from-openstreetmap">
-<h1>4. Extracting buildings from OpenStreetMap<a class="headerlink" href="#extracting-buildings-from-openstreetmap" title="Permalink to this heading">#</a></h1>
+<section id="id2">
+<h2>Flood Data<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>And similarly, we want to open the flood map. But now we do not have to unzip the file anymore and we can directly open it through using <code class="docutils literal notranslate"><span class="pre">xarray</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_map_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span><span class="s1">&#39;floodmap_EFAS_RP100_C.tif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_map</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">flood_map_path</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;rasterio&quot;</span><span class="p">)</span>
+<span class="n">flood_map</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s make sure we set all the variables and the CRS correctly again to be able to open the data properly. Note that we now use <strong>EPSG:3035</strong>. This is the standard coordinate system for Europe, in meters (instead of degrees).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_map</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">write_crs</span><span class="p">(</span><span class="mi">3035</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">flood_map</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">set_spatial_dims</span><span class="p">(</span><span class="n">x_dim</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y_dim</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now it is pretty difficult to explore the data for our area of interest, so let’s clip the flood data.</p>
+<p>We want to clip our flood data to our chosen area. The code, however, is very inefficient and will run into memories issues on Google Colab. As such, we first need to clip it by using a bounding box, followed by the actual clip.</p>
+<div class="alert alert-block alert-success">
+<b>Question 4:</b> Please provide the lines of code below in which you show how you have clipped the flood map to your area.
+</div>
+<p><em>A few hints</em>:</p>
+<ul class="simple">
+<li><p>carefully read the documentation of the <code class="docutils literal notranslate"><span class="pre">.clip_box()</span></code> function of rioxarray. Which information do you need?</p></li>
+<li><p>is the GeoDataFrame of your region (the area GeoDataframe) in the same coordinate system? Perhaps you need to convert it using the <code class="docutils literal notranslate"><span class="pre">.to_crs()</span></code> function.</p></li>
+<li><p>how do you get the bounds from your area GeoDataFrame?</p></li>
+<li><p>The final step of the clip would be to use the <code class="docutils literal notranslate"><span class="pre">.rio.clip()</span></code> function, using the actual area file and the flood map clipped to the bounding box. Please note that you should <strong>not</strong> use the envelope here, like we did in the previous clip. Here we really want to use the exact geometry values.</p></li>
+</ul>
+<p>As you will see, we first clip it very efficiently using the bounding box. After that, we do an exact clip.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_lon</span> <span class="o">=</span>  <span class="n">area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3035</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">minx</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">min_lat</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3035</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">miny</span>
+<span class="n">max_lon</span> <span class="o">=</span>  <span class="n">area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3035</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span>
+<span class="n">max_lat</span> <span class="o">=</span>  <span class="n">area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3035</span><span class="p">)</span><span class="o">.</span>
+
+<span class="n">flood_map_area</span> <span class="o">=</span> <span class="n">flood_map</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span><span class="n">minx</span><span class="o">=....</span> <span class="p">)</span>
+<span class="n">flood_map_area</span> <span class="o">=</span> <span class="n">flood_map_area</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">area</span><span class="o">.</span><span class="n">XXXX</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">area</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s have a look as well. Please note that the legend is in meters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_map_area</span><span class="p">[</span><span class="s1">&#39;band_data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="downloading-and-exploring-land-cover-data-and-land-use-data">
+<h1>4. Downloading and exploring Land Cover data and Land Use data<a class="headerlink" href="#downloading-and-exploring-land-cover-data-and-land-use-data" title="Permalink to this heading">#</a></h1>
+<hr><p>We will explore rasterized Corine Land Cover data and land use data retrieved from OpenStreetMap.</p>
+<section id="download-and-access-copernicus-land-cover-data">
+<h2>Download and access Copernicus Land Cover data<a class="headerlink" href="#download-and-access-copernicus-land-cover-data" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Unfortunately, there is no API option to download the <a class="reference external" href="https://land.copernicus.eu/pan-european/corine-land-cover">Corine Land Cover</a> data. We will have to download the data from the website first.</p>
+<p>To do so, we will first have to register ourselves again on the website. Please find in the video clip below how to register yourself on the website of the <a class="reference external" href="https://land.copernicus.eu/">Copernicus Land Monitoring Service</a>:</p>
+<img alt="https://github.com/ElcoK/BigData_AED/blob/main/_static/images/CLMS_registration.gif?raw=1" class="bg-primary mb-1" src="https://github.com/ElcoK/BigData_AED/blob/main/_static/images/CLMS_registration.gif?raw=1" />
+<p>Now click on the Login button in the top right corner to login on the website. There are many interesting datasets on this website, but we just want to download the Corine Land Cover data, and specifically the latest version: <a class="reference external" href="https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=download">Corine Land Cover 2018</a>. To do so, please select the <strong>Corine Land Cover - 100 meter</strong>. Now click on the large green Download button. Your download should start any minute.</p>
+<p>Slightly annoying, the file you have downloaded is double zipped. Its slightly inconvenient to open this through Python and within Google Drive. So let’s unzip it twice outside of Python (on your local machine) and then direct yourself to the <code class="docutils literal notranslate"><span class="pre">DATA</span></code> directory within the unzipped file. Here you can find a file called <code class="docutils literal notranslate"><span class="pre">U2018_CLC2018_V2020_20u1.tif</span></code>. Drop this file into this week’s data directory, as specified at the start of this tutorial when we mounted our Google Drive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC_location</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span><span class="s1">&#39;U2018_CLC2018_V2020_20u1.tif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">CLC_location</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;rasterio&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly to the flood map data, we need to do a two-stage clip again (like we did before in this tutorial to ensure we get only our area of interest without exceeding our RAM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC_region</span> <span class="o">=</span> <span class="n">CLC</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span><span class="n">minx</span><span class="o">=.....</span><span class="p">,)</span>
+<span class="n">CLC_region</span> <span class="o">=</span> <span class="n">CLC_region</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">area</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">area</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC_region</span> <span class="o">=</span> <span class="n">CLC_region</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="s1">&#39;lon&#39;</span><span class="p">})</span>
+<span class="n">CLC_region</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">set_spatial_dims</span><span class="p">(</span><span class="n">x_dim</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span><span class="n">y_dim</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we create a <em>color_dict</em> again, similarly as we did for the raster data in the previous tutorial</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">131</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">211</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mi">213</span><span class="p">,</span> <span class="mi">221</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">223</span><span class="p">,</span> <span class="mi">231</span><span class="p">,</span> <span class="mi">241</span><span class="p">,</span> <span class="mi">242</span><span class="p">,</span>
+ <span class="mi">243</span><span class="p">,</span> <span class="mi">244</span><span class="p">,</span> <span class="mi">311</span><span class="p">,</span> <span class="mi">312</span><span class="p">,</span> <span class="mi">313</span><span class="p">,</span> <span class="mi">321</span><span class="p">,</span> <span class="mi">322</span><span class="p">,</span> <span class="mi">323</span><span class="p">,</span> <span class="mi">324</span><span class="p">,</span> <span class="mi">331</span><span class="p">,</span> <span class="mi">332</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">334</span><span class="p">,</span> <span class="mi">335</span><span class="p">,</span> <span class="mi">411</span><span class="p">,</span> <span class="mi">412</span><span class="p">,</span> <span class="mi">421</span><span class="p">,</span> <span class="mi">422</span><span class="p">,</span> <span class="mi">423</span><span class="p">,</span> <span class="mi">511</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">521</span><span class="p">,</span> <span class="mi">522</span><span class="p">,</span> <span class="mi">523</span><span class="p">]</span>
+
+<span class="n">CLC_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#E6004D&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#CC4DF2&#39;</span><span class="p">,</span> <span class="s1">&#39;#CC0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6CCCC&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6CCE6&#39;</span><span class="p">,</span> <span class="s1">&#39;#A600CC&#39;</span><span class="p">,</span> <span class="s1">&#39;#A64DCC&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF4DFF&#39;</span><span class="p">,</span> <span class="s1">&#39;#FFA6FF&#39;</span><span class="p">,</span> <span class="s1">&#39;#FFE6FF&#39;</span><span class="p">,</span> <span class="s1">&#39;#FFFFA8&#39;</span><span class="p">,</span> <span class="s1">&#39;#FFFF00&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6E600&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;#E68000&#39;</span><span class="p">,</span> <span class="s1">&#39;#F2A64D&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6A600&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6E64D&#39;</span><span class="p">,</span> <span class="s1">&#39;#FFE6A6&#39;</span><span class="p">,</span> <span class="s1">&#39;#FFE64D&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6CC4D&#39;</span><span class="p">,</span> <span class="s1">&#39;#F2CCA6&#39;</span><span class="p">,</span> <span class="s1">&#39;#80FF00&#39;</span><span class="p">,</span> <span class="s1">&#39;#00A600&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;#4DFF00&#39;</span><span class="p">,</span> <span class="s1">&#39;#CCF24D&#39;</span><span class="p">,</span> <span class="s1">&#39;#A6FF80&#39;</span><span class="p">,</span> <span class="s1">&#39;#A6E64D&#39;</span><span class="p">,</span> <span class="s1">&#39;#A6F200&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6E6E6&#39;</span><span class="p">,</span> <span class="s1">&#39;#CCCCCC&#39;</span><span class="p">,</span> <span class="s1">&#39;#CCFFCC&#39;</span><span class="p">,</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span> <span class="s1">&#39;#A6E6CC&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;#A6A6FF&#39;</span><span class="p">,</span> <span class="s1">&#39;#4D4DFF&#39;</span><span class="p">,</span> <span class="s1">&#39;#CCCCFF&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6E6FF&#39;</span><span class="p">,</span> <span class="s1">&#39;#A6A6E6&#39;</span><span class="p">,</span> <span class="s1">&#39;#00CCF2&#39;</span><span class="p">,</span> <span class="s1">&#39;#80F2E6&#39;</span><span class="p">,</span> <span class="s1">&#39;#00FFA6&#39;</span><span class="p">,</span> <span class="s1">&#39;#A6FFE6&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6F2FF&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict_raster</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">CLC_values</span><span class="p">,</span><span class="n">CLC_colors</span><span class="p">))</span>
+
+<span class="c1"># We create a colormar from our list of colors</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">CLC_colors</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s also define the description of each category : 1 (blue) is Sea; 2 (red) is burnt, etc... Order should be respected here ! Or using another dict maybe could help.</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">CLC_values</span><span class="p">)</span>
+<span class="n">len_lab</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># prepare normalizer</span>
+<span class="c1">## Prepare bins for the normalizer</span>
+<span class="n">norm_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="o">*</span><span class="n">color_dict_raster</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">norm_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1">## Make normalizer and formatter</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">,</span> <span class="n">len_lab</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fmt</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">labels</span><span class="p">[</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s plot the Corine Land Cover data for our area of interest</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">CLC_region</span><span class="p">[</span><span class="s2">&quot;band_data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">CLC_colors</span><span class="p">),</span><span class="n">colors</span><span class="o">=</span><span class="n">CLC_colors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 5:</b> Describe the different land-use classes within your region that you see on the Corine Land Cover map.
+</div></section>
+<section id="extract-and-visualize-land-use-information-from-openstreetmap">
+<h2>Extract and visualize land-use information from OpenStreetMap<a class="headerlink" href="#extract-and-visualize-land-use-information-from-openstreetmap" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>The first step is to define which area you want to focus on. In the cell below, you will now read “Zoeterwoude, The Netherlands”. Change this to any area or municipality in the Netherlands that (1) you can think of and (2) will work.</p>
+<p>In some cases, the function does not recognize the location. You could either try a different phrasing or try a different location. Many parts of the Netherlands should work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">place_name</span> <span class="o">=</span> <span class="s2">&quot;Zoeterwoude, The Netherlands&quot;</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="n">place_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let us visualize the bounding box of the area. As you will notice, we also estimate the size of the area. If the area size is above 50km2, or when you have many elements within your area (for example the amsterdam city centre), extracting the data from OpenStreetMap may take a little while.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_to_check</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3857</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">area_to_check</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">area_to_check</span><span class="o">.</span><span class="n">area</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">. Total area: </span><span class="si">{}</span><span class="s2"> km2&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span><span class="n">size</span><span class="p">),</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 1:</b> To make sure we understand which area you focus on, please submit the figure that outlines your area.
+</div><p>Now we are satisfied with the selected area, we are going to extract the land-use information from OpenStreetMap. To find the right information from OpenStreetMap, we use <strong>tags</strong>.</p>
+<p>As you will see in the cell below, we use the tags <em>“landuse”</em> and <em>“natural”</em>. We need to use the <em>“natural”</em> tag to ensure we also obtain water bodies and other natural elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;landuse&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;natural&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>   
+<span class="n">landuse</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">features_from_place</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In case the above does not work, you can continue the assignment by using the code below (make sure you remove the hashtags to run it). If you decide to use the data as specified below, also change the map at the start to ‘Kampen’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remote_url = &#39;https://github.com/ElcoK/BigData_AED/raw/main/week5/kampen_landuse.gpkg&#39;</span>
+<span class="c1"># file = &#39;kampen_landuse.gpkg&#39;</span>
+
+<span class="c1"># request.urlretrieve(remote_url, file)</span>
+<span class="c1">#landuse = gpd.GeoDataFrame.from_file(&#39;kampen_landuse.gpkg&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To ensure we really only get the area that we want, we use geopandas’s <code class="docutils literal notranslate"><span class="pre">clip</span></code> function to only keep the area we want. This function does exactly the same as the <code class="docutils literal notranslate"><span class="pre">clip</span></code> function in QGIS.</p>
+<p>When we want to visualize or analyse the data, we want all information in a single column. However, at the moment, all information that was tagged as <em>“natural”</em>, has no information stored in the <em>“landuse”</em> tags. It is, however, very convenient if we can just use a single column for further exploration of the data.</p>
+<p>To overcome this issue, we need to add the missing information to the landuse column, as done below. Let’s first have a look which categories we have in the <strong>natural</strong> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse</span><span class="o">.</span><span class="n">natural</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we can add them to the <strong>landuse</strong> column. We made a start, but its up to you to fill in the rest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">landuse</span><span class="o">.</span><span class="n">natural</span><span class="o">==</span><span class="s1">&#39;water&#39;</span><span class="p">,</span><span class="s1">&#39;landuse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;water&#39;</span>
+<span class="n">landuse</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">landuse</span><span class="o">.</span><span class="n">natural</span><span class="o">==</span><span class="s1">&#39;wetland&#39;</span><span class="p">,</span><span class="s1">&#39;landuse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;wetlands&#39;</span>
+
+
+<span class="n">landuse</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;landuse&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 2:</b> Please provide in the answer box in Canvas the code that you used to make sure that all land uses are now registered within the landuse column.
+</div><p>Our next step is to prepare the visualisation of a map. What better way to explore land-use information than plotting it on a map?</p>
+<p>As you will see below, we can create a dictionary with color codes that will color each land-use class based on the color code provided in this dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span>  <span class="s2">&quot;grass&quot;</span><span class="p">:</span><span class="s1">&#39;#c3eead&#39;</span><span class="p">,</span>               <span class="s2">&quot;railway&quot;</span><span class="p">:</span> <span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;forest&quot;</span><span class="p">:</span><span class="s1">&#39;#1c7426&#39;</span><span class="p">,</span>              <span class="s2">&quot;orchard&quot;</span><span class="p">:</span><span class="s1">&#39;#fe6729&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;residential&quot;</span><span class="p">:</span><span class="s1">&#39;#f13013&#39;</span><span class="p">,</span>         <span class="s2">&quot;industrial&quot;</span><span class="p">:</span><span class="s1">&#39;#0f045c&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;retail&quot;</span><span class="p">:</span><span class="s1">&#39;#b71456&#39;</span><span class="p">,</span>              <span class="s2">&quot;education&quot;</span><span class="p">:</span><span class="s1">&#39;#d61181&#39;</span><span class="p">,</span>              
+                <span class="s2">&quot;commercial&quot;</span><span class="p">:</span><span class="s1">&#39;#981cb8&#39;</span><span class="p">,</span>          <span class="s2">&quot;farmland&quot;</span><span class="p">:</span><span class="s1">&#39;#fcfcb9&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;cemetery&quot;</span><span class="p">:</span><span class="s1">&#39;#c39797&#39;</span><span class="p">,</span>            <span class="s2">&quot;construction&quot;</span><span class="p">:</span><span class="s1">&#39;#c0c0c0&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;meadow&quot;</span><span class="p">:</span><span class="s1">&#39;#c3eead&#39;</span><span class="p">,</span>              <span class="s2">&quot;farmyard&quot;</span><span class="p">:</span><span class="s1">&#39;#fcfcb9&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;plant_nursery&quot;</span><span class="p">:</span><span class="s1">&#39;#eaffe2&#39;</span><span class="p">,</span>       <span class="s2">&quot;scrub&quot;</span><span class="p">:</span><span class="s1">&#39;#98574d&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;allotments&quot;</span><span class="p">:</span><span class="s1">&#39;#fbffe2&#39;</span><span class="p">,</span>          <span class="s2">&quot;reservoir&quot;</span><span class="p">:</span><span class="s1">&#39;#8af4f2&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;static_caravan&quot;</span><span class="p">:</span><span class="s1">&#39;#ff3a55&#39;</span><span class="p">,</span>      <span class="s2">&quot;wetlands&quot;</span><span class="p">:</span> <span class="s2">&quot;#c9f5e5&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;water&quot;</span><span class="p">:</span> <span class="s2">&quot;#c9e5f5&quot;</span><span class="p">,</span>              <span class="s2">&quot;beach&quot;</span><span class="p">:</span> <span class="s2">&quot;#ffeead&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;landfill&quot;</span> <span class="p">:</span> <span class="s2">&quot;#B08C4D&quot;</span><span class="p">,</span>          <span class="s2">&quot;recreation_ground&quot;</span> <span class="p">:</span> <span class="s2">&quot;#c3eead&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;brownfield&quot;</span> <span class="p">:</span> <span class="s2">&quot;#B08C4D&quot;</span><span class="p">,</span>        <span class="s2">&quot;village_green&quot;</span> <span class="p">:</span> <span class="s2">&quot;#f13013&quot;</span> <span class="p">,</span>
+                <span class="s2">&quot;military&quot;</span><span class="p">:</span> <span class="s2">&quot;#52514E&quot;</span><span class="p">,</span>            <span class="s2">&quot;garden&quot;</span> <span class="p">:</span> <span class="s1">&#39;#c3eead&#39;</span>
+             <span class="p">}</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately, OpenSteetMap very often contains elements that have a unique tag. As such, it may be the case that some of our land-use categories are not in the dictionary yet.</p>
+<p>Let’s first create an overview of the unique land-use categories within our data through using the <code class="docutils literal notranslate"><span class="pre">.unique()</span></code> function within our dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ofcourse we can visually compare the array above with our color_dict, but it is much quicker to use <code class="docutils literal notranslate"><span class="pre">Sets</span></code> to check if there is anything missing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">color_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In case anything is missing, add them to the color_dict dictionairy and re-run that cell.</p>
+<div class="alert alert-block alert-success">
+<b>Question 3:</b> Show us in Canvas (i) which land-use categories you had to add, and (ii) how your final color dictionary looks like.
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can easily find hexcodes online to find the right colour for each land-use category. Just google hexcodes!</p>
+</div>
+<p>Our next step is to make sure that we can connect our color codes to our dataframe with land-use categories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">color_dict</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span>  <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">color_dict</span><span class="p">)</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">()))}</span>
+
+<span class="n">map_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">color_dict</span><span class="p">))]))</span>
+
+<span class="n">landuse</span><span class="p">[</span><span class="s1">&#39;col_landuse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can plot the figure!</p>
+<p>As you will see in the cell below, we first state that we want to create a figure with a specific figure size. You can change the dimensions to your liking.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># add color scheme</span>
+<span class="n">color_scheme_map</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;landuse&#39;</span><span class="p">,</span>
+                                     <span class="n">colors</span><span class="o">=</span><span class="n">color_scheme_map</span><span class="p">)</span>  
+
+<span class="c1"># and plot the land-use map.</span>
+<span class="n">landuse</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">landuse</span><span class="p">[</span><span class="s1">&#39;col_landuse&#39;</span><span class="p">],</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1"># add a legend:</span>
+<span class="n">legend_elements</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">iter_</span><span class="p">,</span><span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">color_dict</span><span class="p">):</span>
+    <span class="n">legend_elements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">color_scheme_map</span><span class="p">[</span><span class="n">iter_</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="n">item</span><span class="p">))</span>        
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#fefdfd&#39;</span><span class="p">,</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">},</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span> 
+
+<span class="c1"># add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 4:</b> Please upload a figure of your land-use map, using OpenStreetMap. 
+</div></section>
+<section id="rasterize-land-use-information">
+<h2>Rasterize land-use information<a class="headerlink" href="#rasterize-land-use-information" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>As you have noticed already during the lecture, and as we will again see next week when using the Google Earth Engine, most land-use data is in raster format.</p>
+<p>In OpenStreetMap everything is stored in vector format. As such, the land-use information we extracted from OpenStreetMap is also in vector format. While it is not always necessary to have this information in raster format, it is useful to know how to convert your data into a raster format.</p>
+<p>To do so, we can make use of the <strong>GeoCube</strong> package, which is a newly developed Python package that can very easily convert vector data into a raster format.</p>
+<p>The first thing we will need to do is to define all the unique land-use classes and store them in a dictionary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categorical_enums</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;landuse&#39;</span><span class="p">:</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we simply use the <code class="docutils literal notranslate"><span class="pre">make_geocube()</span></code> function to convert our vector data into raster data.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">make_geocube()</span></code> function, we have to specify several arguments:</p>
+<ul class="simple">
+<li><p>Through the <code class="docutils literal notranslate"><span class="pre">vector_data</span></code> argument we have to state which dataframe we want to rasterize.</p></li>
+<li><p>Through the <code class="docutils literal notranslate"><span class="pre">output_crs</span></code> argument we have to state the coordinate reference system (CRS). We use the OpenStreetMap default EPSG:4326.</p></li>
+<li><p>Through the <code class="docutils literal notranslate"><span class="pre">resolution</span></code> argument we have to state the resolution. In our case, we will have to set this in degrees. 0.01 degrees is equivalent to roughly 10km around the equator.</p></li>
+<li><p>Through the <code class="docutils literal notranslate"><span class="pre">categorical_enums</span></code> argument we specify the different land-use categories.</p></li>
+</ul>
+<p>Play around with the different resolutions to find the level of detail. The higher the resolution (i.e., the more zeros behind the comma), the longer it will take to rasterize.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_grid</span> <span class="o">=</span> <span class="n">make_geocube</span><span class="p">(</span>
+    <span class="n">vector_data</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>
+    <span class="n">output_crs</span><span class="o">=</span><span class="s2">&quot;epsg:4326&quot;</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">XXXX</span><span class="p">,</span> <span class="n">XXXX</span><span class="p">),</span>
+    <span class="n">categorical_enums</span><span class="o">=</span><span class="n">categorical_enums</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s explore what this function has given us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_grid</span><span class="p">[</span><span class="s2">&quot;landuse&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output above is a typical output of the <strong>xarray</strong> package.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">array</span></code> shows the numpy array with the actual values. As you can see, the rasterization process has used the value <code class="docutils literal notranslate"><span class="pre">-1</span></code> for NoData.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Coordinates</span></code> table shows the x (longitude) and y (latitude) coordinates of the array. It has the exact same size as the <code class="docutils literal notranslate"><span class="pre">array</span></code> with land-use values.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Attributes</span></code> table specifies the NoData value (the <code class="docutils literal notranslate"><span class="pre">_FillValue</span></code> element, which indeed shows <code class="docutils literal notranslate"><span class="pre">-1</span></code>) and the name of the dataset.</p></li>
+</ul>
+<p>Now let’s plot the data to see the result!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">landuse_grid</span><span class="p">[</span><span class="s2">&quot;landuse&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;tab20&#39;</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1">#add a title</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see in the figure above, the land-use categories have turned into numbers, instead of land-use categories described by a string value.</p>
+<p>This is of course a lot harder to interpret. Let’s re-do some parts to make sure we can properly link them back to the original data.</p>
+<p>To do so, we will first need to make sure that we know which values (numbers) are connected to each land-use category. Instead of trying to match, let’s predefine this ourselves!</p>
+<p>We will start with creating a dictionary that allows us to couple a number to each category:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value_dict</span><span class="p">[</span><span class="s1">&#39;nodata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we now use this dictionary to add a new column to the dataframe with the values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_valued</span> <span class="o">=</span> <span class="n">make_geocube</span><span class="p">(</span>
+    <span class="n">vector_data</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>
+    <span class="n">output_crs</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">XXXX</span><span class="p">,</span> <span class="n">XXXX</span><span class="p">),</span>
+    <span class="n">categorical_enums</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;landuse_value&#39;</span><span class="p">:</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse_value</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s use the original <code class="docutils literal notranslate"><span class="pre">color_dict</span></code> dictionary to find the right hex codes for each of the land-use categories</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unique_classes</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">colormap_raster</span> <span class="o">=</span> <span class="p">[</span><span class="n">color_dict</span><span class="p">[</span><span class="n">lu_class</span><span class="p">]</span> <span class="k">for</span> <span class="n">lu_class</span> <span class="ow">in</span> <span class="n">unique_classes</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>To plot the new result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">landuse_valued</span><span class="p">[</span><span class="s2">&quot;landuse_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_classes</span><span class="p">),</span><span class="n">colors</span><span class="o">=</span><span class="n">colormap_raster</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1"># add title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 5:</b> In the rasterization process, we use the `.make_geocube()` function. Please elaborate on the following: i)why is it important to specify the right coordinate system? What could happen if you choose the wrong coordinate system? ii) which resolution did you choose and why? iii)Why did the first result did not give us the right output with the correct colors? How did you solve this? 
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unique_classes</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">colormap_raster</span> <span class="o">=</span> <span class="p">[</span><span class="n">color_dict</span><span class="p">[</span><span class="n">lu_class</span><span class="p">]</span> <span class="k">for</span> <span class="n">lu_class</span> <span class="ow">in</span> <span class="n">unique_classes</span><span class="p">]</span> 
+<span class="n">color_dict_raster</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),[</span><span class="s1">&#39;#ffffff&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">colormap_raster</span><span class="p">))</span>
+
+<span class="c1"># We create a colormar from our list of colors</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="n">color_dict_raster</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">color_dict_raster</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+
+<span class="c1"># Let&#39;s also define the description of each category. Order should be respected here!</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;nodata&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">unique_classes</span><span class="p">)</span>
+<span class="n">len_lab</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># prepare normalizer</span>
+<span class="c1">## Prepare bins for the normalizer</span>
+<span class="n">norm_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="o">*</span><span class="n">color_dict_raster</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">norm_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1">## Make normalizer and formatter</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">norm_bins</span><span class="p">,</span> <span class="n">len_lab</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fmt</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">labels</span><span class="p">[</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the map again!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">landuse_valued</span><span class="p">[</span><span class="s2">&quot;landuse_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_classes</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+
+<span class="c1"># remove the ax labels</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">norm_bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">norm_bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">tickz</span> <span class="o">=</span> <span class="n">norm_bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">diff</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fmt</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">tickz</span><span class="p">)</span>
+
+<span class="c1"># set title again</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="c1"># for some weird reason we get two colorbars, so we remove one:</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">delaxes</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="perform-a-damage-assessment-using-coring-land-cover">
+<h1>5. Perform a damage assessment using Coring Land Cover<a class="headerlink" href="#perform-a-damage-assessment-using-coring-land-cover" title="Permalink to this heading">#</a></h1>
 <hr><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>@TASK:<span class="w"> </span>Copy<span class="w"> </span>paste<span class="w"> </span>from<span class="w"> </span>Tutorial<span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>@TASK:<span class="w"> </span>Let<span class="w"> </span>students<span class="w"> </span>also<span class="w"> </span>perform<span class="w"> </span>risk<span class="w"> </span>assessment<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>rasterized<span class="w"> </span>OSM<span class="w"> </span>land<span class="w"> </span>use<span class="w"> </span>data??<span class="w"> </span>Code<span class="w"> </span>needs<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>written<span class="w"> </span><span class="k">for</span><span class="w"> </span>that.<span class="w"> </span>Or<span class="w"> </span>think<span class="w"> </span>about<span class="w"> </span>a<span class="w"> </span>really<span class="w"> </span>good<span class="w"> </span>question<span class="w"> </span>that<span class="w"> </span>we<span class="w"> </span>can<span class="w"> </span>ask<span class="w"> </span>here<span class="w"> </span>about<span class="w"> </span>this?
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extracting-high-resolution-data-from-openstreetmap">
+<h1>6. Extracting high-resolution data from OpenStreetMap<a class="headerlink" href="#extracting-high-resolution-data-from-openstreetmap" title="Permalink to this heading">#</a></h1>
+<hr><section id="extracting-buildings-from-openstreetmap">
+<h2>Extracting buildings from OpenStreetMap<a class="headerlink" href="#extracting-buildings-from-openstreetmap" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;building&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 <span class="n">buildings</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">features_from_place</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
@@ -657,16 +1225,53 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>@TASK:<span class="w"> </span>copy-paste<span class="w"> </span>cells<span class="w"> </span>from<span class="w"> </span>tutorial<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="analyze-and-visualize-building-stock">
-<h1>5. Analyze and visualize building stock<a class="headerlink" href="#analyze-and-visualize-building-stock" title="Permalink to this heading">#</a></h1>
-<hr><div class="cell docutils container">
+<h2>Analyze and visualize building stock<a class="headerlink" href="#analyze-and-visualize-building-stock" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">18</span><span class="p">))</span>
 
 <span class="n">building_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>@TASK:<span class="w"> </span>copy-paste<span class="w"> </span>cells<span class="w"> </span>from<span class="w"> </span>tutorial<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extracting-roads-from-openstreetmap">
+<h2>Extracting roads from OpenStreetMap<a class="headerlink" href="#extracting-roads-from-openstreetmap" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>@TASK:<span class="w"> </span>copy-paste<span class="w"> </span>cells<span class="w"> </span>from<span class="w"> </span>tutorial<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="perform-a-damage-assessment-of-the-road-network-using-openstreetmap">
+<h1>7. Perform a damage assessment of the road network using OpenStreetMap<a class="headerlink" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap" title="Permalink to this heading">#</a></h1>
+<hr><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>@TASK:<span class="w"> </span>copy-paste<span class="w"> </span>cells<span class="w"> </span>from<span class="w"> </span>tutorial<span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
 </div>
@@ -719,21 +1324,6 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="section-2-tasks">
-<h2>Section 2: Tasks<a class="headerlink" href="#section-2-tasks" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="a-extraction-of-buildings-roads-and-power-infrstaructure-assets-from-osm">
-<h2>A. Extraction of buildings, roads and power infrstaructure assets from OSM<a class="headerlink" href="#a-extraction-of-buildings-roads-and-power-infrstaructure-assets-from-osm" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="b-hazard-data-extraction-from-cds">
-<h2>B. Hazard data extraction from CDS<a class="headerlink" href="#b-hazard-data-extraction-from-cds" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="c-flood-damage-assesment-of-roads">
-<h2>C. Flood damage assesment of roads<a class="headerlink" href="#c-flood-damage-assesment-of-roads" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="d-windstorm-damage-assessment-of-buildings">
-<h2>D. Windstorm damage assessment of buildings<a class="headerlink" href="#d-windstorm-damage-assessment-of-buildings" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="section-3-quiz">
 <h2>Section 3: Quiz<a class="headerlink" href="#section-3-quiz" title="Permalink to this heading">#</a></h2>
@@ -846,24 +1436,34 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Summative Assignment 1: Natural Hazard Risk Assessment of Infrastructure</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-windstorm-damage-assessment">Section 1: Windstorm damage assessment</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1.Introducing the packages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-accessing-natural-hazard-data">2. Downloading and accessing natural hazard data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-data">Windstorm Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-data">Flood Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-location-to-explore">Set location to explore</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-the-hazard-data">3. Visualising the hazard data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">4. Extracting buildings from OpenStreetMap</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-and-visualize-building-stock">5. Analyze and visualize building stock</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-the-natural-hazard-data">3. Visualising the natural hazard data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Windstorm Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Flood Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-exploring-land-cover-data-and-land-use-data">4. Downloading and exploring Land Cover data and Land Use data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-access-copernicus-land-cover-data">Download and access Copernicus Land Cover data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-and-visualize-land-use-information-from-openstreetmap">Extract and visualize land-use information from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">Rasterize land-use information</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-using-coring-land-cover">5. Perform a damage assessment using Coring Land Cover</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-high-resolution-data-from-openstreetmap">6. Extracting high-resolution data from OpenStreetMap</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">Extracting buildings from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-and-visualize-building-stock">Analyze and visualize building stock</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-roads-from-openstreetmap">Extracting roads from OpenStreetMap</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">6. Windstorm Damage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-tasks">Section 2: Tasks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-extraction-of-buildings-roads-and-power-infrstaructure-assets-from-osm">A. Extraction of buildings, roads and power infrstaructure assets from OSM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-hazard-data-extraction-from-cds">B. Hazard data extraction from CDS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-flood-damage-assesment-of-roads">C. Flood damage assesment of roads</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-windstorm-damage-assessment-of-buildings">D. Windstorm damage assessment of buildings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-quiz">Section 3: Quiz</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-the-function-damage-scanner-has-been-used-quite-extensively-in-this-assignment-explain-in-detail-the-sequantial-flow-of-this-functions-can-be-added-as-comments-cell-size-parameter">Example 1:  ThE function damage scanner has been used quite extensively in this assignment. Explain in detail the sequantial flow of this functions (Can be added as comments)? CELL SIZE PARAMETER ??</a></li>
 </ul>
