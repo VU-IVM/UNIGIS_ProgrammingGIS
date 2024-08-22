@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# Lecture: A guide to visualisation
+# Introduction to TAA4
 
 This week we will focus on data visualisation. Data visualization is a graphical representation of data or information—for example, taking raw numbers from a spreadsheet and transforming that into a bar or line chart. Using data visualizations helps you to easily understand and analyze trends and outcomes within your data.
 
