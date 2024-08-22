@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title           : UNIGIS - Programming for GIS
+title           : UNIGIS - Big Data in Sustainability Science
 author          : Dr Elco Koks & Dr Alex Levering
 logo            : _static/images/logo.png
 announcement    : "This course is work in progress!" # A banner announcement at the top of the site.

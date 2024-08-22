@@ -1,14 +1,11 @@
 # Course schedule
 
 ````{div} full-width
-|Week|Data type|Lecture|Tutorial #1|Tutorial #2|Grading|
-|:---:|---|---|---|---|---|
-| 1  ||Course Introduction|Introduction to Python|Introduction to Data Analysis|pass/fail|
-| 2  |Census data|Introduction to Random Forests|Data Exploration & Regression|Random Forests|12% of grade|
-| 3  |Census data|Introduction to Neural Networks|Neural Networks|Model Validation|12% of grade|
-| 4  |Satellite data|Earth Observation & Google Earth Engine|Land-use classification|Drought detection|12% of grade|
-| 5  |Open-Source and VGI data|Big Data in the public domain|Working with OpenStreetMap|Natural Hazard Risk Assessment|12% of grade|
-| 6  |Social media data|Social Media and Natural Language Processing (NLP)|Social Media & Natural Hazards|Social Media & Valuation of Landscapes|12% of grade|
-| 7  |How to: Visualization|Visualizing your results|   |pass/fail|
-| 8  |   |   |Exam (40%)|   |   |
+|Module|Data type|TAA|Grading|
+|:---:|---|---|---|
+| 1  ||Course Introduction|Python refresher||
+| 2  |Satellite data|TAA1: Earth Observation & Google Earth Engine|no grade|
+| 3  |Open-Source and VGI data|TAA2: OpenStreetMap and Natural Hazard Risk Assessments|35% of grade|
+| 4  |Social media data|TAA3: Social Media & Valuation of Landscapes|no grade|
+| 5-6  |TAA4: Individual GIS analysis|65% of grade|
 ````
