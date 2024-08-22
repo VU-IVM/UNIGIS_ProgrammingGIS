@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Tutorial 1: Land-cover classification &#8212; UNIGIS - Big Data in Sustainability Science</title>
+    <title>TAA1: Land-cover classification &#8212; UNIGIS - Big Data in Sustainability Science</title>
   
   
   
@@ -184,12 +184,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA1</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lecture.html">Lecture: Earth Observation &amp; Google Earth Engine</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial 1: Land-cover classification</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TAA1: Land-cover classification</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../TAA2/lecture.html">Lecture: Big Data in the public domain</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../TAA2/tutorial.html">TAA2: Natural Hazard Risk Assessment using public data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA2/tutorial.html">TAA2: Natural Hazard Risk Assessment using Open Data</a></li>
 
 
 
@@ -423,7 +423,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tutorial 1: Land-cover classification</h1>
+    <h1>TAA1: Land-cover classification</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -463,8 +463,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="tutorial-1-land-cover-classification">
-<h1>Tutorial 1: Land-cover classification<a class="headerlink" href="#tutorial-1-land-cover-classification" title="Permalink to this heading">#</a></h1>
+  <section id="taa1-land-cover-classification">
+<h1>TAA1: Land-cover classification<a class="headerlink" href="#taa1-land-cover-classification" title="Permalink to this heading">#</a></h1>
 <p>In this tutorial we are going to explore the power of the <strong>Google Earth Engine</strong> through classifying land-use categories on satelite imagery. In particular, we will focus on supervised classification. Supervised classification refers to the process of using a training dataset with known labels to guide a mathematical classifier in the task of labeling spectral space. They key characteristic is that the training dataset guides (or “supervises”) the labeling.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> package within the <strong>Google Earth Engine</strong> handles supervised classification by traditional ML algorithms running in Earth Engine. These classifiers include CART, RandomForest, NaiveBayes and SVM. The general workflow for classification is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Collect training data. Assemble features which have a property that stores the known class label and properties storing numeric values for the predictors.
