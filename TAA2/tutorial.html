@@ -460,14 +460,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-roads-from-openstreetmap">Extracting roads from OpenStreetMap</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">6. Windstorm Damage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-quiz">Section 3: Quiz</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-the-function-damage-scanner-has-been-used-quite-extensively-in-this-assignment-explain-in-detail-the-sequantial-flow-of-this-functions-can-be-added-as-comments-cell-size-parameter">Example 1:  ThE function damage scanner has been used quite extensively in this assignment. Explain in detail the sequantial flow of this functions (Can be added as comments)? CELL SIZE PARAMETER ??</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a></li>
 </ul>
 
             </nav>
@@ -482,7 +475,7 @@ document.write(`
                   
   <section id="taa2-natural-hazard-risk-assessment-using-open-data">
 <h1>TAA2: Natural Hazard Risk Assessment using Open Data<a class="headerlink" href="#taa2-natural-hazard-risk-assessment-using-open-data" title="Permalink to this heading">#</a></h1>
-<p>Within this tutorial, we are going to use publicly available hazard data and exposure data to do a risk assessment for the Netherlands. More specifically we will look at damage due to wind storms and flooding. We will use both Copernicus Land Cover data and OpenStreetMap to estimate the potential damage of natural hazards to the built environment.</p>
+<p>Within this tutorial, we are going to use publicly available hazard data and exposure data to do a risk assessment for the Netherlands. More specifically, we will look at damage due to wind storms and flooding. We will use both Copernicus Land Cover data and OpenStreetMap to estimate the potential damage of natural hazards to the built environment.</p>
 <p>We will first download, access and explore hazard data retrieved from the Copernicus Climate Data Copernicus Store and the European Commission Joint Research Centre. After this, we will learn how to download and access Copernicus Land Cover data. We will also explore the power of OpenStreetMap that provides vector data. We will learn how to extract information from OpenStreetMap, how you can explore and visualize this. Lastly, we will use Copernicus Land Cover data to estimate the damage to specific land-uses, whereas we will use OpenStreetMap to assess the potential damage to the road system.</p>
 </section>
 <section id="learning-objectives">
@@ -541,6 +534,13 @@ document.write(`
 </div>
 </div>
 <p>Import error? Not all of the packages were installed already. Make sure to install the missing packages using pip install in the cell below and then run the cell above again:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># provide code to pip install missing packages</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="downloading-and-accessing-natural-hazard-data">
 <h1>2. Downloading and accessing natural hazard data<a class="headerlink" href="#downloading-and-accessing-natural-hazard-data" title="Permalink to this heading">#</a></h1>
@@ -787,7 +787,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>And now we create a <em>color_dict</em>, to ensure we can visualize the data properly. We use the colorscheme of Corine Land Cover.</p>
+<p>Our next step is to prepare the visualisation of a map. What better way to explore land-cover information than plotting it on a map?</p>
+<p>As you will see below, we can create a dictionary with color codes that will color each land-cover class based on the color code provided in this dictionary. We use the colorscheme of Corine Land Cover.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">131</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">211</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mi">213</span><span class="p">,</span> <span class="mi">221</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">223</span><span class="p">,</span> <span class="mi">231</span><span class="p">,</span> <span class="mi">241</span><span class="p">,</span> <span class="mi">242</span><span class="p">,</span>
@@ -916,8 +917,7 @@ document.write(`
 </div>
 <div class="alert alert-block alert-success">
 <b>Question 2:</b> Please provide in the answer box in Canvas the code that you used to make sure that all land uses are now registered within the landuse column.
-</div><p>Our next step is to prepare the visualisation of a map. What better way to explore land-use information than plotting it on a map?</p>
-<p>As you will see below, we can create a dictionary with color codes that will color each land-use class based on the color code provided in this dictionary.</p>
+</div><p>We now create a <em>color_dict</em> like we have also done for the visualization of the land-use information to ensure we can visualize the data properly. This time, we use our own colorscheme.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span>  <span class="s2">&quot;grass&quot;</span><span class="p">:</span><span class="s1">&#39;#c3eead&#39;</span><span class="p">,</span>               <span class="s2">&quot;railway&quot;</span><span class="p">:</span> <span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
@@ -1283,118 +1283,6 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="windstorm-damage">
-<h2>6. Windstorm Damage<a class="headerlink" href="#windstorm-damage" title="Permalink to this heading">#</a></h2>
-<hr class="docutils" />
-<p>To estimate the potential damage of our windstorm, we use the vulnerability curves developed by <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2212420914000466">Yamin et al. (2014)</a>. Following <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2212420914000466">Yamin et al. (2014)</a>, we will apply a sigmoidal vulnerability function satisfying two constraints: (i) a minimum threshold for the occurrence of damage with an upper bound of 100% direct damage; (ii) a high power-law function for the slope, describing an increase in damage with increasing wind speeds. Due to the limited amount of vulnerability curves available for windstorm damage, we will use the damage curve that represents low-rise <em>reinforced masonry</em> buildings for all land-use classes that may contain buildings. Obviously, this is a large oversimplification of the real world, but this should be sufficient for this exercise. When doing a proper stand-alone windstorm risk assessment, one should take more effort in collecting the right vulnerability curves for different building types.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wind_curves</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;https://github.com/ElcoK/BigData_AED/raw/main/week5/damage_curves.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;wind_curves&#39;</span><span class="p">)</span>
-<span class="n">maxdam</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;https://github.com/ElcoK/BigData_AED/raw/main/week5/damage_curves.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;maxdam&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_map</span> <span class="o">=</span> <span class="n">CLC_region_wind</span><span class="p">[</span><span class="s1">&#39;band_data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">,:,:]</span>
-<span class="n">wind_map</span> <span class="o">=</span> <span class="n">windstorm</span><span class="p">[</span><span class="s1">&#39;FX&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">,:,:]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wind_map</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wind_map_kmh</span> <span class="o">=</span> <span class="n">wind_map</span><span class="o">*</span><span class="n">XXX</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wind_damage_CLC</span> <span class="o">=</span> <span class="n">DamageScanner</span><span class="p">(</span><span class="n">landuse_map</span><span class="p">,</span><span class="n">wind_map_kmh</span><span class="p">,</span><span class="n">wind_curves</span><span class="p">,</span><span class="n">maxdam</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wind_damage_CLC</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-3-quiz">
-<h2>Section 3: Quiz<a class="headerlink" href="#section-3-quiz" title="Permalink to this heading">#</a></h2>
-<section id="example-1-the-function-damage-scanner-has-been-used-quite-extensively-in-this-assignment-explain-in-detail-the-sequantial-flow-of-this-functions-can-be-added-as-comments-cell-size-parameter">
-<h3>Example 1:  ThE function damage scanner has been used quite extensively in this assignment. Explain in detail the sequantial flow of this functions (Can be added as comments)? CELL SIZE PARAMETER ??<a class="headerlink" href="#example-1-the-function-damage-scanner-has-been-used-quite-extensively-in-this-assignment-explain-in-detail-the-sequantial-flow-of-this-functions-can-be-added-as-comments-cell-size-parameter" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DamageScanner</span><span class="p">(</span><span class="n">landuse_map</span><span class="p">,</span><span class="n">inun_map</span><span class="p">,</span><span class="n">curve_path</span><span class="p">,</span><span class="n">maxdam_path</span><span class="p">,</span><span class="n">cellsize</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-        
-    
-    <span class="n">landuse</span> <span class="o">=</span> <span class="n">landuse_map</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    
-   
-    <span class="n">inundation</span> <span class="o">=</span> <span class="n">inun_map</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    
-    <span class="n">inundation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">inundation</span><span class="p">)</span>        
-
-    
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">curve_path</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-        <span class="n">curves</span> <span class="o">=</span> <span class="n">curve_path</span><span class="o">.</span><span class="n">values</span>   
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">curve_path</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="n">curves</span> <span class="o">=</span> <span class="n">curve_path</span>
-
-   
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">maxdam_path</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-        <span class="n">maxdam</span> <span class="o">=</span> <span class="n">maxdam_path</span><span class="o">.</span><span class="n">values</span> 
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">maxdam_path</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="n">maxdam</span> <span class="o">=</span> <span class="n">maxdam_path</span>
-        
-    
-    <span class="n">inun</span> <span class="o">=</span> <span class="n">inundation</span> <span class="o">*</span> <span class="p">(</span><span class="n">inundation</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">0</span>
-    <span class="n">inun</span><span class="p">[</span><span class="n">inun</span><span class="o">&gt;=</span><span class="n">curves</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span> <span class="o">=</span> <span class="n">curves</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-    <span class="n">waterdepth</span> <span class="o">=</span> <span class="n">inun</span><span class="p">[</span><span class="n">inun</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">landuse</span> <span class="o">=</span> <span class="n">landuse</span><span class="p">[</span><span class="n">inun</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
-
-    
-    <span class="n">numberofclasses</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">maxdam</span><span class="p">)</span>
-    <span class="n">alldamage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">landuse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">damagebin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">numberofclasses</span><span class="p">,</span> <span class="mi">4</span><span class="p">,))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">numberofclasses</span><span class="p">):</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">maxdam</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">damagebin</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
-        <span class="n">wd</span> <span class="o">=</span> <span class="n">waterdepth</span><span class="p">[</span><span class="n">landuse</span><span class="o">==</span><span class="n">n</span><span class="p">]</span>
-        <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">wd</span><span class="p">,((</span><span class="n">curves</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])),</span><span class="n">curves</span><span class="p">[:,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">damage</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="n">maxdam</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">cellsize</span><span class="p">)</span>
-        <span class="n">damagebin</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">damage</span><span class="p">)</span>
-        <span class="n">damagebin</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">damagebin</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">damagebin</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span>
-        <span class="n">alldamage</span><span class="p">[</span><span class="n">landuse</span><span class="o">==</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">damage</span>
-
-    
-    <span class="n">loss_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">damagebin</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;landuse&#39;</span><span class="p">,</span><span class="s1">&#39;losses&#39;</span><span class="p">,</span><span class="s1">&#39;area&#39;</span><span class="p">,</span><span class="s1">&#39;avg_depth&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;landuse&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    
-    
-    <span class="k">return</span> <span class="n">loss_df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">loss_df</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1487,14 +1375,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-roads-from-openstreetmap">Extracting roads from OpenStreetMap</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">6. Windstorm Damage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-quiz">Section 3: Quiz</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-the-function-damage-scanner-has-been-used-quite-extensively-in-this-assignment-explain-in-detail-the-sequantial-flow-of-this-functions-can-be-added-as-comments-cell-size-parameter">Example 1:  ThE function damage scanner has been used quite extensively in this assignment. Explain in detail the sequantial flow of this functions (Can be added as comments)? CELL SIZE PARAMETER ??</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a></li>
 </ul>
 
   </nav></div>
