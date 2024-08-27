@@ -19,18 +19,15 @@ parts:
   - caption: TAA1
     chapters:
     - file: TAA1/lecture
-    - file: TAA1/tutorial1
-    - file: TAA1/tutorial2
+    - file: TAA1/tutorial
   - caption: TAA2
     chapters:
     - file: TAA2/lecture
-    - file: TAA2/tutorial1
-    - file: TAA2/tutorial2
+    - file: TAA2/tutorial
   - caption: TAA3
     chapters:
     - file: TAA3/lecture
-    - file: TAA3/tutorial1
-    - file: TAA3/tutorial2
+    - file: TAA3/tutorial
   - caption: TAA4
     chapters:
     - file: TAA4/lecture
