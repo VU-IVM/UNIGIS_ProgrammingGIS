@@ -12,7 +12,6 @@ parts:
     - file: course_basics/schedule.md    
   - caption: Week 1
     chapters:
-    - file: week1/lecture
     - file: week1/tutorial1
     - file: week1/tutorial2
     - file: week1/tutorial3
@@ -20,16 +19,16 @@ parts:
     chapters:
     - file: TAA1/lecture
     - file: TAA1/tutorial
-  - caption: TAA2
-    chapters:
-    - file: TAA2/lecture
-    - file: TAA2/tutorial
-  - caption: TAA3
-    chapters:
-    - file: TAA3/lecture
-    - file: TAA3/tutorial
-  - caption: TAA4
-    chapters:
-    - file: TAA4/lecture
-    - file: TAA4/assignment
+  # - caption: TAA2
+  #   chapters:
+  #   - file: TAA2/lecture
+  #   - file: TAA2/tutorial
+  # - caption: TAA3
+  #   chapters:
+  #   - file: TAA3/lecture
+  #   - file: TAA3/tutorial
+  # - caption: TAA4
+  #   chapters:
+  #   - file: TAA4/lecture
+  #   - file: TAA4/assignment
 
