@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial 1: Land-cover classification</a></li>
+
 </ul>
 
     </div>
@@ -409,6 +410,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 1: Land-cover classification</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
@@ -424,9 +426,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-random-forests">5c. Random Forests</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-test-set-performance">6. Measuring test set performance</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-test-set-performance">6. Measuring test set performance</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping up</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -1054,8 +1061,9 @@ Make sure that you save this file before you continue, else you will lose everyt
 <p><strong>Q10: What is depicted in the plots above? What do the metrics tell us about the variables we used? How would you interpret the results of these plots, and based on them, would you remove any variables?</strong></p>
 </section>
 </section>
+</section>
 <section id="measuring-test-set-performance">
-<h2>6. Measuring test set performance<a class="headerlink" href="#measuring-test-set-performance" title="Permalink to this heading">#</a></h2>
+<h1>6. Measuring test set performance<a class="headerlink" href="#measuring-test-set-performance" title="Permalink to this heading">#</a></h1>
 <hr class="docutils" />
 <p>We’ve trained and validated several models, now it’s time to find out how they perform when we provide it with new data one last time. This is called model <mark>testing</mark>. We go through this step only once, and this is generally the metrics that we add to the paper. It’s because we used the validation set to find a set of parameters that should work well on new data, so we shouldn’t then fine-tune on top of the test set.</p>
 <p>So let’s re-make our dataset, this time with an image taken more recently in 2018, and with CLC reference data from 2018. This is a fairly substantial challenge, because we’re trying to see if we can use the model to update our land cover maps. Let’s see how it goes…</p>
@@ -1141,6 +1149,97 @@ Make sure that you save this file before you continue, else you will lose everyt
 </div>
 </div>
 </div>
+<p>Lastly, let’s quickly take a look at the classification for the entire area. For this, we re-train the model using packages built into GEE, such that we don’t have to convert data back and forth.</p>
+<p>This will also show you how much Google Earth Engine has streamlined the pipeline of working with satellite data!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_to_float</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">feature</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">label_col</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_col</span><span class="p">)))</span>
+
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">convert_to_float</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">convert_to_float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the model</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Classifier</span><span class="o">.</span><span class="n">smileRandomForest</span><span class="p">(</span><span class="n">numberOfTrees</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">minLeafPopulation</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maxNodes</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">trained_classifier</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">train_data</span><span class="p">,</span> <span class="n">classProperty</span><span class="o">=</span><span class="n">label_col</span><span class="p">,</span> <span class="n">inputProperties</span><span class="o">=</span><span class="n">img_bands</span><span class="p">)</span>
+
+<span class="c1"># Apply the classifier to the test data</span>
+<span class="n">classified_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">trained_classifier</span><span class="p">)</span>
+
+<span class="c1"># Calculate the confusion matrix on test set</span>
+<span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">classified_test</span><span class="o">.</span><span class="n">errorMatrix</span><span class="p">(</span><span class="n">label_col</span><span class="p">,</span> <span class="s1">&#39;classification&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test Accuracy:&#39;</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="o">.</span><span class="n">accuracy</span><span class="p">()</span><span class="o">.</span><span class="n">getInfo</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classify the test image</span>
+<span class="n">classified_image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">trained_classifier</span><span class="p">)</span>
+
+<span class="c1"># Define the color mapping dictionary</span>
+<span class="n">clc_colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">11</span><span class="p">:</span> <span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="c1"># Urban fabric (Red)</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;#FFA500&#39;</span><span class="p">,</span> <span class="c1"># Industrial, commercial and transport units (Orange)</span>
+    <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">,</span> <span class="c1"># Mine, dump and construction sites (Brown)</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;#006400&#39;</span><span class="p">,</span> <span class="c1"># Artificial, non-agricultural vegetated areas (Dark Green)</span>
+    <span class="mi">21</span><span class="p">:</span> <span class="s1">&#39;#FFFF00&#39;</span><span class="p">,</span> <span class="c1"># Arable land (Yellow)</span>
+    <span class="mi">22</span><span class="p">:</span> <span class="s1">&#39;#90EE90&#39;</span><span class="p">,</span> <span class="c1"># Permanent crops (Light Green)</span>
+    <span class="mi">23</span><span class="p">:</span> <span class="s1">&#39;#008000&#39;</span><span class="p">,</span> <span class="c1"># Pastures (Green)</span>
+    <span class="mi">24</span><span class="p">:</span> <span class="s1">&#39;#D2B48C&#39;</span><span class="p">,</span> <span class="c1"># Heterogeneous agricultural areas (Tan)</span>
+    <span class="mi">31</span><span class="p">:</span> <span class="s1">&#39;#228B22&#39;</span><span class="p">,</span> <span class="c1"># Forests (Forest Green)</span>
+    <span class="mi">32</span><span class="p">:</span> <span class="s1">&#39;#808000&#39;</span><span class="p">,</span> <span class="c1"># Scrub and/or herbaceous vegetation associations (Olive)</span>
+    <span class="mi">33</span><span class="p">:</span> <span class="s1">&#39;#556B2F&#39;</span><span class="p">,</span> <span class="c1"># Open spaces with little or no vegetation (Dark Olive Green)</span>
+    <span class="mi">41</span><span class="p">:</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">,</span> <span class="c1"># Inland wetlands (Blue)</span>
+    <span class="mi">42</span><span class="p">:</span> <span class="s1">&#39;#ADD8E6&#39;</span><span class="p">,</span> <span class="c1"># Maritime wetlands (Light Blue)</span>
+    <span class="mi">51</span><span class="p">:</span> <span class="s1">&#39;#00FFFF&#39;</span><span class="p">,</span> <span class="c1"># Inland waters (Aqua)</span>
+    <span class="mi">52</span><span class="p">:</span> <span class="s1">&#39;#E0FFFF&#39;</span> <span class="c1"># Marine waters (Light Cyan)</span>
+<span class="p">}</span>
+
+<span class="c1"># Convert string labels to numeric codes</span>
+<span class="k">def</span> <span class="nf">classify_to_numeric</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="c1"># Create a dictionary that maps string labels to numeric values</span>
+    <span class="n">label_to_numeric</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">index</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clc_colors</span><span class="o">.</span><span class="n">keys</span><span class="p">())}</span>
+
+    <span class="c1"># Convert string label to numeric value</span>
+    <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">remap</span><span class="p">(</span>
+        <span class="nb">list</span><span class="p">(</span><span class="n">label_to_numeric</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+        <span class="nb">list</span><span class="p">(</span><span class="n">label_to_numeric</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="p">)</span>
+
+<span class="c1"># Convert the classified image</span>
+<span class="n">numeric_classified_image</span> <span class="o">=</span> <span class="n">classify_to_numeric</span><span class="p">(</span><span class="n">classified_image</span><span class="p">)</span>
+
+<span class="c1"># Generate a palette for visualization</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="n">clc_colors</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">clc_colors</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+
+<span class="c1"># Add the numeric classified image to the map</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">numeric_classified_image</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="n">palette</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">clc_colors</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">},</span> <span class="s1">&#39;Classified Image&#39;</span><span class="p">)</span>
+<span class="nb">map</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In case you&#39;re curious, you can see approximations of your unique values with this script:</span>
+<span class="n">unique_values</span> <span class="o">=</span> <span class="n">classified_image</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span>
+    <span class="n">reducer</span><span class="o">=</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">frequencyHistogram</span><span class="p">(),</span>
+    <span class="n">geometry</span><span class="o">=</span><span class="n">classified_image</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span>
+    <span class="n">scale</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">maxPixels</span><span class="o">=</span><span class="mf">1e8</span>
+<span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+<span class="n">unique_values</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>In principle, the model’s results on the test set are what we would report in a paper. Depending on your expectations, you might be surprised with the results of the model compared to the test set. However, it’s important to remember a few things:</p>
 <ol class="arabic simple">
 <li><p>We haven’t played around much with the input variabes. There are more tricks that we could tap into that we haven’t discussed (e.g. think about how important it is to see what happens around a pixel in order to determine what’s happening inside it).</p></li>
@@ -1149,8 +1248,7 @@ Make sure that you save this file before you continue, else you will lose everyt
 <li><p>We’re training it on just 10’000 pixels. This is a limited amount for a hard task, and usually we’d prefer to use much more data.</p></li>
 </ol>
 <p>And there’s many more reasons we could list. The reality is that modelling is a hard task, and a lot of the trial-and-error and failed models get underreported in papers. By showing you the harsh realities of real-life, difficult modelling problems, we hope to have demonstrated that this type of modelling has strong potential, but also that it doesn’t come easy. With that in mind, let’s reflect a little bit on how we can do better. Please answer the question below, and we will provide feedback and discuss some of the answers.</p>
-<p><strong>Q11: What are your thoughts on the final test set accuracy? Which factors of the image, reference data, and our workflow do you think affected the final performance of the model the most? How do you think the model workflow can be improved to provide better predictons?</strong></p>
-</section>
+<p><strong>Q11: What are your thoughts on the final test set results? Which factors of the image, reference data, and our workflow do you think affected the final performance of the model the most? How do you think the model workflow can be improved to provide better predictons?</strong></p>
 <section id="wrapping-up">
 <h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this heading">#</a></h2>
 <p>That’s it for this practical. There’s many more nuances we could get into, but we’d need another lecture or two if we want to cover them all. Hopefully this practical gave you some insights into what it means to run a machine learning pipeline. We also hope that you see now that machine learning isn’t a fully-automatic magical problem-solving box, but that there are quite a lot of steps involved and decisions to make. It’s up to you, the modeller, to make the right choices with regards to data set-up and model parameter choices. Since this tutorial is getting lengthy already, we unfortunately can’t go into more detail on how to improve the model further, especially on the test set. We will provide feedback based on the questions, and provide general tips on what makes a successful ML pipeline. We also hope that this tutorial inspires you to look deeper into modelling, while retaining a critical outlook on what it is and what it can do!</p>
@@ -1216,6 +1314,7 @@ Make sure that you save this file before you continue, else you will lose everyt
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 1: Land-cover classification</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
@@ -1231,9 +1330,14 @@ Make sure that you save this file before you continue, else you will lose everyt
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-random-forests">5c. Random Forests</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-test-set-performance">6. Measuring test set performance</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-test-set-performance">6. Measuring test set performance</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping up</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
