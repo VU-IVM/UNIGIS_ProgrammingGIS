@@ -429,7 +429,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">Rasterize land-use information</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-raster-based-damage-assessment-using-osm-and-corine-land-cover">5. Perform a raster-based damage assessment using OSM and Corine Land Cover</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-raster-based-damage-assessment-corine-land-cover">5. Perform a raster-based damage assessment Corine Land Cover</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">Windstorm Damage</a></li>
 </ul>
 </li>
@@ -499,7 +499,9 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
-<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span><span class="n">ListedColormap</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Patch</span>
+<span class="kn">from</span> <span class="nn">geocube.api.core</span> <span class="kn">import</span> <span class="n">make_geocube</span>
 <span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
@@ -566,6 +568,9 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## this is the link to the 1/100 flood map for Europe</span>
 <span class="n">zipurl</span> <span class="o">=</span> <span class="s1">&#39;https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/FLOODS/EuropeanMaps/floodMap_RP100.zip&#39;</span>
 
+<span class="c1"># The path where the downloaded flood map will be extracted</span>
+<span class="n">data_path</span> <span class="o">=</span> 
+
 <span class="c1"># and now we open and extract the data</span>
 <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">zipurl</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipresp</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">zipresp</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span> <span class="k">as</span> <span class="n">zfile</span><span class="p">:</span>
@@ -582,7 +587,7 @@ document.write(`
 <p>Before we continue, we need to specify our location of interest. This should be a province that will have some flooding and relative high wind speeds occuring (else we will find zero damage). We specify the region of interest in the cell below by using the <code class="docutils literal notranslate"><span class="pre">geocode_to_gdf()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">place_name</span> <span class="o">=</span> <span class="s2">&quot;Gelderland, The Netherlands&quot;</span> <span class="c1">### But you could also consider Zeeland, for example.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">place_name</span> <span class="o">=</span> <span class="s2">&quot;Kampen, The Netherlands&quot;</span> <span class="c1">### But you could also consider Zeeland, for example.</span>
 <span class="n">area</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="n">place_name</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -721,7 +726,9 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
+<div class="alert alert-block alert-success">
+<b>Question 4:</b> Now that we have both wind and flood maps, comment on their spatial resolution. Which map is better and why?
+</div></section>
 </section>
 <section id="downloading-and-exploring-land-cover-data-and-land-use-data">
 <h1>4. Downloading and exploring Land Cover data and Land Use data<a class="headerlink" href="#downloading-and-exploring-land-cover-data-and-land-use-data" title="Permalink to this heading">#</a></h1>
@@ -815,21 +822,11 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 4:</b> Describe the different land-use classes within your region that you see on the Corine Land Cover map. Do you see any dominant land-use classes? 
+<b>Question 5:</b> Describe the different land-use classes within your region that you see on the Corine Land Cover map. Do you see any dominant land-use classes? 
 </div></section>
 <section id="extract-and-visualize-land-use-information-from-openstreetmap">
 <h2>Extract and visualize land-use information from OpenStreetMap<a class="headerlink" href="#extract-and-visualize-land-use-information-from-openstreetmap" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
-<p>The next step is to define which area you want to focus on. In the cell below, you will now read “Kampen, The Netherlands”. Change this to any area or municipality in the Netherlands that (1) you can think of and (2) will work.</p>
-<p>In some cases, the function does not recognize the location. You could either try a different phrasing or try a different location. Many parts of the Netherlands should work.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">place_name</span> <span class="o">=</span> <span class="s2">&quot;Kampen, The Netherlands&quot;</span>
-<span class="n">area</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="n">place_name</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Now let us visualize the bounding box of the area. As you will notice, we also estimate the size of the area. If the area size is above 50km2, or when you have many elements within your area (for example the amsterdam city centre), extracting the data from OpenStreetMap may take a little while.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -848,7 +845,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 5:</b> To make sure we understand which area you focus on, please submit the figure that outlines your area.
+<b>Question 6:</b> To make sure we understand which area you focus on, please submit the figure that outlines your area.
 </div><p>Now we are satisfied with the selected area, we are going to extract the land-use information from OpenStreetMap. To find the right information from OpenStreetMap, we use <strong>tags</strong>.</p>
 <p>As you will see in the cell below, we use the tags <em>“landuse”</em> and <em>“natural”</em>. We need to use the <em>“natural”</em> tag to ensure we also obtain water bodies and other natural elements.</p>
 <div class="cell docutils container">
@@ -1080,6 +1077,14 @@ document.write(`
 <p>And we now use this dictionary to add a new column to the dataframe with the values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse</span><span class="p">[</span><span class="s1">&#39;landuse_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">landuse</span><span class="o">.</span><span class="n">landuse</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">value_dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let us use the make_geocube() function again to rasterize.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_valued</span> <span class="o">=</span> <span class="n">make_geocube</span><span class="p">(</span>
     <span class="n">vector_data</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>
     <span class="n">output_crs</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>
@@ -1172,8 +1177,8 @@ document.write(`
 </div>
 </section>
 </section>
-<section id="perform-a-raster-based-damage-assessment-using-osm-and-corine-land-cover">
-<h1>5. Perform a raster-based damage assessment using OSM and Corine Land Cover<a class="headerlink" href="#perform-a-raster-based-damage-assessment-using-osm-and-corine-land-cover" title="Permalink to this heading">#</a></h1>
+<section id="perform-a-raster-based-damage-assessment-corine-land-cover">
+<h1>5. Perform a raster-based damage assessment Corine Land Cover<a class="headerlink" href="#perform-a-raster-based-damage-assessment-corine-land-cover" title="Permalink to this heading">#</a></h1>
 <hr><p>To calculate the potential damage to both windstorms and floods, we use stage-damage curves, which relate the intensity of the hazard to the fraction of maximum damage that can be sustained by a certain land use. As you can see on the Corine Land Cover map that we just plotted, there are a lot of land use classes (44), though not all will suffer damage from either the windstorm or the flood event. For each of the land-use classes a curve and a maximum damage number are assigned.</p>
 <p>To Assess the damage for both the flood and windstorm event, we are going to make use of the <a class="reference external" href="https://damagescanner.readthedocs.io/en/latest/">DamageScanner</a>, which is a tool to calculate potential flood damages based on inundation depth and land use using depth-damage curves in the Netherlands. The DamageScanner was originally developed for the ‘Netherlands Later’ project <a class="reference external" href="https://www.rivm.nl/bibliotheek/digitaaldepot/WL_rapport_Overstromingsrisicos_Nederland.pdf">(Klijn et al., 2007)</a>.  The original land-use classes were based on the Land-Use Scanner in order to evaluate the effect of future land-use change on flood damages. We have tailored the input of the DamageScanner to make sure it can estimate the damages using Corine Land Cover.</p>
 <p>Because the simplicity of the model, we can use this for any raster-based hazard map with some level of intensity. Hence, we can use it for both hazards.</p>
@@ -1501,27 +1506,28 @@ document.write(`
 </div>
 </div>
 </div>
-<p>As you have seen from the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> function, there are quite a few buildings with only very few tags. You could either consider to not include them in your plot at all (for example by using the <code class="docutils literal notranslate"><span class="pre">isin</span></code> function or the <code class="docutils literal notranslate"><span class="pre">query</span></code> function, see also <a class="reference external" href="https://stackoverflow.com/questions/12096252/use-a-list-of-values-to-select-rows-from-a-pandas-dataframe">here</a>), or rename them, similar to how you named the natural land cover classes for the land-use map.</p>
+<p>As you have seen from the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> function, there are quite a few buildings with only very few tags. You could either consider to not include them in your plot at all (for example by using the <code class="docutils literal notranslate"><span class="pre">isin</span></code> function or the <code class="docutils literal notranslate"><span class="pre">query</span></code> function, see also <a class="reference external" href="https://stackoverflow.com/questions/12096252/use-a-list-of-values-to-select-rows-from-a-pandas-dataframe">here</a>), or rename them, similar to how you named the natural land cover classes for the land-use map. Here, we filter the dataframe to include only specific classes of buildings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildings</span> <span class="o">=</span> <span class="n">buildings</span><span class="p">[</span><span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;building&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;house&#39;</span><span class="p">,</span> <span class="s1">&#39;industrial&#39;</span><span class="p">,</span> <span class="s1">&#39;apartment&#39;</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Now let’s visualize the buildings again. We need to create a similar color dictionary as we did for the land-use categories. Now its up to you to make it!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;yes&#39;</span> <span class="p">:</span> <span class="s2">&quot;#f1134b&quot;</span><span class="p">,</span> 
               <span class="s1">&#39;house&#39;</span><span class="p">:</span><span class="s1">&#39;#f13013&#39;</span><span class="p">,</span> 
               <span class="s1">&#39;industrial&#39;</span><span class="p">:</span><span class="s1">&#39;#0f045c&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;farm&#39;</span><span class="p">:</span><span class="s1">&#39;#fcfcb9&#39;</span><span class="p">,</span> 
-              <span class="s1">&#39;bungalow&#39;</span><span class="p">:</span><span class="s1">&#39;#f13013&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;service&#39;</span><span class="p">:</span><span class="s1">&#39;#CB8DDB&#39;</span> <span class="p">}</span>
+              <span class="s1">&#39;apartment&#39;</span><span class="p">:</span><span class="s1">&#39;#fcfcb9&#39;</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove multiple keys from dictionary</span>
-<span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">color_dict</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span>  <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">color_dict</span><span class="p">)</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">buildings</span><span class="o">.</span><span class="n">building</span><span class="o">.</span><span class="n">unique</span><span class="p">()))}</span>
-
-<span class="n">map_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">color_dict</span><span class="p">))]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">color_dict</span><span class="p">))]))</span>
 <span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;col_landuse&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">buildings</span><span class="o">.</span><span class="n">building</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1926,7 +1932,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">Rasterize land-use information</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-raster-based-damage-assessment-using-osm-and-corine-land-cover">5. Perform a raster-based damage assessment using OSM and Corine Land Cover</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-raster-based-damage-assessment-corine-land-cover">5. Perform a raster-based damage assessment Corine Land Cover</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">Windstorm Damage</a></li>
 </ul>
 </li>
