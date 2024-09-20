@@ -189,14 +189,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lecture.html">Lecture: Big Data in the public domain</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">TAA2: Natural Hazard Risk Assessment using Open Data</a></li>
-
-
-
-
-
-
-
-
 </ul>
 
     </div>
@@ -423,38 +415,36 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TAA2: Natural Hazard Risk Assessment using Open Data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-accessing-natural-hazard-data">2. Downloading and accessing natural hazard data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-data">Windstorm Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-data">Flood Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-location-to-explore">Set location to explore</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-accessing-natural-hazard-data">2. Downloading and accessing natural hazard data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-data">Windstorm Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-data">Flood Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-location-to-explore">Set location to explore</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-natural-hazard-data">3. Exploring the natural hazard data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Windstorm Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Flood Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-natural-hazard-data">3. Exploring the natural hazard data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Windstorm Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Flood Data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-exploring-land-cover-data-and-land-use-data">4. Downloading and exploring Land Cover data and Land Use data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-access-copernicus-land-cover-data">Download and access Copernicus Land Cover data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-and-visualize-land-use-information-from-openstreetmap">Extract and visualize land-use information from OpenStreetMap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">Rasterize land-use information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-exploring-land-cover-data-and-land-use-data">4. Downloading and exploring Land Cover data and Land Use data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-access-copernicus-land-cover-data">Download and access Copernicus Land Cover data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-and-visualize-land-use-information-from-openstreetmap">Extract and visualize land-use information from OpenStreetMap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">Rasterize land-use information</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-raster-based-damage-assessment-corine-land-cover">5. Perform a raster-based damage assessment Corine Land Cover</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">Windstorm Damage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-damage">Flood Damage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-raster-based-damage-assessment-corine-land-cover">5. Perform a raster-based damage assessment Corine Land Cover</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">Windstorm Damage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-damage">Flood Damage</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-high-resolution-data-from-openstreetmap">6. Extracting high-resolution data from OpenStreetMap</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">Extracting buildings from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-high-resolution-data-from-openstreetmap">6. Extracting high-resolution data from OpenStreetMap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">Extracting buildings from OpenStreetMap</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -469,9 +459,8 @@ document.write(`
 <h1>TAA2: Natural Hazard Risk Assessment using Open Data<a class="headerlink" href="#taa2-natural-hazard-risk-assessment-using-open-data" title="Permalink to this heading">#</a></h1>
 <p>Within this tutorial, we are going to use publicly available hazard data and exposure data to do a risk assessment for the Netherlands. More specifically, we will look at damage due to wind storms and flooding. We will use both Copernicus Land Cover data and OpenStreetMap to estimate the potential damage of natural hazards to the built environment.</p>
 <p>We will first download, access and explore hazard data retrieved from the Copernicus Climate Data Copernicus Store and the European Commission Joint Research Centre. We will also explore the power of OpenStreetMap that provides vector data. We will learn how to extract information from OpenStreetMap, how you can explore and visualize this. Lastly, we will use Copernicus Land Cover data to estimate the damage to specific land-uses, whereas we will use OpenStreetMap to assess the potential damage to the road system.</p>
-</section>
 <section id="learning-objectives">
-<h1>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h1>
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <hr><ul class="simple">
 <li><p>To understand the use of <strong>OSMnx</strong> to extract geospatial data from OpenStreetmap.</p></li>
 <li><p>To know how to download data from the Copernicus Climate Data Store using the <code class="docutils literal notranslate"><span class="pre">cdsapi</span></code> and access it through Python.</p></li>
@@ -486,7 +475,7 @@ document.write(`
 </ul>
 </section>
 <section id="introducing-the-packages">
-<h1>1. Introducing the packages<a class="headerlink" href="#introducing-the-packages" title="Permalink to this heading">#</a></h1>
+<h2>1. Introducing the packages<a class="headerlink" href="#introducing-the-packages" title="Permalink to this heading">#</a></h2>
 <hr><p>Within this tutorial, we are going to make use of the following packages:</p>
 <p><a class="reference external" href="https://geopandas.org/"><strong>GeoPandas</strong></a> is a Python package that extends the datatypes used by pandas to allow spatial operations on geometric types.</p>
 <p><a class="reference external" href="https://osmnx.readthedocs.io/"><strong>OSMnx</strong></a> is a Python package that lets you download geospatial data from OpenStreetMap and model, project, visualize, and analyze real-world street networks and any other geospatial geometries. You can download and model walkable, drivable, or bikeable urban networks with a single line of Python code then easily analyze and visualize them. You can just as easily download and work with other infrastructure types, amenities/points of interest, building footprints, elevation data, street bearings/orientations, and speed/travel time.</p>
@@ -541,10 +530,10 @@ document.write(`
 </div>
 </section>
 <section id="downloading-and-accessing-natural-hazard-data">
-<h1>2. Downloading and accessing natural hazard data<a class="headerlink" href="#downloading-and-accessing-natural-hazard-data" title="Permalink to this heading">#</a></h1>
+<h2>2. Downloading and accessing natural hazard data<a class="headerlink" href="#downloading-and-accessing-natural-hazard-data" title="Permalink to this heading">#</a></h2>
 <hr><p>We will first download and explore windstorm and flood data for the Netherlands.</p>
 <section id="windstorm-data">
-<h2>Windstorm Data<a class="headerlink" href="#windstorm-data" title="Permalink to this heading">#</a></h2>
+<h3>Windstorm Data<a class="headerlink" href="#windstorm-data" title="Permalink to this heading">#</a></h3>
 <hr>
 <p>The windstorm data will be downloaded from the <a class="reference external" href="https://cds.climate.copernicus.eu/">Copernicus Climate Data Store</a>. As we have seen during the lecture, and as you can also see by browsing on this website, there is an awful lot of climate data available through this Data Store. As such, it is very valuable to understand how to access and download this information to use within an analysis. To keep things simple, we only download one dataset today: <a class="reference external" href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-european-wind-storm-indicators?tab=overview">A winter windstorm</a>.</p>
 <p>We will do so using an <strong>API</strong>, which is the acronym for application programming interface. It is a software intermediary that allows two applications to talk to each other. APIs are an accessible way to extract and share data within and across organizations. APIs are all around us. Every time you use a rideshare app, send a mobile payment, or change the thermostat temperature from your phone, you’re using an API.</p>
@@ -574,7 +563,7 @@ document.write(`
 </div>
 </section>
 <section id="flood-data">
-<h2>Flood Data<a class="headerlink" href="#flood-data" title="Permalink to this heading">#</a></h2>
+<h3>Flood Data<a class="headerlink" href="#flood-data" title="Permalink to this heading">#</a></h3>
 <hr>
 <p>The flood data we will extract from a repository maintained by the European Commission Joint Research Centre. We will download river flood hazard maps from their <a class="reference external" href="https://data.jrc.ec.europa.eu/dataset/1d128b6c-a4ee-4858-9e34-6210707f3c81">Flood Data Collection</a>.</p>
 <p>Here we do not need to use an API and we also do not need to register ourselves, so we can download any of the files directly. To do so, we use the <code class="docutils literal notranslate"><span class="pre">urllib</span></code> package.</p>
@@ -597,7 +586,7 @@ document.write(`
 <p>The download and zip in the cell above sometimes does not work. If that is indeed the case (e.g., when it seems to remain stuck), download the files manually through the link and upload them in the data folder for this week (as explained at the start of this tutorial.)</p>
 </section>
 <section id="set-location-to-explore">
-<h2>Set location to explore<a class="headerlink" href="#set-location-to-explore" title="Permalink to this heading">#</a></h2>
+<h3>Set location to explore<a class="headerlink" href="#set-location-to-explore" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>Before we continue, we need to specify our location of interest. This should be a province that will have some flooding and relative high wind speeds occuring (else we will find zero damage). We specify the region of interest in the cell below by using the <code class="docutils literal notranslate"><span class="pre">geocode_to_gdf()</span></code> function.</p>
 <div class="cell docutils container">
@@ -611,9 +600,9 @@ document.write(`
 </section>
 </section>
 <section id="exploring-the-natural-hazard-data">
-<h1>3. Exploring the natural hazard data<a class="headerlink" href="#exploring-the-natural-hazard-data" title="Permalink to this heading">#</a></h1>
+<h2>3. Exploring the natural hazard data<a class="headerlink" href="#exploring-the-natural-hazard-data" title="Permalink to this heading">#</a></h2>
 <hr><section id="id1">
-<h2>Windstorm Data<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h3>Windstorm Data<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>As you can see in the section above, we have downloaded the storm footprint in a zipfile. Let’s open the zipfile and load the dataset using the <code class="docutils literal notranslate"><span class="pre">xarray</span></code> package through the <code class="docutils literal notranslate"><span class="pre">open_dataset()</span></code> function.</p>
 <div class="cell docutils container">
@@ -677,7 +666,7 @@ document.write(`
 </div>
 </section>
 <section id="id2">
-<h2>Flood Data<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h3>Flood Data<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>And similarly, we want to open the flood map. But now we do not have to unzip the file anymore and we can directly open it through using <code class="docutils literal notranslate"><span class="pre">xarray</span></code>:</p>
 <div class="cell docutils container">
@@ -743,10 +732,10 @@ document.write(`
 </div></section>
 </section>
 <section id="downloading-and-exploring-land-cover-data-and-land-use-data">
-<h1>4. Downloading and exploring Land Cover data and Land Use data<a class="headerlink" href="#downloading-and-exploring-land-cover-data-and-land-use-data" title="Permalink to this heading">#</a></h1>
+<h2>4. Downloading and exploring Land Cover data and Land Use data<a class="headerlink" href="#downloading-and-exploring-land-cover-data-and-land-use-data" title="Permalink to this heading">#</a></h2>
 <hr><p>We will explore rasterized Corine Land Cover data and land use data retrieved from OpenStreetMap.</p>
 <section id="download-and-access-copernicus-land-cover-data">
-<h2>Download and access Copernicus Land Cover data<a class="headerlink" href="#download-and-access-copernicus-land-cover-data" title="Permalink to this heading">#</a></h2>
+<h3>Download and access Copernicus Land Cover data<a class="headerlink" href="#download-and-access-copernicus-land-cover-data" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>We will now download the <a class="reference external" href="https://land.copernicus.eu/pan-european/corine-land-cover">Corine Land Cover</a> data.</p>
 <p>To do so, we will first have to register ourselves again on the website. Now click on the Login button in the top right corner to login on the website. There are many interesting datasets on this website, but we just want to download the Corine Land Cover data, and specifically the latest version: <a class="reference external" href="https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=download">Corine Land Cover 2018</a>. To do so, click on the large green Download button. Now please select the <strong>Corine Land Cover - 100 meter</strong> and add this to your cart. Next, go to your cart and click on Process download request. After this, the requested data can be downloaded via the ‘downloading process page’. After hitting Download file, your download should start any minute.</p>
@@ -833,7 +822,7 @@ document.write(`
 </div>
 </section>
 <section id="extract-and-visualize-land-use-information-from-openstreetmap">
-<h2>Extract and visualize land-use information from OpenStreetMap<a class="headerlink" href="#extract-and-visualize-land-use-information-from-openstreetmap" title="Permalink to this heading">#</a></h2>
+<h3>Extract and visualize land-use information from OpenStreetMap<a class="headerlink" href="#extract-and-visualize-land-use-information-from-openstreetmap" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>Now let us visualize the bounding box of the area. As you will notice, we also estimate the size of the area. If the area size is above 50km2, or when you have many elements within your area (for example the amsterdam city centre), extracting the data from OpenStreetMap may take a little while.</p>
 <div class="cell docutils container">
@@ -1006,7 +995,7 @@ document.write(`
 <b>Question 6:</b> Please upload a figure of your land-use map, using OpenStreetMap. Feel free to change the visual appearance of the map to your liking
 </div></section>
 <section id="rasterize-land-use-information">
-<h2>Rasterize land-use information<a class="headerlink" href="#rasterize-land-use-information" title="Permalink to this heading">#</a></h2>
+<h3>Rasterize land-use information<a class="headerlink" href="#rasterize-land-use-information" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>As you have noticed already during the lecture, and as we have seen during TAA1 with the Google Earth Engine, most land-use data is in raster format.</p>
 <p>In OpenStreetMap everything is stored in vector format. As such, the land-use information we extracted from OpenStreetMap is also in vector format. While it is not always necessary to have this information in raster format, it is useful to know how to convert your data into a raster format.</p>
@@ -1198,7 +1187,7 @@ document.write(`
 </div></section>
 </section>
 <section id="perform-a-raster-based-damage-assessment-corine-land-cover">
-<h1>5. Perform a raster-based damage assessment Corine Land Cover<a class="headerlink" href="#perform-a-raster-based-damage-assessment-corine-land-cover" title="Permalink to this heading">#</a></h1>
+<h2>5. Perform a raster-based damage assessment Corine Land Cover<a class="headerlink" href="#perform-a-raster-based-damage-assessment-corine-land-cover" title="Permalink to this heading">#</a></h2>
 <hr><p>To calculate the potential damage to both windstorms and floods, we use stage-damage curves, which relate the intensity of the hazard to the fraction of maximum damage that can be sustained by a certain land use. As you can see on the Corine Land Cover map that we just plotted, there are a lot of land use classes (44), though not all will suffer damage from either the windstorm or the flood event. For each of the land-use classes a curve and a maximum damage number are assigned.</p>
 <p>To assess the damage for both the flood and windstorm event, we are going to make use of the <a class="reference external" href="https://damagescanner.readthedocs.io/en/latest/">DamageScanner</a>, which is a tool to calculate potential flood damages based on inundation depth and land use using depth-damage curves in the Netherlands. The DamageScanner was originally developed for the ‘Netherlands Later’ project <a class="reference external" href="https://www.rivm.nl/bibliotheek/digitaaldepot/WL_rapport_Overstromingsrisicos_Nederland.pdf">(Klijn et al., 2007)</a>.  The original land-use classes were based on the Land-Use Scanner in order to evaluate the effect of future land-use change on flood damages. We have tailored the input of the DamageScanner to make sure it can estimate the damages using Corine Land Cover.</p>
 <p>Because the simplicity of the model, we can use this for any raster-based hazard map with some level of intensity. Hence, we can use it for both hazards.</p>
@@ -1262,7 +1251,7 @@ document.write(`
 </div>
 </div>
 <section id="windstorm-damage">
-<h2>Windstorm Damage<a class="headerlink" href="#windstorm-damage" title="Permalink to this heading">#</a></h2>
+<h3>Windstorm Damage<a class="headerlink" href="#windstorm-damage" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>To estimate the potential damage of our windstorm, we use the vulnerability curves developed by <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2212420914000466">Yamin et al. (2014)</a>. Following <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2212420914000466">Yamin et al. (2014)</a>, we will apply a sigmoidal vulnerability function satisfying two constraints: (i) a minimum threshold for the occurrence of damage with an upper bound of 100% direct damage; (ii) a high power-law function for the slope, describing an increase in damage with increasing wind speeds. Due to the limited amount of vulnerability curves available for windstorm damage, we will use the damage curve that represents low-rise <em>reinforced masonry</em> buildings for all land-use classes that may contain buildings. Obviously, this is a large oversimplification of the real world, but this should be sufficient for this exercise. When doing a proper stand-alone windstorm risk assessment, one should take more effort in collecting the right vulnerability curves for different building types.</p>
 <div class="cell docutils container">
@@ -1434,7 +1423,7 @@ document.write(`
 </div>
 </section>
 <section id="flood-damage">
-<h2>Flood Damage<a class="headerlink" href="#flood-damage" title="Permalink to this heading">#</a></h2>
+<h3>Flood Damage<a class="headerlink" href="#flood-damage" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>To Assess the flood damage, we are again going to make use of the <a class="reference external" href="https://damagescanner.readthedocs.io/en/latest/">DamageScanner</a>. The Corine Land Cover data is widely used in European flood risk assessments. As such, we can simply make use of pre-developed curves. We are using the damage curves as developed by Huizinga et al. (2007). Again, let’s first load the maximum damages and the depth-damage curves:</p>
 <div class="cell docutils container">
@@ -1549,9 +1538,9 @@ document.write(`
 </div></section>
 </section>
 <section id="extracting-high-resolution-data-from-openstreetmap">
-<h1>6. Extracting high-resolution data from OpenStreetMap<a class="headerlink" href="#extracting-high-resolution-data-from-openstreetmap" title="Permalink to this heading">#</a></h1>
+<h2>6. Extracting high-resolution data from OpenStreetMap<a class="headerlink" href="#extracting-high-resolution-data-from-openstreetmap" title="Permalink to this heading">#</a></h2>
 <hr><section id="extracting-buildings-from-openstreetmap">
-<h2>Extracting buildings from OpenStreetMap<a class="headerlink" href="#extracting-buildings-from-openstreetmap" title="Permalink to this heading">#</a></h2>
+<h3>Extracting buildings from OpenStreetMap<a class="headerlink" href="#extracting-buildings-from-openstreetmap" title="Permalink to this heading">#</a></h3>
 <hr class="docutils" />
 <p>There is a lot more data to extract from OpenStreetMap besides land-use information. Let’s extract some building data. To do so, we use the <em>“building”</em> tag.</p>
 <div class="cell docutils container">
@@ -1689,7 +1678,7 @@ document.write(`
 </div></section>
 </section>
 <section id="perform-a-damage-assessment-of-the-road-network-using-openstreetmap">
-<h1>7. Perform a damage assessment of the road network using OpenStreetMap<a class="headerlink" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap" title="Permalink to this heading">#</a></h1>
+<h2>7. Perform a damage assessment of the road network using OpenStreetMap<a class="headerlink" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap" title="Permalink to this heading">#</a></h2>
 <hr><p>Generally, wind damage does not cause much damage to roads. There will be clean-up cost of the trees that will fall on the roads, but structural damage is rare. As such, we will only do a flood damage assessment for the road network of our region.</p>
 <p>To do so, we first need to extract the roads again. We will use the <code class="docutils literal notranslate"><span class="pre">graph_from_place()</span></code> function again to do so. However, the area will be to large to extract roads, so we will focus our analysis on the main network.</p>
 <div class="cell docutils container">
@@ -1955,6 +1944,7 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2010,38 +2000,36 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TAA2: Natural Hazard Risk Assessment using Open Data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-accessing-natural-hazard-data">2. Downloading and accessing natural hazard data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-data">Windstorm Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-data">Flood Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-location-to-explore">Set location to explore</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-accessing-natural-hazard-data">2. Downloading and accessing natural hazard data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-data">Windstorm Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-data">Flood Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-location-to-explore">Set location to explore</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-natural-hazard-data">3. Exploring the natural hazard data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Windstorm Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Flood Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-natural-hazard-data">3. Exploring the natural hazard data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Windstorm Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Flood Data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-exploring-land-cover-data-and-land-use-data">4. Downloading and exploring Land Cover data and Land Use data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-access-copernicus-land-cover-data">Download and access Copernicus Land Cover data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-and-visualize-land-use-information-from-openstreetmap">Extract and visualize land-use information from OpenStreetMap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">Rasterize land-use information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-exploring-land-cover-data-and-land-use-data">4. Downloading and exploring Land Cover data and Land Use data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-access-copernicus-land-cover-data">Download and access Copernicus Land Cover data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-and-visualize-land-use-information-from-openstreetmap">Extract and visualize land-use information from OpenStreetMap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterize-land-use-information">Rasterize land-use information</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-raster-based-damage-assessment-corine-land-cover">5. Perform a raster-based damage assessment Corine Land Cover</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">Windstorm Damage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-damage">Flood Damage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-raster-based-damage-assessment-corine-land-cover">5. Perform a raster-based damage assessment Corine Land Cover</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windstorm-damage">Windstorm Damage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-damage">Flood Damage</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-high-resolution-data-from-openstreetmap">6. Extracting high-resolution data from OpenStreetMap</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">Extracting buildings from OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-high-resolution-data-from-openstreetmap">6. Extracting high-resolution data from OpenStreetMap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-buildings-from-openstreetmap">Extracting buildings from OpenStreetMap</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-damage-assessment-of-the-road-network-using-openstreetmap">7. Perform a damage assessment of the road network using OpenStreetMap</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
