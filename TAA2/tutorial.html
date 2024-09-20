@@ -638,9 +638,7 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-success">
-<b>Question 1:</b> Describe windstorm Carmen. When did this event happen, which areas were most affected? Can you say something about the maximum wind speeds in different areas, based on the plot? And what does FX mean?
-</div><p>Unfortunately, our data does not have a proper coordinate system defined yet. As such, we will need to use the <code class="docutils literal notranslate"><span class="pre">rio.write_crs()</span></code> function to set the coordinate system to <strong>EPSG:4326</strong> (the standard global coordinate reference system).</p>
+<p>Unfortunately, our data does not have a proper coordinate system defined yet. As such, we will need to use the <code class="docutils literal notranslate"><span class="pre">rio.write_crs()</span></code> function to set the coordinate system to <strong>EPSG:4326</strong> (the standard global coordinate reference system).</p>
 <p>We also need to make sure that the functions will know what the exact parameters are that we have to use for our spatial dimenions (e.g. longitude and latitude). It prefers to be named <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. So we use the <code class="docutils literal notranslate"><span class="pre">rename()</span></code> function before we use the <code class="docutils literal notranslate"><span class="pre">set_spatial_dims()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -652,7 +650,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 2:</b> Climate data is often stored as a netCDF file. Please describe what a netCDF file is. Which information is stored in the netCDF file we have downloaded for the windstorm? What type of metadata does it contain?
+<b>Question 1:</b> Climate data is often stored as a netCDF file. Please describe what a netCDF file is. Which information is stored in the netCDF file we have downloaded for the windstorm? What type of metadata does it contain?
 </div><p>Following, we also make sure it will be in the European coordinate system <strong>EPSG:3035</strong> to ensure we can easily use it together with the other data. To do so, we use the <code class="docutils literal notranslate"><span class="pre">rio.reproject()</span></code> function. You can simple add the number of the coordinate system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -709,7 +707,7 @@ document.write(`
 <p>Now it is pretty difficult to explore the data for our area of interest, so let’s clip the flood data.</p>
 <p>We want to clip our flood data to our chosen area. The code, however, is very inefficient and will run into memories issues on Google Colab. As such, we first need to clip it by using a bounding box, followed by the actual clip.</p>
 <div class="alert alert-block alert-success">
-<b>Question 3:</b> Please provide the lines of code below in which you show how you have clipped the flood map to your area.
+<b>Question 2:</b> Please provide the lines of code below in which you show how you have clipped the flood map to your area.
 </div>
 <p><em>A few hints</em>:</p>
 <ul class="simple">
@@ -741,7 +739,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 4:</b> Now that we have both wind and flood maps, comment on their spatial resolution. What would the impact of the different in resolution for the outcome of your risk assessment?
+<b>Question 3:</b> Now that we have both wind and flood maps, comment on their spatial resolution. What would the impact of the different in resolution for the outcome of your risk assessment?
 </div></section>
 </section>
 <section id="downloading-and-exploring-land-cover-data-and-land-use-data">
@@ -833,9 +831,7 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-success">
-<b>Question 5:</b> Describe the different land-use classes within your region that you see on the Corine Land Cover map. Do you see any dominant land-use classes?
-</div></section>
+</section>
 <section id="extract-and-visualize-land-use-information-from-openstreetmap">
 <h2>Extract and visualize land-use information from OpenStreetMap<a class="headerlink" href="#extract-and-visualize-land-use-information-from-openstreetmap" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
@@ -907,7 +903,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 6:</b> Please provide in the answer box in Canvas the code that you used to make sure that all land uses are now registered within the landuse column.
+<b>Question 4:</b> Please provide in the answer box in Canvas the code that you used to make sure that all land uses are now registered within the landuse column.
 </div><p>We now create a <em>color_dict</em> like we have also done for the visualization of the land-use information to ensure we can visualize the data properly. This time, we use our own colorscheme.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -955,7 +951,7 @@ document.write(`
 </div>
 <p>In case anything is missing, add them to the color_dict dictionairy and re-run that cell.</p>
 <div class="alert alert-block alert-success">
-<b>Question 7:</b> Show us in Canvas (i) which land-use categories you had to add, and (ii) how your final color dictionary looks like.
+<b>Question 5:</b> Show us in Canvas (i) which land-use categories you had to add, and (ii) how your final color dictionary looks like.
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1007,7 +1003,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 8:</b> Please upload a figure of your land-use map, using OpenStreetMap. Feel free to change the visual appearance of the map to your liking
+<b>Question 6:</b> Please upload a figure of your land-use map, using OpenStreetMap. Feel free to change the visual appearance of the map to your liking
 </div></section>
 <section id="rasterize-land-use-information">
 <h2>Rasterize land-use information<a class="headerlink" href="#rasterize-land-use-information" title="Permalink to this heading">#</a></h2>
@@ -1198,7 +1194,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 9:</b> In the rasterization process, we use the `.make_geocube()` function. Please elaborate on the following: i)why is it important to specify the right coordinate system? What could happen if you choose the wrong coordinate system? ii) which resolution did you choose and why? iii)Why did the first result did not give us the right output with the correct colors? How did we solve this? Are you able to explain the code in your own words?
+<b>Question 7:</b> In the rasterization process, we use the `.make_geocube()` function. Please elaborate on the following: i)why is it important to specify the right coordinate system? What could happen if you choose the wrong coordinate system? ii) which resolution did you choose and why? iii)Why did the first result did not give us the right output with the correct colors? How did we solve this? Are you able to explain the code in your own words?
 </div></section>
 </section>
 <section id="perform-a-raster-based-damage-assessment-corine-land-cover">
@@ -1207,7 +1203,7 @@ document.write(`
 <p>To assess the damage for both the flood and windstorm event, we are going to make use of the <a class="reference external" href="https://damagescanner.readthedocs.io/en/latest/">DamageScanner</a>, which is a tool to calculate potential flood damages based on inundation depth and land use using depth-damage curves in the Netherlands. The DamageScanner was originally developed for the ‘Netherlands Later’ project <a class="reference external" href="https://www.rivm.nl/bibliotheek/digitaaldepot/WL_rapport_Overstromingsrisicos_Nederland.pdf">(Klijn et al., 2007)</a>.  The original land-use classes were based on the Land-Use Scanner in order to evaluate the effect of future land-use change on flood damages. We have tailored the input of the DamageScanner to make sure it can estimate the damages using Corine Land Cover.</p>
 <p>Because the simplicity of the model, we can use this for any raster-based hazard map with some level of intensity. Hence, we can use it for both hazards.</p>
 <div class="alert alert-block alert-success">
-<b>Question 10:</b>  Describe in your own words what the `DamageScanner()` function does. Please walk us through the different steps. Which inputs do you need to be able to run this damage assessment?
+<b>Question 8:</b>  Describe in your own words what the `DamageScanner()` function does. Please walk us through the different steps. Which inputs do you need to be able to run this damage assessment?
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DamageScanner</span><span class="p">(</span><span class="n">landuse_map</span><span class="p">,</span><span class="n">inun_map</span><span class="p">,</span><span class="n">curve_path</span><span class="p">,</span><span class="n">maxdam_path</span><span class="p">,</span><span class="n">cellsize</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
@@ -1403,7 +1399,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 11:</b>  Describe the various steps you have taken to make sure that the windstorm map is now exactly the same extent as the corine land cover map. Feel free to include lines of code in your answer and also describe the different functions you have used along the way.
+<b>Question 9:</b>  Describe the various steps you have taken to make sure that the windstorm map is now exactly the same extent as the corine land cover map. Feel free to include lines of code in your answer and also describe the different functions you have used along the way.
 </div><p>Now its finally time to do our damage assessment! To do so, we need to convert our data to <code class="docutils literal notranslate"><span class="pre">numpy.arrays()</span></code> to do our calculation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1474,7 +1470,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 12:</b>  Create a plot yourself to compare the results of both the windstorm and flood damage results. This could be a simple barplot, for example.
+<b>Question 10:</b>  Create a plot yourself to compare the results of both the windstorm and flood damage results. This could be a simple barplot, for example.
 </div><p>Now let’s try to do this again with the OpenStreetMap data. It would be most convenient to use the same damage curves, so we want to couple our OSM land-use information to the flood curves.</p>
 <p>Let’s first have a look at the column values:</p>
 <div class="cell docutils container">
@@ -1549,7 +1545,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 13:</b>  How do the results compare to the flood damages estimated with Corine Land Cover? Are you able to visualise the differences?
+<b>Question 11:</b>  How do the results compare to the flood damages estimated with Corine Land Cover? Are you able to visualise the differences?
 </div></section>
 </section>
 <section id="extracting-high-resolution-data-from-openstreetmap">
@@ -1596,7 +1592,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 14:</b>  Let's have a look at the extracted building information. Please describe in your own words the information it contains. Is there specific information that suprises you to see, and do you think anything is missing that you expected?
+<b>Question 12:</b>  Let's have a look at the extracted building information. Please describe in your own words the information it contains. Is there specific information that suprises you to see, and do you think anything is missing that you expected?
 </div><p>One interesting column is called <code class="docutils literal notranslate"><span class="pre">start_date</span></code>. This shows the building year per building.</p>
 <p>Let’s explore this year of building a bit more.</p>
 <p>First, it would be interesting to get an idea how many buildings are build in each year through using the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> function. Normally, that functions ranks the values in descending order (high to low). We are more interested in how this has developed over time. So we use the <code class="docutils literal notranslate"><span class="pre">sort_index()</span></code> function to sort the values by year. Add these two functions in the cell below.</p>
@@ -1620,7 +1616,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 15:</b>  Please upload a figure that shows the development of building stock over the years in your region of interest. Make sure it contains all the necessary elements (labels on the axis, title, etc.)
+<b>Question 13:</b>  Please upload a figure that shows the development of building stock over the years in your region of interest. Make sure it contains all the necessary elements (labels on the axis, title, etc.)
 </div><p>What we also noticed is that quite some buildings are identified as ‘yes’. This is not very useful as it does not really say much about the use of the building.</p>
 <p>Let’s see for how many buildings this is the case. Use the .value_counts function:</p>
 <div class="cell docutils container">
@@ -1689,7 +1685,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 16:</b>  Please upload a figure of your building stock map of your region of interest. Make sure that the interpretation is clear. If necessary, merge multiple categories into one (i.e., when some categories only contain 1 or 2 buildings).
+<b>Question 14:</b>  Please upload a figure of your building stock map of your region of interest. Make sure that the interpretation is clear. If necessary, merge multiple categories into one (i.e., when some categories only contain 1 or 2 buildings).
 </div></section>
 </section>
 <section id="perform-a-damage-assessment-of-the-road-network-using-openstreetmap">
@@ -1947,7 +1943,7 @@ document.write(`
 </div>
 </div>
 <div class="alert alert-block alert-success">
-<b>Question 17:</b> Describe the various steps we have taken to perform the damage assessment on the road network. How is this approach different compared to the raster-based approach? Highlight the differences you find most important. Include any line of code you may want to include to make your story clear.
+<b>Question 15:</b> Describe the various steps we have taken to perform the damage assessment on the road network. How is this approach different compared to the raster-based approach? Highlight the differences you find most important. Include any line of code you may want to include to make your story clear.
 </div><p>And let’s plot the results</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1958,9 +1954,7 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-success">
-<b>Question 18:</b> Describe the most severely damaged parts of the road network. Use Google Maps to identify these roads. Are you surprised by the results?
-</div></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
