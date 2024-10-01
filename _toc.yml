@@ -19,10 +19,10 @@ parts:
     chapters:
     - file: TAA1/lecture
     - file: TAA1/tutorial
-  # - caption: TAA2
-  #   chapters:
-  #   - file: TAA2/lecture
-  #   - file: TAA2/tutorial
+  - caption: TAA2
+    chapters:
+    - file: TAA2/lecture
+    - file: TAA2/tutorial
   # - caption: TAA3
   #   chapters:
   #   - file: TAA3/lecture
