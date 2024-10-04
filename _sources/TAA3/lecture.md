@@ -28,7 +28,17 @@ This week we will focus on how we can use Flickr data to map the spatial pattern
 `````
 
 ## Reading
-We will once again have a look at the book [An Introduction to Statistical Learning](https://www.stat.berkeley.edu/users/rabbee/s154/ISLR_First_Printing.pdf) by James, Witten, Hastie, and Tibshirani. This time, we take a look at unsupervised learning, specifically `K-Means` clustering. Specifically, read sections 10.1, 10.3.1, and 10.3.3 of the book. Section 10.3.2 is useful for those wanting to know more about clustering methods which don't need a pre-specified number of K, but it is not necessary to read it.
+
+### Streaming web data standards
+We recommend that you familiarize yourself with the standards for geospatial data processing - specifically:
+- [OGC standards, for understanding the standardization of geospatial ](https://opengeospatial.github.io/e-learning/ogc-standards/text/services-ogc.html)
+- [WFS, for accessing vector features](http://opengeospatial.github.io/e-learning/wfs/text/basic-main.html)
+- [WMTS, for loading (web map) tiles](https://opengeospatial.github.io/e-learning/wmts/text/operations.html)
+- [WCS, for spatio-temporal access to raster datasets](https://en.wikipedia.org/wiki/Web_Coverage_Service)
+And for those that want to go a little deeper, we recommend studying how [RESTful data](https://restfulapi.net/) is structured.
+
+### Clustering
+For clustering, we will once again have a look at the book [An Introduction to Statistical Learning](https://www.stat.berkeley.edu/users/rabbee/s154/ISLR_First_Printing.pdf) by James, Witten, Hastie, and Tibshirani. This time, we take a look at unsupervised learning, specifically `K-Means` clustering. Specifically, read sections 10.1, 10.3.1, and 10.3.3 of the book. Section 10.3.2 is useful for those wanting to know more about clustering methods which don't need a pre-specified number of K, but it is not necessary to read it.
 
 For those wanting to read a little bit more about the purpose of clustering, here are some suggestions for further reading and for inspiration on how clustering can further prove useful:
 - [Thunderstorm Environments in Europe](https://egusphere.copernicus.org/preprints/2023/egusphere-2022-1453/egusphere-2022-1453-manuscript-version2.pdf) - the authors use clustering to study thunderstorm variables

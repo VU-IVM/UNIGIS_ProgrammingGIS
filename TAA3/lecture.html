@@ -431,7 +431,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading">Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading">Reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-web-data-standards">Streaming web data standards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering">Clustering</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -459,13 +463,27 @@ document.write(`
 </div>
 <section id="reading">
 <h2>Reading<a class="headerlink" href="#reading" title="Permalink to this heading">#</a></h2>
-<p>We will once again have a look at the book <a class="reference external" href="https://www.stat.berkeley.edu/users/rabbee/s154/ISLR_First_Printing.pdf">An Introduction to Statistical Learning</a> by James, Witten, Hastie, and Tibshirani. This time, we take a look at unsupervised learning, specifically <code class="docutils literal notranslate"><span class="pre">K-Means</span></code> clustering. Specifically, read sections 10.1, 10.3.1, and 10.3.3 of the book. Section 10.3.2 is useful for those wanting to know more about clustering methods which don’t need a pre-specified number of K, but it is not necessary to read it.</p>
+<section id="streaming-web-data-standards">
+<h3>Streaming web data standards<a class="headerlink" href="#streaming-web-data-standards" title="Permalink to this heading">#</a></h3>
+<p>We recommend that you familiarize yourself with the standards for geospatial data processing - specifically:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://opengeospatial.github.io/e-learning/ogc-standards/text/services-ogc.html">OGC standards, for understanding the standardization of geospatial </a></p></li>
+<li><p><a class="reference external" href="http://opengeospatial.github.io/e-learning/wfs/text/basic-main.html">WFS, for accessing vector features</a></p></li>
+<li><p><a class="reference external" href="https://opengeospatial.github.io/e-learning/wmts/text/operations.html">WMTS, for loading (web map) tiles</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Web_Coverage_Service">WCS, for spatio-temporal access to raster datasets</a>
+And for those that want to go a little deeper, we recommend studying how <a class="reference external" href="https://restfulapi.net/">RESTful data</a> is structured.</p></li>
+</ul>
+</section>
+<section id="clustering">
+<h3>Clustering<a class="headerlink" href="#clustering" title="Permalink to this heading">#</a></h3>
+<p>For clustering, we will once again have a look at the book <a class="reference external" href="https://www.stat.berkeley.edu/users/rabbee/s154/ISLR_First_Printing.pdf">An Introduction to Statistical Learning</a> by James, Witten, Hastie, and Tibshirani. This time, we take a look at unsupervised learning, specifically <code class="docutils literal notranslate"><span class="pre">K-Means</span></code> clustering. Specifically, read sections 10.1, 10.3.1, and 10.3.3 of the book. Section 10.3.2 is useful for those wanting to know more about clustering methods which don’t need a pre-specified number of K, but it is not necessary to read it.</p>
 <p>For those wanting to read a little bit more about the purpose of clustering, here are some suggestions for further reading and for inspiration on how clustering can further prove useful:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://egusphere.copernicus.org/preprints/2023/egusphere-2022-1453/egusphere-2022-1453-manuscript-version2.pdf">Thunderstorm Environments in Europe</a> - the authors use clustering to study thunderstorm variables</p></li>
 <li><p><a class="reference external" href="https://ieeexplore.ieee.org/document/5691908">Analysis of urban heat island effect using k-means clustering</a> - The authors study the urban heat island effect in a similar fashion to the first paper</p></li>
 <li><p><a class="reference external" href="https://ore.exeter.ac.uk/repository/bitstream/handle/10871/125145/CameraReady_PID237.pdf?sequence=1&amp;isAllowed=y">Traffic Accidents Analytics in UK Urban Areas using k-means Clustering for Geospatial Mapping</a> - Applications on traffic accident data</p></li>
 </ul>
+</section>
 </section>
 </section>
 
@@ -514,7 +532,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading">Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading">Reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-web-data-standards">Streaming web data standards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering">Clustering</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
