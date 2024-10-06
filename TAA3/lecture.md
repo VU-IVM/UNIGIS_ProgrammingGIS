@@ -13,9 +13,9 @@ kernelspec:
   name: python3
 ---
 
-# Lecture: Social Media and Natural Language Processing (NLP)
+# Loading API data and data exploration
 
-This week we will focus on how we can use Flickr data to map the spatial patterns of images, and try to uncover people's preferences for photograph locations and content. We will also learn how to perform aggregation and clustering over data to better study them.
+This week we will focus on how we can use Flickr and loading web-hosted geodata from API services to map the spatial patterns of images. We will also learn how to perform data aggregation and clustering.
 
 `````{admonition} Learning objectives
 :class: important
