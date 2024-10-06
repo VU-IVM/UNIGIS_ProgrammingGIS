@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# Loading API data and data exploration
+# Lecture: Loading API geodata and clustering
 
 This week we will focus on how we can use Flickr and loading web-hosted geodata from API services to map the spatial patterns of images. We will also learn how to perform data aggregation and clustering.
 
