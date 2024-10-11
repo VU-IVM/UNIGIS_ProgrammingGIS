@@ -27,8 +27,8 @@ parts:
     chapters:
     - file: TAA3/lecture
     - file: TAA3/tutorial
-  # - caption: TAA4
-  #   chapters:
+  - caption: TAA4
+    chapters:
   #   - file: TAA4/lecture
-  #   - file: TAA4/assignment
+    - file: TAA4/assignment
 
