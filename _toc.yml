@@ -30,5 +30,5 @@ parts:
   - caption: TAA4
     chapters:
   #   - file: TAA4/lecture
-    - file: TAA4/assignment
+    - file: TAA4/tutorial
 
