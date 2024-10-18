@@ -566,7 +566,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Here, we download the population data from WorldPop, an open source platform. Select the country of interest from the WorldPop <a class="reference external" href="https://hub.worldpop.org/geodata/listing?id=62">website</a> and add the link to the URL below.</p>
+<p>Here, we download the population data from WorldPop, an open source platform. Select the country of interest from the WorldPop <a class="reference external" href="https://hub.worldpop.org/geodata/listing?id=69">website</a> and add the link to the URL below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;XXXX&quot;</span>
@@ -580,7 +580,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Now, we use a file with country borders from Natural Earth, to get boundries of the country of your interest.</p>
+<p>Now, we use a file with country borders from Natural Earth, to get the boundaries of the country of your interest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;https://github.com/nvkelso/natural-earth-vector/raw/master/10m_cultural/ne_10m_admin_0_countries.shp&quot;</span><span class="p">)</span>
@@ -631,9 +631,9 @@ document.write(`
 <span class="n">df_worldpop_</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;spatial_ref&#39;</span><span class="p">,</span><span class="s1">&#39;band&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 
 <span class="c1"># dynamically create a variable name for the DataFrame</span>
-<span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;df_pop_</span><span class="si">{</span><span class="n">country_iso3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="p">)</span>
+<span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;df_pop_</span><span class="si">{</span><span class="n">country_iso3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="p">)</span> 
 
-<span class="c1"># dynamically create a print statement that reflects the current country code</span>
+<span class="c1"># dynamically create a print statement that reflects the current country code (however df_worldpop_ would work as well)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The output is df_pop_</span><span class="si">{</span><span class="n">country_iso3</span><span class="si">}</span><span class="s2"> as a dataframe of the population data of </span><span class="si">{</span><span class="n">country_full_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
