@@ -30,17 +30,3 @@ table th:nth-of-type(2) {
 |Dr.-Ing. Shadi Shirazian||
 |:-:|:--|
 |<img src="../_static/images/shirazian-profile.jpg" class="bg-primary" width="150px">|Shadi Shirazian is a postdoctoral researcher in the department of Water and Climate Risk of the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam (VU). She holds a PhD in Civil Engineering and Environmental Science from the Karlsruhe Institute of Technology (KIT) in Germany, where her research was primarily focused on developing data reduction methodologies for stochastic seismic risk assessment of infrastructures. She develops solutions that not only advance academic understanding but also benefit communities facing the challenges of climate change and natural hazards.|
-
-&nbsp;
-&nbsp;  
-
-|Sadhana Nirandjan, MSc||
-|:-:|:--|
-|<img src="../_static/images/nirandjan-profile.jpg" class="bg-primary" width="150px">|Sadhana Nirandjan is a PhD researcher within the department of Water and Climate Risk (WCR) at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. In her current research, she aims to increase our understanding of the multi-hazard risk to critical infrastructure at the global scale. She developed the Critical Infrastructure Spatial Index (CISI) to identify the geospatial location of critical infrastructure and its density for each part of the world. Other aspects that are covered by her research are, under which, the vulnerability of assets, and the quantification of risks on our critical infrastructure due to natural hazards.
-
-&nbsp;
-&nbsp;  
-
-|Surender Raj, MSc||
-|:-:|:--|
-|<img src="../_static/images/raj-profile.jpg" class="bg-primary" width="150px">|Surender Raj is a Ph.D. candidate in the Water and Climate Risk (WCR) department at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. His research interests include infrastructure resilience, vulnerability modeling, and the economic impacts of natural hazards. His current research focusses on quantifying the macro economic impacts of infrastructure failures due to natural hazards. |
