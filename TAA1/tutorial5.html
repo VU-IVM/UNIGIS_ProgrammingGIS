@@ -1307,7 +1307,7 @@ Make sure that you save this file before you continue, else you will lose everyt
 <li><p>Reproject the single-band DEM raster from its original CRS to EPSG:4326 (WGS 84) using the <code class="docutils literal notranslate"><span class="pre">rasterio.warp.reproject</span></code> function.</p></li>
 <li><p>As you can see, rasterio can only do that by saving the new output as a new file.</p></li>
 </ul>
-<p><strong>Open the new file, and show the difference in CRS, resolution, width and height between the old and the new file</strong></p>
+<p><strong>Open the new file, and show the difference in CRS, resolution, width and height between the old and the new file. Explain why we have this difference.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
