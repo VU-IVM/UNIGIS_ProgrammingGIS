@@ -587,7 +587,7 @@ Make sure that you save this file before you continue, else you will lose everyt
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_file</span> <span class="o">=</span> <span class="s2">&quot;nyc_boroughs.shp&quot;</span>
-<span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -814,12 +814,65 @@ Make sure that you save this file before you continue, else you will lose everyt
 </section>
 <section id="exercises">
 <h2>9. Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Create a GeoDataFrame containing a list of countries and their capital cities. Add a geometry column with the locations of the capitals.</p></li>
-<li><p>Load a shapefile of your choice, filter the data to only include a specific region or country, and save the filtered GeoDataFrame to a new file.</p></li>
-<li><p>Perform a spatial join between two GeoDataFrames: one containing polygons (e.g., country borders) and one containing points (e.g., cities). Find out which points fall within which polygons.</p></li>
-<li><p>Plot a map showing the distribution of a particular attribute (e.g., population) across different regions.</p></li>
-</ol>
+<div class="alert alert-block alert-success">
+<b>Question 1:</b> Load the natural earth file of the world, and plot the population per country. 
+<ul class="simple">
+<li><p>The url to the natural earth file: https://github.com/nvkelso/natural-earth-vector/raw/master/10m_cultural/ne_10m_admin_0_countries.shp</p></li>
+<li><p>The column we want to show is called “POP_EST”</p></li>
+<li><p>Think about the colormap we want to use: https://matplotlib.org/stable/users/explain/colors/colormaps.html</p></li>
+<li><p>Think about the distribution of the data in the “schemes” option. You can choose, for example, “natural_breaks”, “quantiles” or “equal_interval”.</p></li>
+</ul>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create figure with specific size</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">world</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+           <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">legend_kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="s1">&#39;lower left&#39;</span><span class="p">})</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Population per country&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-success">
+<b>Question 2:</b> Perform a spatial join between the geodataframe we created at the start of this tutorial ("gdf") and the global data we just loaded from the internet ("world"). 
+<ul class="simple">
+<li><p>Set the CRS for the “gdf” dataframe, which was not set yet. The CRS is 4326.</p></li>
+<li><p>Check the documentation for the function we are going to use: https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.sjoin.html</p></li>
+<li><p>Think about the order of your spatial join. Do you merge the cities with the world data, or vice versa. If you try both, you can see there is a difference.</p></li>
+</ul>
+<p>What is the difference between the order your spatial join?</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">set_crs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">sjoin</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">world</span><span class="o">.</span><span class="n">sjoin</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 

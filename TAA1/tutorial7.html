@@ -457,11 +457,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-band-math-ndvi-calculation">8. Basic Band Math (NDVI Calculation)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9. Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">Sample Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-load-and-inspect-a-raster-dataset">Exercise 1: Load and Inspect a Raster Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-reproject-the-raster-to-a-new-crs">Exercise 2: Reproject the Raster to a New CRS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-clip-the-raster-using-a-bounding-box">Exercise 3: Clip the Raster Using a Bounding Box</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-mask-the-raster-using-a-vector-dataset">Exercise 4: Mask the Raster Using a Vector Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-resample-the-raster-to-a-different-resolution">Exercise 5: Resample the Raster to a Different Resolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-9-load-and-inspect-a-raster-dataset">Question 9: Load and Inspect a Raster Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10-reproject-the-raster-to-a-new-crs">Question 10: Reproject the Raster to a New CRS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-11-clip-the-raster-using-a-bounding-box">Question 11: Clip the Raster Using a Bounding Box</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-12-resample-the-raster-to-a-different-resolution">Question 12: Resample the Raster to a Different Resolution</a></li>
 </ul>
 </li>
 </ul>
@@ -881,40 +880,32 @@ To use `rioxarray`, you'll need to install it along with `rasterio` and its depe
 <p>For the exercises, we will use a sample GeoTIFF raster dataset of Libya, which is available at the following URL:
 https://github.com/opengeos/datasets/releases/download/raster/Libya-2023-09-13.tif</p>
 </section>
-<section id="exercise-1-load-and-inspect-a-raster-dataset">
-<h3>Exercise 1: Load and Inspect a Raster Dataset<a class="headerlink" href="#exercise-1-load-and-inspect-a-raster-dataset" title="Permalink to this heading">#</a></h3>
+<section id="question-9-load-and-inspect-a-raster-dataset">
+<h3>Question 9: Load and Inspect a Raster Dataset<a class="headerlink" href="#question-9-load-and-inspect-a-raster-dataset" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> to load the GeoTIFF raster file.</p></li>
 <li><p>Inspect the dataset by printing its dimensions, coordinates, and attributes.</p></li>
 <li><p>Check and print the CRS and affine transformation of the dataset.</p></li>
 </ol>
 </section>
-<section id="exercise-2-reproject-the-raster-to-a-new-crs">
-<h3>Exercise 2: Reproject the Raster to a New CRS<a class="headerlink" href="#exercise-2-reproject-the-raster-to-a-new-crs" title="Permalink to this heading">#</a></h3>
+<section id="question-10-reproject-the-raster-to-a-new-crs">
+<h3>Question 10: Reproject the Raster to a New CRS<a class="headerlink" href="#question-10-reproject-the-raster-to-a-new-crs" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Reproject the loaded raster dataset from its original CRS to EPSG:4326 (WGS84).</p></li>
 <li><p>Print the new CRS and check the dimensions and coordinates of the reprojected data.</p></li>
 <li><p>Plot the original and reprojected datasets for comparison.</p></li>
 </ol>
 </section>
-<section id="exercise-3-clip-the-raster-using-a-bounding-box">
-<h3>Exercise 3: Clip the Raster Using a Bounding Box<a class="headerlink" href="#exercise-3-clip-the-raster-using-a-bounding-box" title="Permalink to this heading">#</a></h3>
+<section id="question-11-clip-the-raster-using-a-bounding-box">
+<h3>Question 11: Clip the Raster Using a Bounding Box<a class="headerlink" href="#question-11-clip-the-raster-using-a-bounding-box" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Define a bounding box (e.g., <code class="docutils literal notranslate"><span class="pre">xmin</span></code>, <code class="docutils literal notranslate"><span class="pre">ymin</span></code>, <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, <code class="docutils literal notranslate"><span class="pre">ymax</span></code>) that covers the land area of Libya.</p></li>
 <li><p>Clip the raster dataset using this bounding box.</p></li>
 <li><p>Plot the clipped data to visualize the result.</p></li>
 </ol>
 </section>
-<section id="exercise-4-mask-the-raster-using-a-vector-dataset">
-<h3>Exercise 4: Mask the Raster Using a Vector Dataset<a class="headerlink" href="#exercise-4-mask-the-raster-using-a-vector-dataset" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Load the GeoJSON file at https://github.com/opengeos/datasets/releases/download/raster/Derna_Libya.geojson using <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>.</p></li>
-<li><p>Use the GeoJSON to mask the raster dataset, keeping only the data within the GeoJSON boundaries.</p></li>
-<li><p>Plot the masked raster data.</p></li>
-</ol>
-</section>
-<section id="exercise-5-resample-the-raster-to-a-different-resolution">
-<h3>Exercise 5: Resample the Raster to a Different Resolution<a class="headerlink" href="#exercise-5-resample-the-raster-to-a-different-resolution" title="Permalink to this heading">#</a></h3>
+<section id="question-12-resample-the-raster-to-a-different-resolution">
+<h3>Question 12: Resample the Raster to a Different Resolution<a class="headerlink" href="#question-12-resample-the-raster-to-a-different-resolution" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Resample the raster dataset to a 3m resolution, using an average resampling method.</p></li>
 <li><p>Check the new dimensions and coordinates after resampling.</p></li>
@@ -1015,11 +1006,10 @@ https://github.com/opengeos/datasets/releases/download/raster/Libya-2023-09-13.t
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-band-math-ndvi-calculation">8. Basic Band Math (NDVI Calculation)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9. Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">Sample Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-load-and-inspect-a-raster-dataset">Exercise 1: Load and Inspect a Raster Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-reproject-the-raster-to-a-new-crs">Exercise 2: Reproject the Raster to a New CRS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-clip-the-raster-using-a-bounding-box">Exercise 3: Clip the Raster Using a Bounding Box</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-mask-the-raster-using-a-vector-dataset">Exercise 4: Mask the Raster Using a Vector Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-resample-the-raster-to-a-different-resolution">Exercise 5: Resample the Raster to a Different Resolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-9-load-and-inspect-a-raster-dataset">Question 9: Load and Inspect a Raster Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10-reproject-the-raster-to-a-new-crs">Question 10: Reproject the Raster to a New CRS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-11-clip-the-raster-using-a-bounding-box">Question 11: Clip the Raster Using a Bounding Box</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-12-resample-the-raster-to-a-different-resolution">Question 12: Resample the Raster to a Different Resolution</a></li>
 </ul>
 </li>
 </ul>

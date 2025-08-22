@@ -465,11 +465,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">12. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-exploring-a-new-dataset">Exercise 1: Exploring a New Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-data-selection-and-indexing">Exercise 2: Data Selection and Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-arithmetic-operations">Exercise 3: Performing Arithmetic Operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-groupby-and-resampling">Exercise 4: GroupBy and Resampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-writing-data-to-netcdf">Exercise 5: Writing Data to netCDF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-6-exploring-a-new-dataset">Question 6: Exploring a New Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-7-data-selection-and-indexing">Question 7: Data Selection and Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-8-performing-arithmetic-operations">Question 8: Performing Arithmetic Operations</a></li>
 </ul>
 </li>
 </ul>
@@ -936,8 +934,8 @@ Make sure that you save this file before you continue, else you will lose everyt
 </section>
 <section id="exercises">
 <h2>12. Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
-<section id="exercise-1-exploring-a-new-dataset">
-<h3>Exercise 1: Exploring a New Dataset<a class="headerlink" href="#exercise-1-exploring-a-new-dataset" title="Permalink to this heading">#</a></h3>
+<section id="question-6-exploring-a-new-dataset">
+<h3>Question 6: Exploring a New Dataset<a class="headerlink" href="#question-6-exploring-a-new-dataset" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Load the Xarray tutorial dataset <code class="docutils literal notranslate"><span class="pre">rasm</span></code>.</p></li>
 <li><p>Inspect the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> object and list all the variables and dimensions.</p></li>
@@ -945,37 +943,20 @@ Make sure that you save this file before you continue, else you will lose everyt
 <li><p>Print the attributes, dimensions, and coordinates of <code class="docutils literal notranslate"><span class="pre">Tair</span></code>.</p></li>
 </ol>
 </section>
-<section id="exercise-2-data-selection-and-indexing">
-<h3>Exercise 2: Data Selection and Indexing<a class="headerlink" href="#exercise-2-data-selection-and-indexing" title="Permalink to this heading">#</a></h3>
+<section id="question-7-data-selection-and-indexing">
+<h3>Question 7: Data Selection and Indexing<a class="headerlink" href="#question-7-data-selection-and-indexing" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Select a subset of the <code class="docutils literal notranslate"><span class="pre">Tair</span></code> data for the date <code class="docutils literal notranslate"><span class="pre">1980-07-01</span></code> and latitude <code class="docutils literal notranslate"><span class="pre">70.0</span></code>.</p></li>
 <li><p>Create a time slice for the entire latitude range between January and March of 1980.</p></li>
 <li><p>Plot the selected time slice as a line plot.</p></li>
 </ol>
 </section>
-<section id="exercise-3-performing-arithmetic-operations">
-<h3>Exercise 3: Performing Arithmetic Operations<a class="headerlink" href="#exercise-3-performing-arithmetic-operations" title="Permalink to this heading">#</a></h3>
+<section id="question-8-performing-arithmetic-operations">
+<h3>Question 8: Performing Arithmetic Operations<a class="headerlink" href="#question-8-performing-arithmetic-operations" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Compute the mean of the <code class="docutils literal notranslate"><span class="pre">Tair</span></code> data over the <code class="docutils literal notranslate"><span class="pre">time</span></code> dimension.</p></li>
 <li><p>Subtract the computed mean from the original <code class="docutils literal notranslate"><span class="pre">Tair</span></code> dataset to get the temperature anomalies.</p></li>
 <li><p>Plot the mean temperature and the anomalies on separate plots.</p></li>
-</ol>
-</section>
-<section id="exercise-4-groupby-and-resampling">
-<h3>Exercise 4: GroupBy and Resampling<a class="headerlink" href="#exercise-4-groupby-and-resampling" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">groupby</span></code> to calculate the seasonal mean temperature (<code class="docutils literal notranslate"><span class="pre">Tair</span></code>).</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">resample</span></code> to calculate the monthly mean temperature for 1980.</p></li>
-<li><p>Plot the seasonal mean for each season and the monthly mean.</p></li>
-</ol>
-</section>
-<section id="exercise-5-writing-data-to-netcdf">
-<h3>Exercise 5: Writing Data to netCDF<a class="headerlink" href="#exercise-5-writing-data-to-netcdf" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Select the temperature anomalies calculated in Exercise 3.</p></li>
-<li><p>Convert the <code class="docutils literal notranslate"><span class="pre">Tair</span></code> variable to <code class="docutils literal notranslate"><span class="pre">float32</span></code> to optimize file size.</p></li>
-<li><p>Write the anomalies data to a new netCDF file named <code class="docutils literal notranslate"><span class="pre">tair_anomalies.nc</span></code>.</p></li>
-<li><p>Load the data back from the file and print its contents.</p></li>
 </ol>
 </section>
 </section>
@@ -1080,11 +1061,9 @@ Make sure that you save this file before you continue, else you will lose everyt
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">12. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-exploring-a-new-dataset">Exercise 1: Exploring a New Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-data-selection-and-indexing">Exercise 2: Data Selection and Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-arithmetic-operations">Exercise 3: Performing Arithmetic Operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-groupby-and-resampling">Exercise 4: GroupBy and Resampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-writing-data-to-netcdf">Exercise 5: Writing Data to netCDF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-6-exploring-a-new-dataset">Question 6: Exploring a New Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-7-data-selection-and-indexing">Question 7: Data Selection and Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-8-performing-arithmetic-operations">Question 8: Performing Arithmetic Operations</a></li>
 </ul>
 </li>
 </ul>
