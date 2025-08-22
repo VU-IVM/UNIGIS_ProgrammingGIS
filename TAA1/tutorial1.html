@@ -62,7 +62,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'week1/tutorial1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TAA1/tutorial1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Tutorial 2: Introduction to NumPy and Pandas" href="tutorial2.html" />
@@ -174,17 +174,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../course_basics/teachers.html">Teachers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_basics/schedule.html">Course schedule</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA1</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial 1: Introduction to Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial2.html">Tutorial 2: Introduction to NumPy and Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial3.html">Tutorial 3: Introduction to Data Analysis</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA1</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../TAA1/lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial.html">Tutorial 1: Land-cover classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial4.html">Tutorial 4: GeoPandas</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="tutorial5.html">Tutorial 5: Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial6.html">Tutorial 6:  Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial7.html">Tutorial 7:  Rioxarray</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA2</span></p>
 <ul class="nav bd-sidenav">
@@ -193,12 +192,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA3</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../TAA3/lecture.html">Lecture: Loading API geodata and clustering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../TAA3/tutorial.html">Tutorial 3: Accessing web-hosted geo-data and clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA3/lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA3/tutorial.html">Tutorial 1: Land-cover classification</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA4</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../TAA4/tutorial.html">TAA4: Accessibility to healthcare facilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA4/lecture.html">Lecture: Loading API geodata and clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA4/tutorial.html">Tutorial 3: Accessing web-hosted geo-data and clustering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../TAA5/tutorial.html">TAA4: Accessibility to healthcare facilities</a></li>
 </ul>
 
     </div>
@@ -253,7 +258,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/VU-IVM/UNIGIS_ProgrammingGIS/blob/main/week1/tutorial1.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/VU-IVM/UNIGIS_ProgrammingGIS/blob/main/TAA1/tutorial1.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +306,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/VU-IVM/UNIGIS_ProgrammingGIS/issues/new?title=Issue%20on%20page%20%2Fweek1/tutorial1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/VU-IVM/UNIGIS_ProgrammingGIS/issues/new?title=Issue%20on%20page%20%2FTAA1/tutorial1.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +336,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/week1/tutorial1.ipynb" target="_blank"
+      <li><a href="../_sources/TAA1/tutorial1.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -477,13 +482,11 @@ document.write(`
 <p>In this first tutorial we will deal with the basics of Python and Jupyter Notebooks.</p>
 <div class="alert alert-block alert-info">
 <b>Note:</b> This tutorial is heavily based upon the work of <a href="https://www.tomasbeuzen.com/python-programming-for-data-science/">others</a>
-</div><div class="alert alert-block alert-danger">
-<b>Important:</b> This tutorial is not part of your final grade. You simply have to pass it by answering the questions.
 </div><section id="important-before-we-start">
 <h2>Important before we start<a class="headerlink" href="#important-before-we-start" title="Permalink to this heading">#</a></h2>
 <hr>
 Make sure that you save this file before you continue, else you will lose everything. To do so, go to Bestand/File and click on Een kopie opslaan in Drive/Save a Copy on Drive!
-<p>Now, rename the file into Week1_Tutorial1.ipynb. You can do so by clicking on the name in the top of this screen.</p>
+<p>Now, rename the file into TAA1_Tutorial1.ipynb. You can do so by clicking on the name in the top of this screen.</p>
 </section>
 <section id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
@@ -1893,7 +1896,7 @@ Make sure that you save this file before you continue, else you will lose everyt
         },
         kernelOptions: {
             name: "python3",
-            path: "./week1"
+            path: "./TAA1"
         },
         predefinedOutput: true
     }

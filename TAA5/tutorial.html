@@ -1,0 +1,1491 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>TAA4: Accessibility to healthcare facilities &#8212; UNIGIS - Big Data in Sustainability Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TAA5/tutorial';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Tutorial 3: Accessing web-hosted geo-data and clustering" href="../TAA4/tutorial.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="UNIGIS - Big Data in Sustainability Science - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="UNIGIS - Big Data in Sustainability Science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/course_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/teachers.html">Teachers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_basics/schedule.html">Course schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial1.html">Tutorial 1: Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial2.html">Tutorial 2: Introduction to NumPy and Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial3.html">Tutorial 3: Introduction to Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial4.html">Tutorial 4: GeoPandas</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial5.html">Tutorial 5: Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial6.html">Tutorial 6:  Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial7.html">Tutorial 7:  Rioxarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../TAA2/lecture.html">Lecture: Big Data in the public domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA2/tutorial.html">TAA2: Natural Hazard Risk Assessment using Open Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../TAA3/lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA3/tutorial.html">Tutorial 1: Land-cover classification</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../TAA4/lecture.html">Lecture: Loading API geodata and clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA4/tutorial.html">Tutorial 3: Accessing web-hosted geo-data and clustering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA5</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TAA4: Accessibility to healthcare facilities</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/VU-IVM/UNIGIS_ProgrammingGIS/blob/main/TAA5/tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IVM/UNIGIS_ProgrammingGIS" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IVM/UNIGIS_ProgrammingGIS/issues/new?title=Issue%20on%20page%20%2FTAA5/tutorial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/TAA5/tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TAA4: Accessibility to healthcare facilities</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-packages">Prepare the packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download-and-preparation">2. Data download and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-of-rural-and-urban-areas">3. Classification of rural and urban areas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up">Set-up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-training-validation-data">Set-up training &amp; validation data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-image-variables-to-include">Calculate image variables to include</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-clc2018-and-sample-data">Load CLC2018 and sample data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-on-training-validation-set">Optimize on training &amp; validation set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-on-test-set">Run on test set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-resulting-image">Export resulting image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlay-urban-and-rural-classification-with-population-and-healthcare-information">3. Overlay urban and rural classification with population and Healthcare information</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-population-data-points-and-assigning-them-to-their-nearest-hospital">4. Clustering population data points and assigning them to their nearest hospital.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-evaluate-baseline-results">5. Explore and evaluate baseline results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-and-plot-population-per-healthcare-facility">Identify and plot population per healthcare facility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-hazard-disruption">6. Natural hazard disruption</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-flood-data">Download flood data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlay-flood-data-with-hospitals">Overlay flood data with Hospitals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlay-flood-data-with-healthcare-facilities">Overlay flood data with healthcare facilities</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-final-task">7. Your Final Task</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-task-here-will-be">Your task here will be:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="taa4-accessibility-to-healthcare-facilities">
+<h1>TAA4: Accessibility to healthcare facilities<a class="headerlink" href="#taa4-accessibility-to-healthcare-facilities" title="Permalink to this heading">#</a></h1>
+<p>In this tutorial, we wrap up what you have learned in TAA1-3 by demonstrating their applications and connections. For a European country of your choice, we collect data on the population and their health facilities. Using a classification method, we add rural and urban features to the population data points. Then, with a clustering algorithm, we group population points based on their coordinates and assign each cluster to its closest hospitals. This allows us to calculate the total urban and rural demand for each hospital. Next, we assess the impact of flooding on the hospitals, distinguishing between damaged and undamaged facilities.</p>
+<p>In the aftermath of the flood, the number of hospitals in service has changed. Your task will be to repeat the clustering process, assign the new clusters to the intact hospitals, and then calculate their urban and rural demand in the post-flood conditions.</p>
+<section id="important-before-we-start">
+<h2>Important before we start<a class="headerlink" href="#important-before-we-start" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Make sure that you save this file before you continue, else you will lose everything. To do so, go to <strong>Bestand/File</strong> and click on <strong>Een kopie opslaan in Drive/Save a Copy on Drive</strong>!</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To extract, prepare and manipulate geospatial information</p></li>
+<li><p>To run a classification algorithm to identify urban and rural land use.</p></li>
+<li><p>To overlay raster and vector information.</p></li>
+<li><p>To cluster different geospatial layers.</p></li>
+<li><p>To visualise geospatial information.</p></li>
+</ul>
+<hr>
+</section>
+<section id="prepare-the-packages">
+<h2>Prepare the packages<a class="headerlink" href="#prepare-the-packages" title="Permalink to this heading">#</a></h2>
+<hr><p>Before we can start, we need to install several packages. Most of you, you have seen before in the previous tutorials!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>rasterio<span class="w"> </span>rioxarray<span class="w"> </span>contextily<span class="w"> </span>osm_flex<span class="w"> </span>exactextract
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will import these packages in the cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard Library Imports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="c1"># Data Manipulation and Analysis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rxr</span>
+
+<span class="c1"># Machine Learning</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sklearn</span>  <span class="c1"># General import if other sklearn modules are needed</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="c1"># Geometry and Spatial Analysis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shapely</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">Resampling</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">cdist</span>
+
+<span class="c1"># Earth Engine and Geospatial Libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">osm_flex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">osm_flex</span><span class="w"> </span><span class="kn">import</span> <span class="n">download</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">exactextract</span><span class="w"> </span><span class="kn">import</span> <span class="n">exact_extract</span>
+
+<span class="c1"># Visualization</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ctx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-download-and-preparation">
+<h2>2. Data download and preparation<a class="headerlink" href="#data-download-and-preparation" title="Permalink to this heading">#</a></h2>
+<p>Define a country of your interest and a size for gridding and a randomSeed.</p>
+<p>We use the ISO3 code of the country to select it from the data. Please have a look online yourself if you do not know the ISO3 code of your country (it is widely used within geospatial analysis).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_full_name</span> <span class="o">=</span> <span class="s1">&#39;XXX&#39;</span> <span class="c1"># add full name of the country</span>
+<span class="n">country_iso3</span> <span class="o">=</span> <span class="s1">&#39;XXX&#39;</span> <span class="c1"># add ISO3 code of the country.</span>
+<span class="n">upscale_factor</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># our population data that we will upscale to a lower resolution in a</span>
+                      <span class="c1">#later stage, will have to be converted from 100x100m to something more useful (such as 10x10km)</span>
+
+<span class="c1">### Set global seeds ###</span>
+<span class="n">random_seed</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PYTHONHASHSEED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we download the population data from WorldPop, an open source platform. Select the country of interest from the WorldPop <a class="reference external" href="https://hub.worldpop.org/geodata/listing?id=69">website</a> and add the link to the URL below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;XXXX&quot;</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;ppp_2018_1km_Aggregated.tif&#39;</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="n">world_pop</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;rasterio&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we use a file with country borders from Natural Earth, to get the boundaries of the country of your interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;https://github.com/nvkelso/natural-earth-vector/raw/master/10m_cultural/ne_10m_admin_0_countries.shp&quot;</span><span class="p">)</span>
+
+<span class="c1"># And we want to take the country boundaries and geometry</span>
+<span class="n">country_bounds</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">world</span><span class="o">.</span><span class="n">ADM0_ISO</span> <span class="o">==</span> <span class="n">country_iso3</span><span class="p">]</span><span class="o">.</span><span class="n">bounds</span>
+<span class="n">country_geom</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">world</span><span class="o">.</span><span class="n">ADM0_ISO</span> <span class="o">==</span> <span class="n">country_iso3</span><span class="p">]</span><span class="o">.</span><span class="n">geometry</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check if the country_bounds and country_geom are not empty. If not empty, you selected an existing ISO3 code!</p>
+<p>Now, we use the derived boundries to clip the population data from worldpop, to get the population of our country. We use the <strong>rio.clip_box(</strong> and <strong>rio.cip(</strong> function again. We used those before in TAA4. Apply them here to clip the world_pop data, to make sure it for sure fits the same spatial extent as the hospital data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">world_pop_national</span> <span class="o">=</span> <span class="n">world_pop</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span><span class="n">minx</span><span class="o">..</span>
+
+                    <span class="p">)</span>
+<span class="n">world_pop_national</span> <span class="o">=</span> <span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">XX</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The worldpop data is stored as 100 by 100m grid. This will be too computationally intensive if we would use that resolution. As such, we reproject the to a lower resolution. This will help us to perform the analyis more smoothly. We use the <em>upscale_factor</em> as defined at the start of this subsection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="n">upscale_factor</span><span class="p">)</span>
+<span class="n">new_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="n">upscale_factor</span><span class="p">)</span>
+
+<span class="n">worldpop_Grided</span> <span class="o">=</span> <span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span>
+    <span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
+    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span> <span class="n">new_width</span><span class="p">),</span>
+    <span class="n">resampling</span><span class="o">=</span><span class="n">Resampling</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we remove the missing data from our data points and create a GeoDataFrame for our country.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_worldpop_</span> <span class="o">=</span> <span class="n">worldpop_Grided</span><span class="o">.</span><span class="n">band_data</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">df_worldpop_</span> <span class="o">=</span> <span class="n">df_worldpop_</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df_worldpop_</span><span class="o">.</span><span class="n">band_data</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># create geometry values and drop lat lon columns</span>
+<span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span><span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]))))</span>
+
+<span class="n">df_worldpop_</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;spatial_ref&#39;</span><span class="p">,</span><span class="s1">&#39;band&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># dynamically create a variable name for the DataFrame</span>
+<span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;df_pop_</span><span class="si">{</span><span class="n">country_iso3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="p">)</span> 
+
+<span class="c1"># dynamically create a print statement that reflects the current country code (however df_worldpop_ would work as well)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The output is df_pop_</span><span class="si">{</span><span class="n">country_iso3</span><span class="si">}</span><span class="s2"> as a dataframe of the population data of </span><span class="si">{</span><span class="n">country_full_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And Lets plot the population points of our country of interest.</p>
+<p><strong>Q: Make sure you provide a plot with all its characteristics (title, good colors etc).</strong></p>
+<p>Our next step is to extract information of healthcare facilities for the country of interest. We do so using OpenStreetMap. With the latest version of geopandas, it is now possible to directly read <strong>osm.pbf</strong> files from OpenStreetMap.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">Country_GeofabrikData_path</span> <span class="o">=</span> <span class="n">download</span><span class="o">.</span><span class="n">get_country_geofabrik</span><span class="p">(</span><span class="n">country_iso3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Healthcare facilities are stored as <em>multipolygons</em> within OpenStreetMap, and we want to download all clinics and hospitals. Depending on the country, this may take a while.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HealthCenters</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">Country_GeofabrikData_path</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;XXX&quot;</span><span class="p">)</span>
+
+<span class="n">sub_types</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;XX&#39;</span><span class="p">,</span> <span class="s1">&#39;XX&#39;</span><span class="p">]</span>
+<span class="n">HealthCenters</span> <span class="o">=</span> <span class="n">HealthCenters</span><span class="p">[</span><span class="n">HealthCenters</span><span class="p">[</span><span class="s1">&#39;amenity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sub_types</span><span class="p">)]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># to convert polygons to their centroids</span>
+<span class="n">HealthCenters_centroids</span> <span class="o">=</span> <span class="n">HealthCenters</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">HealthCenters_centroids</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">HealthCenters</span><span class="o">.</span><span class="n">centroid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check the content of our generated HealthCenters_centroids GeoDataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HealthCenters</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s visualize the hospitals locations.</p>
+<p>If you want to use the contextily basemaps, you need to temporarily reproject the data to EPSG:3857 to add the basemap.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output is HealthCenters_centroids as a dataframe of the Health Centers&quot;</span><span class="p">)</span>
+
+<span class="c1">#plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">HealthCenters_centroids</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1">#cx.add_basemap(ax, crs=&#39;EPSG:4326&#39;, source=cx.providers.OpenStreetMap.Mapnik, zoom=8)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="classification-of-rural-and-urban-areas">
+<h2>3. Classification of rural and urban areas<a class="headerlink" href="#classification-of-rural-and-urban-areas" title="Permalink to this heading">#</a></h2>
+<p>As you remember, we checked the content of the population data, and there was no information regarding urban or rural areas. Therefore, we need to add this information to our dataset. So, we will use an approach similar to what you learned in TAA1, but for the sake of processing efficiency, we will use Earth Engine’s built-in classifier packages rather than scikit-learn. In this situation we are interested in only two land cover classes: rural and urban. We will have to reclassify the raster, train a model to distinguish between these timesteps, and finally perform the classification on recent images.</p>
+<!--  -->
+<p>We have pre-filled most of the code in this section, and you will use a few new tricks to perform the classification. Beyond that, we challenge you to leverage what you have learned in TAA1 to improve the performance of the model, by any means you see fit. You will be evaluated on your reasoning, as well as the creativity of the approaches.</p>
+<section id="set-up">
+<h3>Set-up<a class="headerlink" href="#set-up" title="Permalink to this heading">#</a></h3>
+<p>First, set up your Earth Engine environment as you did before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;XXX&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-up-training-validation-data">
+<h3>Set-up training &amp; validation data<a class="headerlink" href="#set-up-training-validation-data" title="Permalink to this heading">#</a></h3>
+<p>We will make use of the following data sources:</p>
+<ol class="arabic simple">
+<li><p>Administrative country boundary to clip to the area of interest</p></li>
+<li><p>Sentinel-2 satellite images at 10x10m resolution</p></li>
+<li><p>CORINE Land Cover (CLC)</p></li>
+</ol>
+<p>For the satellite image, we take the S2 median image over the summer to improve sensitivity to single-capture conditions. The median image is taken over the summer, so that we exclude seasonal dynamics. Finally, we clip this image to the country extent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the region of interest (ROI)</span>
+<span class="n">country_ROI</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s2">&quot;FAO/GAUL/2015/level0&quot;</span><span class="p">)</span> \
+                <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;ADM0_NAME&#39;</span><span class="p">,</span> <span class="n">country_full_name</span><span class="p">))</span>
+
+<span class="c1"># Load Sentinel-2 Image Collection</span>
+<span class="n">sentinel2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s2">&quot;COPERNICUS/S2_HARMONIZED&quot;</span><span class="p">)</span> \
+             <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">country_ROI</span><span class="o">.</span><span class="n">geometry</span><span class="p">())</span> \
+             <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2018-06-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-08-31&#39;</span><span class="p">)</span> \
+             <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="s1">&#39;CLOUDY_PIXEL_PERCENTAGE&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Create a median composite to reduce cloud cover</span>
+<span class="n">mosaic_image</span> <span class="o">=</span> <span class="n">sentinel2</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">country_ROI</span><span class="o">.</span><span class="n">geometry</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show on map to verify that it’s loaded</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bands</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Fill in this list yourself</span>
+<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="p">,</span> <span class="s1">&#39;bands&#39;</span><span class="p">:</span> <span class="n">bands</span><span class="p">}</span>  <span class="c1"># Limit upper range so you can see detail</span>
+
+<span class="nb">map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="c1"># dynamically center the map on the selected country (ROI)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">country_ROI</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># adding the mosaic image layer for the selected country</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">mosaic_image</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="s2">&quot;Sentinel-2_2018&quot;</span><span class="p">)</span>
+
+<span class="nb">map</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-image-variables-to-include">
+<h3>Calculate image variables to include<a class="headerlink" href="#calculate-image-variables-to-include" title="Permalink to this heading">#</a></h3>
+<p>Next, we will compute variables to use for our classifier. We have provided the examples you’ve already seen for TAA1, but we challenge you to add your own variables. You can get inspiration from anywhere, but be sure that you are able to explain the reasoning behind including each variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_s2_variables</span><span class="p">(</span><span class="n">s2_image</span><span class="p">):</span>
+    <span class="c1"># Calculate additional spectral indices</span>
+    <span class="n">dvi</span> <span class="o">=</span> <span class="n">s2_image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">s2_image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B4&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;DVI&#39;</span><span class="p">)</span>
+    <span class="n">ndvi</span> <span class="o">=</span> <span class="n">s2_image</span><span class="o">.</span><span class="n">normalizedDifference</span><span class="p">([</span><span class="s1">&#39;B5&#39;</span><span class="p">,</span> <span class="s1">&#39;B4&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;NDVI&#39;</span><span class="p">)</span>
+    <span class="n">ndwi</span> <span class="o">=</span> <span class="n">s2_image</span><span class="o">.</span><span class="n">normalizedDifference</span><span class="p">([</span><span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;B5&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;NDWI&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add indices to the image</span>
+    <span class="n">s2_image</span> <span class="o">=</span> <span class="n">s2_image</span><span class="o">.</span><span class="n">addBands</span><span class="p">([</span><span class="n">dvi</span><span class="p">,</span> <span class="n">ndvi</span><span class="p">,</span> <span class="n">ndwi</span><span class="p">])</span>
+
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       ToDo: Add your own variables!</span>
+
+<span class="sd">       Think about what you learned in TAA1 - how else can you compute information</span>
+<span class="sd">       from the spectral bands to include? Look at some papers for inspiration,</span>
+<span class="sd">       or try something out yourself. There&#39;s more than just indices that can help here!</span>
+
+<span class="sd">       Don&#39;t forget to add them to the image after you create them!</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># Define neighborhood size (e.g., 3x3)</span>
+
+    <span class="c1"># Calculate neighborhood statistics</span>
+
+
+        <span class="c1"># Add additional statistics here, such as min, max, etc., if desired.</span>
+
+        <span class="c1"># Append neighborhood bands to the list</span>
+
+    <span class="c1"># Add neighborhood statistics to the image</span>
+
+
+    <span class="k">return</span> <span class="n">s2_image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mosaic_image</span> <span class="o">=</span> <span class="n">make_s2_variables</span><span class="p">(</span><span class="n">mosaic_image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use these bands for prediction</span>
+<span class="c1"># DON&#39;T FORGET to add your own variables when you make them!</span>
+<span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;B4&#39;</span><span class="p">,</span> <span class="s1">&#39;B5&#39;</span><span class="p">,</span> <span class="s1">&#39;B6&#39;</span><span class="p">,</span> <span class="s1">&#39;B7&#39;</span><span class="p">]</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span> <span class="s1">&#39;DVI&#39;</span><span class="p">]</span>
+<span class="n">img_bands</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">bands</span><span class="p">,</span> <span class="o">*</span><span class="n">indices</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-clc2018-and-sample-data">
+<h3>Load CLC2018 and sample data<a class="headerlink" href="#load-clc2018-and-sample-data" title="Permalink to this heading">#</a></h3>
+<p>Now, let’s load labels from CORINE and classify the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/CORINE/V20/100m/2018&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;landcover&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">mosaic_image</span><span class="o">.</span><span class="n">geometry</span><span class="p">())</span>
+<span class="n">lc_points</span> <span class="o">=</span> <span class="n">CLC</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span>
+    <span class="o">**</span><span class="p">{</span>
+        <span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="n">mosaic_image</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span>
+        <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="s1">&#39;numPixels&#39;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="c1"># Change this as you see fit</span>
+        <span class="s1">&#39;seed&#39;</span><span class="p">:</span> <span class="n">random_seed</span><span class="p">,</span>
+        <span class="s1">&#39;geometries&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s reclassify the dataset to a binary urban/rural dataset. The choice how to do this is yours, and can be as easy or complicated as you like it to be. As a reminder, CLC consists of a <a class="reference external" href="https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/">3-digit hierarchy</a>, so you can pick which classes you want to include and exclude.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generalize_clc_class</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+    <span class="n">lc_value</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;landcover&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Check if the first character is &#39;1&#39;</span>
+    <span class="n">set_value</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">lc_value</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Set the new binary value for the &#39;landcover&#39; property</span>
+    <span class="k">return</span> <span class="n">feature</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;landcover&#39;</span><span class="p">,</span> <span class="n">set_value</span><span class="p">)</span>
+
+<span class="n">lc_reference_pts</span> <span class="o">=</span> <span class="n">lc_points</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">generalize_clc_class</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q: Briefly explain which classes you included for the urban/rural re-classification.</strong></p>
+<p>Let’s make training/validation splits. You can customize this however you see fit, but we suggest balanced sampling, where you control how many positive and how many negative samples are included during training/validation, so as to not over/under-sample one or the other.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the land cover labels column</span>
+<span class="n">label_col</span> <span class="o">=</span> <span class="s1">&#39;landcover&#39;</span>
+
+<span class="c1"># Filter points by label</span>
+
+<span class="c1"># Allow a maximum of 2-to-1 difference in negative vs positive class sampling</span>
+
+<span class="c1"># Merge the samples</span>
+
+
+<span class="c1"># Split into training and validation sets</span>
+<span class="n">training_sample</span> <span class="o">=</span> <span class="n">balanced_sample</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;random &lt;= 0.8&#39;</span><span class="p">)</span>
+<span class="n">validation_sample</span> <span class="o">=</span> <span class="n">balanced_sample</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;random &gt; 0.8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Sample regions for training and validation datasets</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">mosaic_image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">img_bands</span><span class="p">)</span><span class="o">.</span><span class="n">sampleRegions</span><span class="p">(</span>
+    <span class="n">collection</span><span class="o">=</span><span class="n">training_sample</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="n">label_col</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+
+<span class="n">val_data</span> <span class="o">=</span> <span class="n">mosaic_image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">img_bands</span><span class="p">)</span><span class="o">.</span><span class="n">sampleRegions</span><span class="p">(</span>
+    <span class="n">collection</span><span class="o">=</span><span class="n">validation_sample</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="n">label_col</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q: Describe your sampling approach. Which approach did you go with, and what is the rationale behind it?</strong></p>
+</section>
+<section id="optimize-on-training-validation-set">
+<h3>Optimize on training &amp; validation set<a class="headerlink" href="#optimize-on-training-validation-set" title="Permalink to this heading">#</a></h3>
+<p>Now that we have sampled data, we will iteratively improve the model. How you want to approach this is up to you, we only provide the basic process here. In TAA1 we taught you a few methods and concepts that you can build on. To give some suggestions:</p>
+<ol class="arabic simple">
+<li><p>Analyze the confusion matrix</p></li>
+<li><p>Look at different metrics that might be more informative - for instance, precision and recall</p></li>
+<li><p>Look at redundant variables - you learned this in scikit-learn, but EE has options for this too if you want to search for it.</p></li>
+</ol>
+<p>It’s up to you how to approach this, but we recommend to document what worked and what didn’t work so that you have an easier time reporting your results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the model</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Classifier</span><span class="o">.</span><span class="n">smileRandomForest</span><span class="p">(</span><span class="n">numberOfTrees</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">minLeafPopulation</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maxNodes</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">trained_classifier</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">train_data</span><span class="p">,</span> <span class="n">classProperty</span><span class="o">=</span><span class="n">label_col</span><span class="p">,</span> <span class="n">inputProperties</span><span class="o">=</span><span class="n">img_bands</span><span class="p">)</span>
+
+<span class="c1"># Apply the classifier to the validation data</span>
+<span class="n">classified_val</span> <span class="o">=</span> <span class="n">val_data</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">trained_classifier</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s analyze your results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate metrics</span>
+<span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">classified_val</span><span class="o">.</span><span class="n">errorMatrix</span><span class="p">(</span><span class="n">label_col</span><span class="p">,</span> <span class="s1">&#39;classification&#39;</span><span class="p">)</span>
+<span class="n">val_accuracy</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="o">.</span><span class="n">accuracy</span><span class="p">()</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="o">.</span><span class="n">kappa</span><span class="p">()</span>
+
+<span class="c1"># Package all metrics into a single dictionary</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span>
+    <span class="s1">&#39;Accuracy&#39;</span><span class="p">:</span> <span class="n">val_accuracy</span><span class="p">,</span>
+    <span class="s1">&#39;Kappa&#39;</span><span class="p">:</span> <span class="n">kappa</span>
+<span class="p">})</span>
+
+<span class="c1"># Retrieve all metrics in one call</span>
+<span class="n">metrics_info</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+
+<span class="c1"># Print all metrics</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation Metrics:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">metrics_info</span><span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kappa: </span><span class="si">{</span><span class="n">metrics_info</span><span class="p">[</span><span class="s1">&#39;Kappa&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q: Describe the changes you made to the ‘standard’ approach.</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Why did you make these changes</strong></p></li>
+<li><p><strong>which impact did each change have on your analysis?</strong></p></li>
+<li><p><strong>Which things did you try that did not work out?</strong></p></li>
+</ol>
+</section>
+<section id="run-on-test-set">
+<h3>Run on test set<a class="headerlink" href="#run-on-test-set" title="Permalink to this heading">#</a></h3>
+<p>Now, we load recent test images to classify recent urban extent. We take a median image over August 2024.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Sentinel-2 Image Collection</span>
+<span class="n">test_sentinel2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s2">&quot;COPERNICUS/S2_HARMONIZED&quot;</span><span class="p">)</span> \
+             <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">country_ROI</span><span class="o">.</span><span class="n">geometry</span><span class="p">())</span> \
+             <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2024-08-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-08-31&#39;</span><span class="p">)</span> \
+             <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="s1">&#39;CLOUDY_PIXEL_PERCENTAGE&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Create a median composite to reduce cloud cover</span>
+<span class="n">test_mosaic_image</span> <span class="o">=</span> <span class="n">sentinel2</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">country_ROI</span><span class="o">.</span><span class="n">geometry</span><span class="p">())</span>
+
+<span class="c1"># Add variables</span>
+<span class="n">test_mosaic_image</span> <span class="o">=</span> <span class="n">make_s2_variables</span><span class="p">(</span><span class="n">test_mosaic_image</span><span class="p">)</span>
+
+<span class="c1"># Add to map object</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">test_mosaic_image</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="s2">&quot;test-Sentinel-2-2024&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s visualize the results calculated over the entire test image</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classify the test image</span>
+<span class="n">classified_image</span> <span class="o">=</span> <span class="n">test_mosaic_image</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">trained_classifier</span><span class="p">)</span>
+
+<span class="c1"># Define the color mapping dictionary</span>
+<span class="n">clc_colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span> <span class="c1"># Rural</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span> <span class="c1"># Urban</span>
+<span class="p">}</span>
+
+<span class="c1"># Convert string labels to numeric codes</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">classify_to_numeric</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="c1"># Create a dictionary that maps string labels to numeric values</span>
+    <span class="n">label_to_numeric</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">index</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clc_colors</span><span class="o">.</span><span class="n">keys</span><span class="p">())}</span>
+
+    <span class="c1"># Convert string label to numeric value</span>
+    <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">remap</span><span class="p">(</span>
+        <span class="nb">list</span><span class="p">(</span><span class="n">label_to_numeric</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+        <span class="nb">list</span><span class="p">(</span><span class="n">label_to_numeric</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="p">)</span>
+
+<span class="c1"># Convert the classified image</span>
+<span class="n">numeric_classified_image</span> <span class="o">=</span> <span class="n">classify_to_numeric</span><span class="p">(</span><span class="n">classified_image</span><span class="p">)</span>
+
+<span class="c1"># Generate a palette for visualization</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="n">clc_colors</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">clc_colors</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+
+<span class="c1"># Add the numeric classified image to the map</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">numeric_classified_image</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="n">palette</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">clc_colors</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">},</span> <span class="s1">&#39;Classified Image&#39;</span><span class="p">)</span>
+<span class="nb">map</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are no metrics to calculate here - after all, we’re trying to update our reference data. Instead, visually evaluate if you’re happy with the results. When you’re happy with the results, proceed to the next block to export the data from Earth Engine into our local environment.</p>
+<p>(<strong>hint:</strong> don’t go for perfect, this is very hard to achieve in the current setting)</p>
+<p><strong>Q: Describe your map and your results in general.</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Where do you still see errors? Are these systemic?</strong></p></li>
+<li><p><strong>How could you further improve your product to clean these up?</strong> <strong>bold text</strong></p></li>
+<li><p><strong>Was there anything you wanted to try, but were unable to?</strong></p></li>
+</ol>
+</section>
+<section id="export-resulting-image">
+<h3>Export resulting image<a class="headerlink" href="#export-resulting-image" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">ee_export_image</span><span class="p">(</span><span class="n">classified_image</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;urban_rural_raster.tif&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">file_per_band</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">urban_raster</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;urban_rural_raster.tif&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;rasterio&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="overlay-urban-and-rural-classification-with-population-and-healthcare-information">
+<h3>3. Overlay urban and rural classification with population and Healthcare information<a class="headerlink" href="#overlay-urban-and-rural-classification-with-population-and-healthcare-information" title="Permalink to this heading">#</a></h3>
+<p>First, open the urban_rural dataset you just downloaded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">urban_rural</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataarray</span><span class="p">(</span><span class="s1">&#39;XX&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this step, we overlay the resulting urban/rural raster image from the previous section onto our population data point. a binary categorical variable, unban_rural, will be added to each data point, where 1 represents urban and 0 represents rural.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">urban_rural</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="n">urban_rural</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">x_dim</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">x</span><span class="p">),</span>
+                    <span class="n">urban_rural</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">y_dim</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">y</span><span class="p">),</span>
+                <span class="p">},</span>
+                <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">df_worldpop_</span><span class="p">[</span><span class="s2">&quot;urban_rural&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="c1">### add the values</span>
+<span class="n">df_worldpop_</span><span class="p">[</span><span class="s2">&quot;urban_rural&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="c1">### fill the not a numbers with zeros.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>lets check the resulted calssified population, as mentioned 1 means urban and 0 rural.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_worldpop_</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="clustering-population-data-points-and-assigning-them-to-their-nearest-hospital">
+<h2>4. Clustering population data points and assigning them to their nearest hospital.<a class="headerlink" href="#clustering-population-data-points-and-assigning-them-to-their-nearest-hospital" title="Permalink to this heading">#</a></h2>
+<p>In this section, we first add a local_ID to all hospitals to make sure each one has a unique id to be refered to later. then we create clusters of population. In this regard, we use K-means clustering algorithm with k equal to the number of hospitals. then calculate the sum of rural population each cluster as well as the urban population.  then we calcualte the euclidean distance of each center of cluster to all hospitals and assessing the hospital that has the minimum distance to them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">HealthCenters_centroids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### 1st step: Add Local_ID to the HealthCenters_centroids GeoDataFrame</span>
+<span class="n">HealthCenters_centroids</span><span class="p">[</span><span class="s1">&#39;Local_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">HealthCenters_centroids</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 2nd step: Ensure both GeoDataFrames are in the same CRS (EPSG:4326)</span>
+<span class="n">HealthCenters_centroids</span> <span class="o">=</span> <span class="n">HealthCenters_centroids</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span>
+
+<span class="c1"># Convert geometries to a list of coordinates (for KMeans)</span>
+<span class="n">pop_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">geom</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">geom</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">geom</span> <span class="ow">in</span> <span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]])</span>
+<span class="n">pop_band_data</span> <span class="o">=</span> <span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;band_data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Extract the hospital coordinates</span>
+<span class="n">hospital_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">geom</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">geom</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">geom</span> <span class="ow">in</span> <span class="n">HealthCenters_centroids</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]])</span>
+<span class="n">hospital_local_ids</span> <span class="o">=</span> <span class="n">HealthCenters_centroids</span><span class="p">[</span><span class="s1">&#39;Local_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">hospital_geometries</span> <span class="o">=</span> <span class="n">HealthCenters_centroids</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1">### 3rd step: K-Means</span>
+<span class="c1"># Ensure that the number of clusters is equal to the number of hospital coordinates</span>
+<span class="n">n_clusters</span> <span class="o">=</span>
+
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_seed</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="n">hospital_coords</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># using hospital locations as initial centers</span>
+
+<span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">pop_coords</span><span class="p">)</span>
+
+<span class="c1"># Get cluster centers (latitude &amp; longitude)</span>
+<span class="n">cluster_centers</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
+
+<span class="c1">### 4th step: calculate the sum of urban and rural populations in each cluster</span>
+<span class="c1"># group by cluster and urban/rural status then sum up the populations</span>
+
+<span class="c1"># rural population (urban_rural = 0)</span>
+<span class="n">rural_population_by_cluster</span> <span class="o">=</span> <span class="n">df_worldpop_</span><span class="p">[</span><span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;urban_rural&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cluster&#39;</span><span class="p">)[</span><span class="s1">&#39;band_data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">),</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># urban population (urban_rural = 1)</span>
+<span class="n">urban_population_by_cluster</span> <span class="o">=</span> <span class="n">df_worldpop_</span><span class="p">[</span><span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;urban_rural&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cluster&#39;</span><span class="p">)[</span><span class="s1">&#39;band_data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">),</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># to create a new DataFrame for clusters with the total urban and rural population</span>
+<span class="n">clusters_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;cluster&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">),</span>
+    <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">cluster_centers</span><span class="p">],</span>
+    <span class="s1">&#39;urban_population&#39;</span><span class="p">:</span> <span class="n">urban_population_by_cluster</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;rural_population&#39;</span><span class="p">:</span> <span class="n">rural_population_by_cluster</span><span class="o">.</span><span class="n">values</span>
+<span class="p">})</span>
+
+<span class="c1">### 5th step: assign the nearest hospital to the related cluster</span>
+<span class="c1"># distances between each cluster center and each health facility center</span>
+<span class="n">distances</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="n">hospital_coords</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+
+<span class="c1"># the index of the nearest hospital for each cluster</span>
+<span class="n">nearest_hospital_idx</span> <span class="o">=</span> <span class="n">distances</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># assign the nearest hospital Local_ID and geometry to each cluster center</span>
+<span class="n">clusters_df</span><span class="p">[</span><span class="s1">&#39;nearest_hospital_local_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">hospital_local_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">nearest_hospital_idx</span><span class="p">]</span>
+<span class="n">clusters_df</span><span class="p">[</span><span class="s1">&#39;nearest_hospital_geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">hospital_geometries</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">nearest_hospital_idx</span><span class="p">]</span>
+
+<span class="c1">### 6th step: convert to GeoDataFrame and set CRS</span>
+<span class="n">clusters_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">clusters_df</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">)</span>
+<span class="n">clusters_gdf</span><span class="o">.</span><span class="n">set_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># review the content of the resulting clusters dataframe</span>
+<span class="n">clusters_gdf</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="explore-and-evaluate-baseline-results">
+<h2>5. Explore and evaluate baseline results<a class="headerlink" href="#explore-and-evaluate-baseline-results" title="Permalink to this heading">#</a></h2>
+<p><strong>Q: Plot cluster centers and the location of hospitals</strong></p>
+<section id="identify-and-plot-population-per-healthcare-facility">
+<h3>Identify and plot population per healthcare facility<a class="headerlink" href="#identify-and-plot-population-per-healthcare-facility" title="Permalink to this heading">#</a></h3>
+<p>Here, we calculate the urban and rural demand for services for each hospital by summing the populations in each cluster assigned to the hospitals. We also calculate the total demand for each hospital.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculating the total rural and urban demand (population) of each hospital</span>
+<span class="n">hospital_population</span> <span class="o">=</span> <span class="n">clusters_gdf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;nearest_hospital_local_id&#39;</span><span class="p">)[[</span><span class="s1">&#39;urban_population&#39;</span><span class="p">,</span> <span class="s1">&#39;rural_population&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># now we merge the population data back to the HealthCenters_centroids GeoDataFrame</span>
+<span class="n">hospital_population_merged</span> <span class="o">=</span> <span class="n">HealthCenters_centroids</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">hospital_population</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Local_ID&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;nearest_hospital_local_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+<span class="c1"># also we sum up rural and urban demand to get the total demand of each hospital as well</span>
+<span class="n">hospital_population_merged</span><span class="p">[</span><span class="s1">&#39;total_population&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hospital_population_merged</span><span class="p">[</span><span class="s1">&#39;urban_population&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">hospital_population_merged</span><span class="p">[</span><span class="s1">&#39;rural_population&#39;</span><span class="p">]</span>
+
+<span class="c1"># display the demand of hospitals</span>
+<span class="n">hospital_population_merged</span><span class="p">[[</span><span class="s1">&#39;Local_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;urban_population&#39;</span><span class="p">,</span> <span class="s1">&#39;rural_population&#39;</span><span class="p">,</span> <span class="s1">&#39;total_population&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;total_population&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q: Plot the Hospital locations and their total demand</strong></p>
+<p>Now we check if there is any hospital that has not been assigned to any population cluster.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assigned_hospitals</span> <span class="o">=</span> <span class="n">clusters_gdf</span><span class="p">[</span><span class="s1">&#39;nearest_hospital_local_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="n">unassigned_hospitals</span> <span class="o">=</span> <span class="n">HealthCenters_centroids</span><span class="p">[</span><span class="o">~</span><span class="n">HealthCenters_centroids</span><span class="p">[</span><span class="s1">&#39;Local_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">assigned_hospitals</span><span class="p">)]</span>
+
+<span class="k">if</span> <span class="n">unassigned_hospitals</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All hospitals are assigned to at least one cluster.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;following hospitals are not assigned to any cluster:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">unassigned_hospitals</span><span class="p">[[</span><span class="s1">&#39;Local_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="natural-hazard-disruption">
+<h2>6. Natural hazard disruption<a class="headerlink" href="#natural-hazard-disruption" title="Permalink to this heading">#</a></h2>
+<section id="download-flood-data">
+<h3>Download flood data<a class="headerlink" href="#download-flood-data" title="Permalink to this heading">#</a></h3>
+<p>The flood data we will extract from a repository maintained by the World Resources Institute. We will download river flood hazard maps from their <a class="reference external" href="https://wri-projects.s3.amazonaws.com/AqueductFloodTool/download/v2/index.html">Flood Data Collection</a>.</p>
+<p>Here we do not need to use an API and we also do not need to register ourselves, so we can download any of the files directly. In case you do not have any flood impacts. You could select a more extreme future scenario. But let’s first download the 1/1000 river flood event under historic conditions.</p>
+</section>
+<section id="overlay-flood-data-with-hospitals">
+<h3>Overlay flood data with Hospitals<a class="headerlink" href="#overlay-flood-data-with-hospitals" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_map_path</span> <span class="o">=</span> <span class="s2">&quot;XX&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_map</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">flood_map_path</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;rasterio&quot;</span><span class="p">)</span>
+<span class="n">flood_map</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, this is a very large dataset again. Let’s make our life a little bit more relaxed by clipping the map to our country of interest. We use the <strong>rio.clip_box</strong> function to do so.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_lon</span> <span class="o">=</span>  <span class="n">country_geom</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">minx</span><span class="o">.</span>
+<span class="n">min_lat</span> <span class="o">=</span>  <span class="c1">#complete function</span>
+<span class="n">max_lon</span> <span class="o">=</span>  <span class="c1">#complete function</span>
+<span class="n">max_lat</span> <span class="o">=</span>  <span class="c1">#complete function</span>
+
+<span class="n">flood_map_area</span> <span class="o">=</span> <span class="n">flood_map</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span><span class="n">minx</span><span class="o">=</span><span class="n">min_lon</span><span class="p">,</span><span class="n">miny</span><span class="o">=</span><span class="n">min_lat</span><span class="p">,</span><span class="n">maxx</span><span class="o">=</span><span class="n">max_lon</span><span class="p">,</span><span class="n">maxy</span><span class="o">=</span><span class="n">max_lat</span><span class="p">)</span> <span class="c1">#complete function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And plot the data to explore how it looks.</p>
+<p>And make sure you convert it to a coordinate system in meters, to do a correct overlay in the following step.</p>
+</section>
+<section id="overlay-flood-data-with-healthcare-facilities">
+<h3>Overlay flood data with healthcare facilities<a class="headerlink" href="#overlay-flood-data-with-healthcare-facilities" title="Permalink to this heading">#</a></h3>
+<p>The next step is to overlay the flood data with the healthcare facilities. To do so, we will estimate the potential damage that can occur to the various hospitals in the country of interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_get_damage_per_object</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">curves</span><span class="p">,</span> <span class="n">cell_area_m2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate damage for a given asset based on hazard information.</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        *asset*: Tuple containing information about the asset. It includes:</span>
+<span class="sd">            - Index or identifier of the asset (asset[0]).</span>
+<span class="sd">            - Asset-specific information, including hazard points (asset[1][&#39;hazard_point&#39;]).</span>
+<span class="sd">        *maxdam_dict*: Maximum damage value.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        *tuple*: A tuple containing the asset index or identifier and the calculated damage.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">asset</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">geom_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Polygon&quot;</span><span class="p">,</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+        <span class="n">coverage</span> <span class="o">=</span> <span class="n">asset</span><span class="p">[</span><span class="s2">&quot;coverage&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cell_area_m2</span>
+    <span class="k">elif</span> <span class="n">asset</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">geom_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;LineString&quot;</span><span class="p">,</span> <span class="s2">&quot;MultiLineString&quot;</span><span class="p">):</span>
+        <span class="n">coverage</span> <span class="o">=</span> <span class="n">asset</span><span class="p">[</span><span class="s2">&quot;coverage&quot;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">asset</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">geom_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Point&quot;</span><span class="p">):</span>
+        <span class="n">coverage</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Geometry type </span><span class="si">{</span><span class="n">asset</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">geom_type</span><span class="si">}</span><span class="s2"> not supported&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+                <span class="n">asset</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">],</span> <span class="n">curves</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">curves</span><span class="p">[</span><span class="n">asset</span><span class="p">[</span><span class="s2">&quot;amenity&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+            <span class="p">)</span>
+            <span class="o">*</span> <span class="n">coverage</span>
+        <span class="p">)</span>
+        <span class="o">*</span> <span class="n">asset</span><span class="p">[</span><span class="s2">&quot;maximum_damage&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We predefine some simple maximum damages and vulnerability curves. Feel free to adjust the damages and curves if you found better information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maxdam</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hospital&quot;</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span>
+        <span class="s2">&quot;clinic&quot;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">curves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">50</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">150</span><span class="p">,</span><span class="mf">0.6</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">200</span><span class="p">,</span><span class="mf">0.8</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">250</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">curves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">curves</span><span class="p">,</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">curves</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]]</span><span class="o">*</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">maxdam</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)))),</span>
+                           <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">curves</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">curves</span><span class="p">)</span>
+<span class="n">curves</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">maxdam</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">curves</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;depth&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we apply <strong>exact_extract</strong> to assess the overlay between the flood data and the Healthcare facilities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values_and_coverage_per_object</span> <span class="o">=</span> <span class="n">exact_extract</span><span class="p">(</span>
+            <span class="n">flood_map</span><span class="p">,</span>
+            <span class="n">HealthCenters</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">3857</span><span class="p">),</span>
+            <span class="p">[</span><span class="s2">&quot;coverage&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">=</span><span class="s2">&quot;pandas&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we merge the <strong>HealthCenters</strong> data and the <strong>values_and_coverage_per_object data</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HealthCenters</span> <span class="o">=</span> <span class="n">HealthCenters</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span> <span class="n">XXX</span> <span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And assign a maximum damage per subtype.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HealthCenters</span><span class="p">[</span><span class="s1">&#39;maximum_damage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">HealthCenters</span><span class="o">.</span><span class="n">amenity</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">maxdam</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now assess the potential damage. The cell_area should correspond to the cell_size of the flood map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HealthCenters</span><span class="p">[</span><span class="s1">&#39;damage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">HealthCenters</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">_object</span><span class="p">:</span> <span class="n">_get_damage_per_object</span><span class="p">(</span><span class="n">_object</span><span class="p">,</span> <span class="n">curves</span><span class="p">,</span> <span class="n">cell_area_m2</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="mi">1000</span><span class="p">),</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And lets explore the results. Perhaps plot them again?</p>
+</section>
+</section>
+<section id="your-final-task">
+<h2>7. Your Final Task<a class="headerlink" href="#your-final-task" title="Permalink to this heading">#</a></h2>
+<p>As you saw, due to a flood with a 1000-year return period, some hospitals may be out of service. Therefore, we need to estimate the post-flood urban/rural demand for services from the hospitals that remain operational.</p>
+<section id="your-task-here-will-be">
+<h3>Your task here will be:<a class="headerlink" href="#your-task-here-will-be" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Create new clusters of populations and assign them to the remaining hospitals, then determine the post-disaster demand for these hospitals.</p></li>
+<li><p>Calculate the urban, rural and total demand (population in need of services) for each hospital.</p></li>
+<li><p>Plot the remaining hospitals vs their total population in need of service.</p></li>
+<li><p>Let us know how many hospitals were affected by the flood and the total number of rural residents who need to find an alternative hospital.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./TAA5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../TAA4/tutorial.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorial 3: Accessing web-hosted geo-data and clustering</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-packages">Prepare the packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download-and-preparation">2. Data download and preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-of-rural-and-urban-areas">3. Classification of rural and urban areas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up">Set-up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-training-validation-data">Set-up training &amp; validation data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-image-variables-to-include">Calculate image variables to include</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-clc2018-and-sample-data">Load CLC2018 and sample data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-on-training-validation-set">Optimize on training &amp; validation set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-on-test-set">Run on test set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-resulting-image">Export resulting image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlay-urban-and-rural-classification-with-population-and-healthcare-information">3. Overlay urban and rural classification with population and Healthcare information</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-population-data-points-and-assigning-them-to-their-nearest-hospital">4. Clustering population data points and assigning them to their nearest hospital.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-evaluate-baseline-results">5. Explore and evaluate baseline results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-and-plot-population-per-healthcare-facility">Identify and plot population per healthcare facility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-hazard-disruption">6. Natural hazard disruption</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-flood-data">Download flood data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlay-flood-data-with-hospitals">Overlay flood data with Hospitals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlay-flood-data-with-healthcare-facilities">Overlay flood data with healthcare facilities</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-final-task">7. Your Final Task</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-task-here-will-be">Your task here will be:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Elco Koks & Dr Alex Levering
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

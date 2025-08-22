@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'TAA2/tutorial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lecture: Loading API geodata and clustering" href="../TAA3/lecture.html" />
+    <link rel="next" title="Lecture: Introduction to Statistical Learning on Geospatial Data" href="../TAA3/lecture.html" />
     <link rel="prev" title="Lecture: Big Data in the public domain" href="lecture.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -174,17 +174,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../course_basics/teachers.html">Teachers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_basics/schedule.html">Course schedule</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial1.html">Tutorial 1: Introduction to Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial2.html">Tutorial 2: Introduction to NumPy and Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week1/tutorial3.html">Tutorial 3: Introduction to Data Analysis</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA1</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../TAA1/lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial.html">Tutorial 1: Land-cover classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial1.html">Tutorial 1: Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial2.html">Tutorial 2: Introduction to NumPy and Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial3.html">Tutorial 3: Introduction to Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial4.html">Tutorial 4: GeoPandas</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial5.html">Tutorial 5: Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial6.html">Tutorial 6:  Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA1/tutorial7.html">Tutorial 7:  Rioxarray</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA2</span></p>
 <ul class="current nav bd-sidenav">
@@ -193,12 +192,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA3</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../TAA3/lecture.html">Lecture: Loading API geodata and clustering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../TAA3/tutorial.html">Tutorial 3: Accessing web-hosted geo-data and clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA3/lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA3/tutorial.html">Tutorial 1: Land-cover classification</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA4</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../TAA4/tutorial.html">TAA4: Accessibility to healthcare facilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA4/lecture.html">Lecture: Loading API geodata and clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TAA4/tutorial.html">Tutorial 3: Accessing web-hosted geo-data and clustering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../TAA5/tutorial.html">TAA4: Accessibility to healthcare facilities</a></li>
 </ul>
 
     </div>
@@ -496,30 +501,30 @@ document.write(`
 <p>Import the packages in the cell below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cdsapi</span>
-<span class="kn">import</span> <span class="nn">shapely</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">urllib3</span>
-<span class="kn">import</span> <span class="nn">pyproj</span>
-<span class="kn">import</span> <span class="nn">contextily</span> <span class="k">as</span> <span class="nn">cx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cdsapi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shapely</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyproj</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cx</span>
 
-<span class="kn">import</span> <span class="nn">osmnx</span> <span class="k">as</span> <span class="nn">ox</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">cdsapi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">osmnx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ox</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cdsapi</span>
 
-<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span><span class="n">ListedColormap</span>
-<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Patch</span>
-<span class="kn">from</span> <span class="nn">geocube.api.core</span> <span class="kn">import</span> <span class="n">make_geocube</span>
-<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
-<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
-<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span><span class="n">ListedColormap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Patch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocube.api.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_geocube</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
 </pre></div>
@@ -1205,7 +1210,7 @@ document.write(`
 <b>Question 8:</b>  Describe in your own words what the `DamageScanner()` function does. Please walk us through the different steps. Which inputs do you need to be able to run this damage assessment?
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DamageScanner</span><span class="p">(</span><span class="n">landuse_map</span><span class="p">,</span><span class="n">inun_map</span><span class="p">,</span><span class="n">curve_path</span><span class="p">,</span><span class="n">maxdam_path</span><span class="p">,</span><span class="n">cellsize</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">DamageScanner</span><span class="p">(</span><span class="n">landuse_map</span><span class="p">,</span><span class="n">inun_map</span><span class="p">,</span><span class="n">curve_path</span><span class="p">,</span><span class="n">maxdam_path</span><span class="p">,</span><span class="n">cellsize</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 
     <span class="c1"># load land-use map</span>
     <span class="n">landuse</span> <span class="o">=</span> <span class="n">landuse_map</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1284,7 +1289,7 @@ document.write(`
 <p>The first thing we are going to do is try to make sure our data will be in the correct resolution (moving from <strong>1km</strong> to <strong>100m</strong>). To do so, we will use the <code class="docutils literal notranslate"><span class="pre">rio.reproject()</span></code> function. You will see that specify the resolution as <strong>100</strong>. Because <strong>EPSG:3035</strong> is a coordinate system in meters, we can simply use meters to define the resolution. We use the <code class="docutils literal notranslate"><span class="pre">rio.clip()</span></code> function to make sure we clip it again to our area of interest. The function below (<code class="docutils literal notranslate"><span class="pre">match_rasters</span></code>) will do the hard work for us. Please note all the input variables to understand what’s happening.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">match_rasters</span><span class="p">(</span><span class="n">hazard</span><span class="p">,</span><span class="n">landuse</span><span class="p">,</span><span class="n">haz_crs</span><span class="o">=</span><span class="mi">3035</span><span class="p">,</span><span class="n">lu_crs</span><span class="o">=</span><span class="mi">3035</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">hazard_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;FX&#39;</span><span class="p">]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">match_rasters</span><span class="p">(</span><span class="n">hazard</span><span class="p">,</span><span class="n">landuse</span><span class="p">,</span><span class="n">haz_crs</span><span class="o">=</span><span class="mi">3035</span><span class="p">,</span><span class="n">lu_crs</span><span class="o">=</span><span class="mi">3035</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">hazard_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;FX&#39;</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Clips, reprojections, and matches the resolutions of two rasters, `hazard` and `landuse`,</span>
 <span class="sd">    to prepare them for further analysis.</span>
@@ -1801,7 +1806,7 @@ document.write(`
 <p>We will need a bunch of functions to make sure we can do our calculations. They are specified below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reproject</span><span class="p">(</span><span class="n">df_ds</span><span class="p">,</span> <span class="n">current_crs</span><span class="o">=</span><span class="s2">&quot;epsg:4326&quot;</span><span class="p">,</span> <span class="n">approximate_crs</span><span class="o">=</span><span class="s2">&quot;epsg:3035&quot;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reproject</span><span class="p">(</span><span class="n">df_ds</span><span class="p">,</span> <span class="n">current_crs</span><span class="o">=</span><span class="s2">&quot;epsg:4326&quot;</span><span class="p">,</span> <span class="n">approximate_crs</span><span class="o">=</span><span class="s2">&quot;epsg:3035&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reproject geometries in a DataFrame from one coordinate reference system (CRS) to another.</span>
 
@@ -1825,7 +1830,7 @@ document.write(`
     <span class="k">return</span> <span class="n">shapely</span><span class="o">.</span><span class="n">set_coordinates</span><span class="p">(</span><span class="n">geometries</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_coords</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">buffer_assets</span><span class="p">(</span><span class="n">assets</span><span class="p">,</span> <span class="n">buffer_size</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">buffer_assets</span><span class="p">(</span><span class="n">assets</span><span class="p">,</span> <span class="n">buffer_size</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a buffer around each geometry in the assets DataFrame.</span>
 
@@ -1843,7 +1848,7 @@ document.write(`
     <span class="k">return</span> <span class="n">assets</span>
 
 
-<span class="k">def</span> <span class="nf">overlay_hazard_assets</span><span class="p">(</span><span class="n">df_ds</span><span class="p">,</span> <span class="n">assets</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">overlay_hazard_assets</span><span class="p">(</span><span class="n">df_ds</span><span class="p">,</span> <span class="n">assets</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the indices of hazards that overlay or intersect with assets.</span>
 
@@ -1869,7 +1874,7 @@ document.write(`
         <span class="k">return</span> <span class="n">hazard_tree</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">assets</span><span class="o">.</span><span class="n">buffered</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;intersects&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">get_damage_per_asset</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">df_ds</span><span class="p">,</span> <span class="n">assets</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_damage_per_asset</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">df_ds</span><span class="p">,</span> <span class="n">assets</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the total damage for a single asset based on overlapping hazards.</span>
 
@@ -2000,7 +2005,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture: Loading API geodata and clustering</p>
+        <p class="prev-next-title">Lecture: Introduction to Statistical Learning on Geospatial Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
