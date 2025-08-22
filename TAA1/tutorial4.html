@@ -817,9 +817,9 @@ Make sure that you save this file before you continue, else you will lose everyt
 <p><strong>Question 1:</strong> Load the natural earth file of the world, and plot the population per country.</p>
 <ul class="simple">
 <li><p>The url to the natural earth file: https://github.com/nvkelso/natural-earth-vector/raw/master/10m_cultural/ne_10m_admin_0_countries.shp</p></li>
-<li><p>The column we want to show is called “POP_EST”</p></li>
+<li><p>The column we want to show is called <code class="docutils literal notranslate"><span class="pre">POP_EST</span></code></p></li>
 <li><p>Think about the colormap we want to use: https://matplotlib.org/stable/users/explain/colors/colormaps.html</p></li>
-<li><p>Think about the distribution of the data in the “schemes” option. You can choose, for example, “natural_breaks”, “quantiles” or “equal_interval”.</p></li>
+<li><p>Think about the distribution of the data in the <code class="docutils literal notranslate"><span class="pre">schemes</span></code> option. You can choose, for example, “natural_breaks”, “quantiles” or “equal_interval”.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -843,15 +843,14 @@ Make sure that you save this file before you continue, else you will lose everyt
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-success">
-<b>Question 2:</b> Perform a spatial join between the geodataframe we created at the start of this tutorial ("gdf") and the global data we just loaded from the internet ("world"). 
+<p><strong>Question 2:</strong> Perform a spatial join between the geodataframe we created at the start of this tutorial (<code class="docutils literal notranslate"><span class="pre">gdf</span></code>) and the global data we just loaded from the internet (<code class="docutils literal notranslate"><span class="pre">world</span></code>).</p>
 <ul class="simple">
-<li><p>Set the CRS for the “gdf” dataframe, which was not set yet. The CRS is 4326.</p></li>
+<li><p>Set the CRS for the <code class="docutils literal notranslate"><span class="pre">gdf</span></code> dataframe, which was not set yet. The CRS is 4326.</p></li>
 <li><p>Check the documentation for the function we are going to use: https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.sjoin.html</p></li>
 <li><p>Think about the order of your spatial join. Do you merge the cities with the world data, or vice versa. If you try both, you can see there is a difference.</p></li>
 </ul>
-<p>What is the difference between the order your spatial join?</p>
-</div><div class="cell docutils container">
+<p><strong>What is the difference between the order of your spatial join?</strong></p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">set_crs</span><span class="p">()</span>
 </pre></div>

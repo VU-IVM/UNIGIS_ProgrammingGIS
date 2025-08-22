@@ -1042,7 +1042,7 @@ Make sure that you save this file before you continue, else you will lose everyt
 <p>To clip the raster using vector data (e.g., a GeoJSON bounding box), we can use <code class="docutils literal notranslate"><span class="pre">rasterio.mask</span></code>. First, load the vector data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">fiona</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rasterio.mask</span>
 </pre></div>
 </div>
@@ -1069,8 +1069,7 @@ Make sure that you save this file before you continue, else you will lose everyt
 <p>Next, apply the mask to extract only the area within the vector bounds:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">geojson_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">shapes</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">f</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapes</span> <span class="o">=</span> <span class="n">bounds</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
@@ -1257,27 +1256,107 @@ Make sure that you save this file before you continue, else you will lose everyt
 </section>
 <section id="exercises">
 <h2>8. Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
-<p><strong>Sample datasets</strong></p>
+<p><strong>Sample dataset</strong></p>
 <ul class="simple">
-<li><p>Singlg-band image (DEM): https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif</p></li>
-<li><p>Multispectral image (Landsat): https://github.com/opengeos/datasets/releases/download/raster/cog.tif</p></li>
+<li><p>Single-band image (DEM): https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif</p></li>
 </ul>
-<p><strong>Question 3: Reading and Exploring Raster Data</strong></p>
-<ol class="arabic simple">
+<p><strong>Question 3</strong>: Reading and explore the raster data.</p>
+<ul class="simple">
 <li><p>Open the single-band DEM image using <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>.</p></li>
 <li><p>Retrieve and print the raster metadata, including the CRS, resolution, bounds, number of bands, and data types.</p></li>
-<li><p>Display the raster’s width, height, and pixel data types to understand the grid dimensions and data structure.</p></li>
-</ol>
-<p><strong>Question 4: Visualizing and Manipulating Raster Bands</strong></p>
-<ol class="arabic simple">
+<li><p>Explore the raster’s width, height, and pixel data types to understand the grid dimensions and data structure.</p></li>
+</ul>
+<p><strong>What is the raster’s CRS, width, height, resolution and the data type?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dem</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRS: </span><span class="si">{</span><span class="n">dem</span><span class="o">.</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> \
+      <span class="sa">f</span><span class="s2">&quot;width: </span><span class="si">{</span><span class="n">dem</span><span class="o">.</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> \
+      <span class="sa">f</span><span class="s2">&quot;height: </span><span class="si">{</span><span class="n">dem</span><span class="o">.</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> \
+      <span class="sa">f</span><span class="s2">&quot;resolution: </span><span class="si">{</span><span class="n">dem</span><span class="o">.</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> \
+      <span class="sa">f</span><span class="s2">&quot;data type: </span><span class="si">{</span><span class="n">dem</span><span class="o">.</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 4</strong>: Visualizing and Manipulating Raster Bands</p>
+<ul class="simple">
 <li><p>Visualize the single-band DEM using a custom colormap (e.g., cmap=’terrain’).</p></li>
-</ol>
-<p><strong>Question 5: Reprojecting Raster Data</strong></p>
-<ol class="arabic simple">
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">rasterio</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">(,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 5</strong>: Reprojecting Raster Data</p>
+<ul class="simple">
 <li><p>Reproject the single-band DEM raster from its original CRS to EPSG:4326 (WGS 84) using the <code class="docutils literal notranslate"><span class="pre">rasterio.warp.reproject</span></code> function.</p></li>
-<li><p>Save the reprojected raster to a new GeoTIFF file named <code class="docutils literal notranslate"><span class="pre">reprojected_dem.tif</span></code>.</p></li>
-<li><p>Visualize both the original and reprojected DEM datasets to compare how the reprojection affects the spatial coverage and resolution.</p></li>
-</ol>
+<li><p>As you can see, rasterio can only do that by saving the new output as a new file.</p></li>
+</ul>
+<p><strong>Open the new file, and show the difference in CRS, resolution, width and height between the old and the new file</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="c1"># Calculate transform and dimensions for EPSG:4326</span>
+    <span class="n">dst_crs</span> <span class="o">=</span> <span class="s1">&#39;EPSG:XXXX&#39;</span>
+    <span class="n">transform</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">calculate_default_transform</span><span class="p">(</span>
+        <span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">dst_crs</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="o">*</span><span class="n">src</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+    
+    <span class="c1"># Update metadata for the new file</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="s1">&#39;crs&#39;</span><span class="p">:</span> <span class="n">dst_crs</span><span class="p">,</span>
+        <span class="s1">&#39;transform&#39;</span><span class="p">:</span> <span class="n">transform</span><span class="p">,</span>
+        <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">width</span><span class="p">,</span>
+        <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">height</span>
+    <span class="p">})</span>
+    
+    <span class="c1"># Create the new reprojected file</span>
+    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_reprojected_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+        <span class="n">reproject</span><span class="p">(</span>
+            <span class="n">source</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">destination</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">src_transform</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span>
+            <span class="n">src_crs</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
+            <span class="n">dst_transform</span><span class="o">=</span><span class="n">transform</span><span class="p">,</span>
+            <span class="n">dst_crs</span><span class="o">=</span><span class="n">dst_crs</span><span class="p">,</span>
+            <span class="n">resampling</span><span class="o">=</span><span class="n">Resampling</span><span class="o">.</span><span class="n">bilinear</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_dem</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_reprojected_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRS: </span><span class="si">{</span><span class="n">new_dem</span><span class="o">.</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> \
+      <span class="sa">f</span><span class="s2">&quot;width: </span><span class="si">{</span><span class="n">new_dem</span><span class="o">.</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> \
+      <span class="sa">f</span><span class="s2">&quot;height: </span><span class="si">{</span><span class="n">new_dem</span><span class="o">.</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> \
+      <span class="sa">f</span><span class="s2">&quot;resolution: </span><span class="si">{</span><span class="n">new_dem</span><span class="o">.</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> \
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
