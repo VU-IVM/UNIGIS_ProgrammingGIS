@@ -10,15 +10,15 @@ parts:
     - file: course_basics/course_intro.md
     - file: course_basics/teachers.md
     - file: course_basics/schedule.md    
-  - caption: Week 1
-    chapters:
-    - file: week1/tutorial1
-    - file: week1/tutorial2
-    - file: week1/tutorial3
   - caption: TAA1
     chapters:
-    - file: TAA1/lecture
-    - file: TAA1/tutorial
+    - file: TAA1/tutorial1
+    - file: TAA1/tutorial2
+    - file: TAA1/tutorial3
+    - file: TAA1/tutorial4
+    - file: TAA1/tutorial5
+    - file: TAA1/tutorial6
+    - file: TAA1/tutorial7
   - caption: TAA2
     chapters:
     - file: TAA2/lecture
@@ -29,6 +29,10 @@ parts:
     - file: TAA3/tutorial
   - caption: TAA4
     chapters:
-  #   - file: TAA4/lecture
+    - file: TAA4/lecture
     - file: TAA4/tutorial
+  - caption: TAA5
+    chapters:
+  #   - file: TAA4/lecture
+    - file: TAA5/tutorial
 

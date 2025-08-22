@@ -13,85 +13,100 @@ kernelspec:
   name: python3
 ---
 
-# Lecture: Earth Observation & Google Earth Engine
+# Lecture: Course Introduction
 
-This week we will focus on what we can do with earth observation data and learn how to use the google earth engine to unleash the potential of earth observation data.
+This week we will kick-off the course. 
 
-`````{admonition} Learning objectives week 5
+`````{admonition} Learning objectives week 1
 :class: important
-- Gain a basic understanding of the Google Earth Engine.
-- Understand and know how you can use the Google Earth engine in Python. 
-- Understand the differences between supervised and unsupervised learning
-- Know how to apply a supervised classification algorithm. 
-- Understand how droughts can be detected through remote sensing.
+- Understand the concept of Big Data and how it can be used in sustainability sciences
+- Know how this course is structured 
+- Understand the basics of machine learning 
+- Gain a basic understanding of Python and Jupyter Notebooks
 `````
 
-## Supervised learning
-Supervised learning uses a training set to teach models to yield the desired output. This training dataset includes inputs and correct outputs, which allow the model to learn over time. The algorithm measures its accuracy through the loss function, adjusting until the error has been sufficiently minimized.
+## Big data
 
-Supervised learning can be separated into two types of problems when data mining—classification and regression:
+`````{admonition} Definition of Big Data
+:class: tip
+Big data is a collection of massive and complex data sets and data volume that include the huge quantities of data, data management capabilities, social media analytics and real-time data. 
+`````
 
-- **Classification** uses an algorithm to accurately assign test data into specific categories. It recognizes specific entities within the dataset and attempts to draw some conclusions on how those entities should be labeled or defined. Common classification algorithms are linear classifiers, support vector machines (SVM), decision trees, k-nearest neighbor, and random forest, which are described in more detail below.
+## Definition of Machine Learning
 
-- **Regression** is used to understand the relationship between dependent and independent variables. It is commonly used to make projections, such as for sales revenue for a given business. Linear regression, logistical regression, and polynomial regression are popular regression algorithms.
+The basic concept of machine learning in data science involves using statistical learning (i.e., finding a predictive function based on data) and optimization methods that let computers analyze datasets and identify patterns: it is all about making ***predictions*** and ***classification***. 
 
-## Supervised learning algorithms
-Various algorithms and computation techniques are used in supervised machine learning processes. We already discussed **Random Forests** and **Neural Networks** in detail during the lectures. Below you can find an overview of some of the other algorithms that you can apply within our tutorial. 
+See these interactive examples from R2D3:
 
-**Naive Bayes**
-Naive Bayes is classification approach that adopts the principle of class conditional independence from the Bayes Theorem. This means that the presence of one feature does not impact the presence of another in the probability of a given outcome, and each predictor has an equal effect on that result. There are three types of Naïve Bayes classifiers: Multinomial Naïve Bayes, Bernoulli Naïve Bayes, and Gaussian Naïve Bayes. This technique is primarily used in text classification, spam identification, and recommendation systems.
+__[R2D3 Introduction to Machine Learning: Part 1](http://www.r2d3.us/visual-intro-to-machine-learning-part-1)__ 
 
-**Support vector machine (SVM)**
-A support vector machine is a popular supervised learning model developed by Vladimir Vapnik, used for both data classification and regression. That said, it is typically leveraged for classification problems, constructing a hyperplane where the distance between two classes of data points is at its maximum. This hyperplane is known as the decision boundary, separating the classes of data points (e.g., oranges vs. apples) on either side of the plane.
+__[R2D3 Introduction to Machine Learning: Part 2](http://www.r2d3.us/visual-intro-to-machine-learning-part-2)__ 
 
-**K-nearest neighbor**
-K-nearest neighbor, also known as the KNN algorithm, is a non-parametric algorithm that classifies data points based on their proximity and association to other available data. This algorithm assumes that similar data points can be found near each other. As a result, it seeks to calculate the distance between data points, usually through Euclidean distance, and then it assigns a category based on the most frequent category or average.
+In general, a supervised machine learning algorithm consists of roughly three components:
 
-Its ease of use and low calculation time make it a preferred algorithm by data scientists, but as the test dataset grows, the processing time lengthens, making it less appealing for classification tasks. KNN is typically used for recommendation engines and image recognition.
+1.	***A decision process:*** Calculation *steps/recipe* to use the data to achieve a goal (e.g., make a  prediction or classification). Based on patterns in the input data, the algorithm returns an output.
 
-## Unsupervised learning
-Unsupervised learning uses machine learning algorithms to analyze and cluster unlabeled data sets. These algorithms discover hidden patterns in data without the need for human intervention (hence, they are “unsupervised”).
+2.	***An error function:*** Evaluates the prediction/classification of the model (i.e., *model accuracy*). Did the decision process get it right? If not, how do you quantify “how bad” the miss was?
 
-Unsupervised learning models are used for three main tasks: clustering, association and dimensionality reduction:
+3. ***An optimization process:*** Iterations of the algorithm to *find better parameters values (or weights)* than previously estimated, repeated until a *maximum number of iterations* or a *minimum level of accuracy* is reached. The objective is to improve the initial “guess” of the model parameters and thus the overall performance of the model.
 
-- **Clustering** is a data mining technique for grouping unlabeled data based on their similarities or differences. For example, K-means clustering algorithms assign similar data points into groups, where the K value represents the size of the grouping and granularity. This technique is helpful for market segmentation, image compression, etc.
-- **Association** is another type of unsupervised learning method that uses different rules to find relationships between variables in a given dataset. These methods are frequently used for market basket analysis and recommendation engines, along the lines of “Customers Who Bought This Item Also Bought” recommendations.
-- **Dimensionality** reduction is a learning technique used when the number of features  (or dimensions) in a given dataset is too high. It reduces the number of data inputs to a manageable size while also preserving the data integrity. Often, this technique is used in the preprocessing data stage, such as when autoencoders remove noise from visual data to improve picture quality.
+An example from NetFlix:
 
-## The main differences between supervised and unsupervised learning: Labeled data
+*Whenever you access the Netflix service, our recommendations system strives to help you find a show or movie to enjoy with minimal effort. We estimate the likelihood that you will watch a particular title in our catalog based on a number of factors including: your interactions with our service (such as your viewing history and how you rated other titles), other members with similar tastes and preferences on our service, and information about the titles, such as their genre, categories, actors, release year, etc. […] All of these pieces of data are used as inputs that we process in our algorithms.*
 
-The main distinction between the two approaches is the use of labeled datasets. To put it simply, supervised learning uses labeled input and output data, while an unsupervised learning algorithm does not.
+The algorithm’s job is to assign (initially through “guesses”) weights to the factors identified by NetFlix. If the algorithm gets it right, the weights it used stay the same. If it gets a movie wrong, the weights that led to the wrong decision get turned down so it doesn’t make that kind of mistake again. Since a machine learning algorithm updates such weights automatically, its accuracy improves with each ***iteration*** as it ***learns*** from the data it analyzes, often times uncovering hidden insights without being specifically programmed to do so. 
 
-In supervised learning, the algorithm “learns” from the training dataset by iteratively making predictions on the data and adjusting for the correct answer. While supervised learning models tend to be more accurate than unsupervised learning models, they require upfront human intervention to label the data appropriately. For example, a supervised learning model can predict how long your commute will be based on the time of day, weather conditions and so on. But first, you’ll have to train it to know that rainy weather extends the driving time.
+## Types of Machine Learning
 
-Unsupervised learning models, in contrast, work on their own to discover the inherent structure of unlabeled data. Note that they still require some human intervention for validating output variables. For example, an unsupervised learning model can identify that online shoppers often purchase groups of products at the same time. However, a data analyst would need to validate that it makes sense for a recommendation engine to group baby clothes with an order of diapers, applesauce and sippy cups.
+There are many types of machine learning models defined by the presence or absence of human influence on raw data:
 
-## Other key differences between supervised and unsupervised learning
+1. ***Supervised learning:*** The dataset being used has been pre-labeled and classified by users to allow the algorithm to see how accurate its performance is.
 
-**Goals**: In supervised learning, the goal is to predict outcomes for new data. You know up front the type of results to expect. With an unsupervised learning algorithm, the goal is to get insights from large volumes of new data. The machine learning itself determines what is different or interesting from the dataset.
+2. ***Unsupervised learning:*** The raw dataset being used is unlabeled and an algorithm identifies patterns and relationships within the data without help from users.
 
-**Applications**: Supervised learning models are ideal for spam detection, sentiment analysis, weather forecasting and pricing predictions, among other things. In contrast, unsupervised learning is a great fit for anomaly detection, recommendation engines, customer personas and medical imaging.
+3. ***Semi-supervised learning:*** The dataset contains structured and unstructured data, which guides the algorithm on its way to making independent conclusions. The combination of the two data types in one training dataset allows machine learning algorithms to learn to label unlabeled data.
 
-**Complexity**: Supervised learning is a simple method for machine learning, typically calculated through the use of programs like R or Python. In unsupervised learning, you need powerful tools for working with large amounts of unclassified data. Unsupervised learning models are computationally complex because they need a large training set to produce intended outcomes.
+4. ***Reinforcement learning:*** The dataset uses a “rewards/punishments” system, offering feedback to the algorithm to learn from its own experiences by trial and error.
 
-**Drawbacks**: Supervised learning models can be time-consuming to train, and the labels for input and output variables require expertise. Meanwhile, unsupervised learning methods can have wildly inaccurate results unless you have human intervention to validate the output variables.
+<img src="../_static/images/machine-learning-infographic_2.jpg" class="bg-primary mb-1">
 
-## Google Earth Engine
-Google Earth Engine is a cloud-based platform for planetary-scale geospatial analysis that brings Google's computational capabilities to bear on a variety of high-impact societal issues including deforestation, drought, disaster, disease, food security, water management, climate monitoring and environmental protection. 
+## Commonly Used Machine Learning Algorithms
 
-The Google Earth Engine consists of a multi-petabyte analysis-ready data catalog co-located with a high-performance, intrinsically parallel computation service. It is accessed and controlled through an Internet-accessible application programming interface (API) and an associated web-based interactive development environment (IDE) that enables rapid prototyping and visualization of results.
+The purpose of machine learning is to use machine learning algorithms to analyze data in order to make predictions and/or classification. There are a number of machine learning algorithms that are commonly used worldwide. Each of these machine learning algorithms can have numerous applications in a variety of academic and business settings. 
 
-The data catalog houses a large repository of publicly available geospatial datasets, including observations from a variety of satellite and aerial imaging systems in both optical and non-optical wavelengths, environmental variables, weather and climate forecasts and hindcasts, land cover, topographic and socio-economic datasets. All of this data is preprocessed to a ready-to-use but information-preserving form that allows efficient access and removes many barriers associated with data management.
+### Linear Regressions
 
-Users can access and analyze data from the public catalog as well as their own private data using a library of operators provided by the Earth Engine API. These operators are implemented in a large parallel processing system that automatically subdivides and distributes computations, providing high-throughput analysis capabilities. Users access the API either through a thin client library or through a web-based interactive development environment built on top of that client library.
+Linear regression is an algorithm used to analyze linear relationships between independent input variables and at least one response variable. In other words, the linear regression models attempt to map a straight line, or a linear relationship, through the data. If statistical assumptions are not violated, we can also interpret the statistical significance of the parameters estimated by the linear models (i.e., are they different from zero?) and thus the influence of our variables in the system we are studying.
 
-## How to gain access to the Google Earth Engine
-To be able to use the Google Earth Engine during the tutorial, we will need to sign up.
+### Logistic Regressions
 
-The first step is to register. To do so, you have to go to the [Sign-up page](https://signup.earthengine.google.com/#!/). You can use your university account to register. 
+Logistic regression is a supervised learning algorithm commonly used for classification problems. Instead of continuous output like in linear regression, a logistic model predicts the probability of a binary (e.g., yes/no) event occurring. For example, the likelihood of deforestation in a location of the Amazon rainforest.
 
+### Neural Networks
 
-### Sources
+Neural networks, also known as artificial neural networks (ANNs) or simulated neural networks (SNNs), are a subset of machine learning and are at the heart of deep learning algorithms and artificial intelligence. These algorithms attempt to replicate the way the human brain processes information to understand and intelligently classify data and predict outcomes. Neural network algorithms are designed to quickly learn from input training data and improve their accuracy with each model iterations, constructing complex, non-linear relationships among the input variables.
 
-- [IBM Supervised Learning Explained](https://www.ibm.com/cloud/learn/supervised-learning)
-- [IBM Supervised vs Unsupervised Learning Explained](https://www.ibm.com/cloud/blog/supervised-vs-unsupervised-learning)
+### Decision Trees
+
+Decision trees can be used for both predicting numerical values (regression) and classifying data into categories. Decision trees use a branching sequence of linked decisions that can be represented with a tree diagram. One of the advantages of decision trees is that they are easy to inspect (unlike the complex, “black box” of the neural network). 
+
+### Random Forests
+
+Random forest models are capable of classifying data using hundreds (if not thousands) of decision trees all at once. Like decision trees, random forests can be used to determine the classification of categorical variables or the regression of continuous variables. These random forest models generate a number of decision trees as specified by the user, forming what is known as an ensemble (or should we call it a “forest,” get it?) Each tree then makes its own prediction based on some input data, and the random forest machine learning algorithm then makes a prediction by combining the predictions of each decision tree in the ensemble. 
+
+## Why is Machine Learning relevant?
+
+1.	***Processing capabilities:*** Processing power is more efficient and readily available. Algorithms can be programmed to process data on their own, determine conclusions, and identify patterns are invaluable in a world where massive volumes of data are collected and become available on a daily basis (***“big data”***).
+
+2.	***Unexpected findings:*** Since a machine learning algorithm updates itself autonomously, accuracy improves with each run as it ***learns*** from the data and complex relationships are established, algorithms can gain unexpected insights about a system or problem without being specifically programmed to do so.
+
+## Python
+Python is a programming language which allows us to give instructions to the computer. These instructions can be as simple as "add together these two numbers" or as complex as "give me the average CO2 concentration for 2020". For the former we will be able to complete the task using only a single instruction but for the latter, we may have to write a larger program containing hundreds or thousands of instructions.
+
+This course is going to start from the beginning, showing you to talk to the computer to perform simple tasks and as you become more confident and follow the later courses, you will find that you are able to write much more complex programmes. Within this course, we assume no prior knowledge of Python. Experience with programming concepts or another programming language will help, but is not required to understand the material.
+
+Python is a well-established language, with the current version (version 3) released in 2008 and it is installed by default on nearly all modern Linux systems. Python is also available for OS X and Windows.
+
+```{seealso} 
+You can find much more info about Python [here](https://docs.python.org/3/faq/general.html#what-is-python)
+```
