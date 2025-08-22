@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Tutorial 4: GeoPandas &#8212; UNIGIS - Big Data in Sustainability Science</title>
+    <title>Tutorial 4: Introduction to GeoPandas &#8212; UNIGIS - Big Data in Sustainability Science</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'TAA1/tutorial4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tutorial 5: Rasterio" href="tutorial5.html" />
+    <link rel="next" title="Tutorial 5: Introduction to Rasterio" href="tutorial5.html" />
     <link rel="prev" title="Tutorial 3: Introduction to Data Analysis" href="tutorial3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,11 +179,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tutorial1.html">Tutorial 1: Introduction to Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial2.html">Tutorial 2: Introduction to NumPy and Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial3.html">Tutorial 3: Introduction to Data Analysis</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial 4: GeoPandas</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="tutorial5.html">Tutorial 5: Rasterio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial6.html">Tutorial 6:  Xarray</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial7.html">Tutorial 7:  Rioxarray</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial 4: Introduction to GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial5.html">Tutorial 5: Introduction to Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial6.html">Tutorial 6: Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial7.html">Tutorial 7: Introduction to Rioxarray</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA2</span></p>
 <ul class="nav bd-sidenav">
@@ -420,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tutorial 4: GeoPandas</h1>
+    <h1>Tutorial 4: Introduction to GeoPandas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -430,7 +429,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 4: GeoPandas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-and-importing-geopandas">1. Installing and Importing GeoPandas</a></li>
@@ -467,11 +465,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-to-wgs84">Reprojecting to WGS84</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9. Exercises</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9. Exercises</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -482,8 +477,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="tutorial-4-geopandas">
-<h1>Tutorial 4: GeoPandas<a class="headerlink" href="#tutorial-4-geopandas" title="Permalink to this heading">#</a></h1>
+  <section id="tutorial-4-introduction-to-geopandas">
+<h1>Tutorial 4: Introduction to GeoPandas<a class="headerlink" href="#tutorial-4-introduction-to-geopandas" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://geopandas.org">GeoPandas</a> is an open-source Python library that simplifies working with geospatial data by extending Pandas data structures. It seamlessly integrates geospatial operations with a pandas-like interface, allowing for the manipulation of geometric types such as points, lines, and polygons. GeoPandas combines the functionalities of Pandas and Shapely, enabling geospatial operations like spatial joins, buffering, intersections, and projections with ease.</p>
 <p>The core data structures in GeoPandas are <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code>. A <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> extends the functionality of a Pandas DataFrame by adding a geometry column, allowing spatial data operations on geometric shapes. The <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> handles geometric data (points, polygons, etc.).</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> can have multiple geometry columns, but only one is considered the active geometry at any time. All spatial operations are applied to this active geometry, accessible via the <code class="docutils literal notranslate"><span class="pre">.geometry</span></code> attribute.</p>
@@ -817,15 +812,15 @@ Make sure that you save this file before you continue, else you will lose everyt
 <p>Notice how the coordinates have changed from feet to degrees.</p>
 </section>
 </section>
-</section>
 <section id="exercises">
-<h1>9. Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h2>9. Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Create a GeoDataFrame containing a list of countries and their capital cities. Add a geometry column with the locations of the capitals.</p></li>
 <li><p>Load a shapefile of your choice, filter the data to only include a specific region or country, and save the filtered GeoDataFrame to a new file.</p></li>
 <li><p>Perform a spatial join between two GeoDataFrames: one containing polygons (e.g., country borders) and one containing points (e.g., cities). Find out which points fall within which polygons.</p></li>
 <li><p>Plot a map showing the distribution of a particular attribute (e.g., population) across different regions.</p></li>
 </ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -872,7 +867,7 @@ Make sure that you save this file before you continue, else you will lose everyt
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tutorial 5: Rasterio</p>
+        <p class="prev-next-title">Tutorial 5: Introduction to Rasterio</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -891,7 +886,6 @@ Make sure that you save this file before you continue, else you will lose everyt
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 4: GeoPandas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-and-importing-geopandas">1. Installing and Importing GeoPandas</a></li>
@@ -928,11 +922,8 @@ Make sure that you save this file before you continue, else you will lose everyt
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-to-wgs84">Reprojecting to WGS84</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9. Exercises</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9. Exercises</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
