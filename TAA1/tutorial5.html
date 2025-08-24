@@ -1263,19 +1263,19 @@ Make sure that you save this file before you continue, else you will lose everyt
 <h2>8. Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p><strong>Sample dataset</strong></p>
 <ul class="simple">
-<li><p>Single-band image (DEM): https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif</p></li>
+<li><p>Single-band image (DEM): <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif">opengeos/datasets</a></p></li>
 </ul>
 <section id="question-3">
 <h3>Question 3<a class="headerlink" href="#question-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Open the single-band DEM image using <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>.</p></li>
+<li><p>Open the single-band DEM image using <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>. You can directly read the URL.</p></li>
 <li><p>Retrieve and print the raster metadata, including the CRS, resolution, bounds, number of bands, and data types.</p></li>
 <li><p>Explore the raster’s width, height, and pixel data types to understand the grid dimensions and data structure.</p></li>
 </ul>
 <p><strong>What is the raster’s CRS, width, height, resolution and the data type?</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dem</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dem</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1294,9 +1294,7 @@ Make sure that you save this file before you continue, else you will lose everyt
 </section>
 <section id="question-4">
 <h3>Question 4<a class="headerlink" href="#question-4" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Visualize the single-band DEM using a custom colormap (e.g., cmap=’terrain’).</p></li>
-</ul>
+<p>Visualize the single-band DEM using a custom colormap (e.g., cmap=’terrain’).</p>
 <p><strong>Display a plot of the DEM raster using the terrain colormap.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
