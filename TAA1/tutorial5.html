@@ -472,7 +472,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-synthetic-raster-data-to-a-file">Writing Synthetic Raster Data to a File</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5">Question 5</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1260,7 +1265,8 @@ Make sure that you save this file before you continue, else you will lose everyt
 <ul class="simple">
 <li><p>Single-band image (DEM): https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif</p></li>
 </ul>
-<p><strong>Question 3</strong>: Reading and explore the raster data.</p>
+<section id="question-3">
+<h3>Question 3<a class="headerlink" href="#question-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Open the single-band DEM image using <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>.</p></li>
 <li><p>Retrieve and print the raster metadata, including the CRS, resolution, bounds, number of bands, and data types.</p></li>
@@ -1285,10 +1291,13 @@ Make sure that you save this file before you continue, else you will lose everyt
 </div>
 </div>
 </div>
-<p><strong>Question 4</strong>: Visualizing and Manipulating Raster Bands</p>
+</section>
+<section id="question-4">
+<h3>Question 4<a class="headerlink" href="#question-4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Visualize the single-band DEM using a custom colormap (e.g., cmap=’terrain’).</p></li>
 </ul>
+<p><strong>Display a plot of the DEM raster using the terrain colormap.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -1302,17 +1311,23 @@ Make sure that you save this file before you continue, else you will lose everyt
 </div>
 </div>
 </div>
-<p><strong>Question 5</strong>: Reprojecting Raster Data</p>
+</section>
+<section id="question-5">
+<h3>Question 5<a class="headerlink" href="#question-5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Reproject the single-band DEM raster from its original CRS to EPSG:4326 (WGS 84) using the <code class="docutils literal notranslate"><span class="pre">rasterio.warp.reproject</span></code> function.</p></li>
+<li><p>Reproject the single-band DEM raster from its original CRS to EPSG:4326 (WGS 84) using the <code class="docutils literal notranslate"><span class="pre">rasterio.warp.reproject</span></code> function. Fill in the EPSG at the right place.</p></li>
 <li><p>As you can see, rasterio can only do that by saving the new output as a new file.</p></li>
 </ul>
 <p><strong>Open the new file, and show the difference in CRS, resolution, width and height between the old and the new file. Explain why we have this difference.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raster_path</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif&quot;</span>
+<span class="n">dst_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:XXXX&quot;</span>  <span class="c1"># WGS84</span>
+<span class="n">output_reprojected_path</span> <span class="o">=</span> <span class="s2">&quot;reprojected_DEM.tif&quot;</span>
+
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">raster_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
     <span class="c1"># Calculate transform and dimensions for EPSG:4326</span>
-    <span class="n">dst_crs</span> <span class="o">=</span> <span class="s1">&#39;EPSG:XXXX&#39;</span>
+    <span class="n">dst_crs</span> <span class="o">=</span> <span class="n">dst_crs</span>
     <span class="n">transform</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">calculate_default_transform</span><span class="p">(</span>
         <span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">dst_crs</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="o">*</span><span class="n">src</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
     
@@ -1342,7 +1357,7 @@ Make sure that you save this file before you continue, else you will lose everyt
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_dem</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_reprojected_path</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_dem</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">XXXX</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1357,6 +1372,7 @@ Make sure that you save this file before you continue, else you will lose everyt
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -1466,7 +1482,12 @@ Make sure that you save this file before you continue, else you will lose everyt
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-synthetic-raster-data-to-a-file">Writing Synthetic Raster Data to a File</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5">Question 5</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

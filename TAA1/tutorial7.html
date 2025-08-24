@@ -456,11 +456,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproject-to-multiple-crs">7. Reproject to Multiple CRS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-band-math-ndvi-calculation">8. Basic Band Math (NDVI Calculation)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">Sample Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-9-load-and-inspect-a-raster-dataset">Question 9: Load and Inspect a Raster Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10-reproject-the-raster-to-a-new-crs">Question 10: Reproject the Raster to a New CRS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-11-clip-the-raster-using-a-bounding-box">Question 11: Clip the Raster Using a Bounding Box</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-12-resample-the-raster-to-a-different-resolution">Question 12: Resample the Raster to a Different Resolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">Sample Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-8">Question 8</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-9">Question 9</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10">Question 10</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-11">Question 11</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -877,40 +879,114 @@ To use `rioxarray`, you'll need to install it along with `rasterio` and its depe
 <h2>9. Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="sample-dataset">
 <h3>Sample Dataset<a class="headerlink" href="#sample-dataset" title="Permalink to this heading">#</a></h3>
-<p>For the exercises, we will use a sample GeoTIFF raster dataset of Libya, which is available at the following URL:
-https://github.com/opengeos/datasets/releases/download/raster/Libya-2023-09-13.tif</p>
-</section>
-<section id="question-9-load-and-inspect-a-raster-dataset">
-<h3>Question 9: Load and Inspect a Raster Dataset<a class="headerlink" href="#question-9-load-and-inspect-a-raster-dataset" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
+<p>For the exercises, we will use a sample GeoTIFF raster dataset of a flood map for the region of Kampen, which is available at the following URL:
+https://github.com/VU-IVM/DamageScanner/raw/refs/heads/main/data/inundation/inundation_map.tif</p>
+<section id="question-8">
+<h4>Question 8<a class="headerlink" href="#question-8" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> to load the GeoTIFF raster file.</p></li>
-<li><p>Inspect the dataset by printing its dimensions, coordinates, and attributes.</p></li>
 <li><p>Check and print the CRS and affine transformation of the dataset.</p></li>
-</ol>
+</ul>
+<p><strong>Return the EPSG of the coordinate system, and the transformation</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">raster</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;rasterio&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raster</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">XXX</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raster</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">XXX</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="question-10-reproject-the-raster-to-a-new-crs">
-<h3>Question 10: Reproject the Raster to a New CRS<a class="headerlink" href="#question-10-reproject-the-raster-to-a-new-crs" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Reproject the loaded raster dataset from its original CRS to EPSG:4326 (WGS84).</p></li>
-<li><p>Print the new CRS and check the dimensions and coordinates of the reprojected data.</p></li>
-<li><p>Plot the original and reprojected datasets for comparison.</p></li>
-</ol>
+<section id="question-9">
+<h4>Question 9<a class="headerlink" href="#question-9" title="Permalink to this heading">#</a></h4>
+<p>Reproject the loaded raster dataset from its original CRS to EPSG:4326 (WGS84).</p>
+<p><strong>What are the new dimensions? Can you reflect how this approach is different from the rasterio approach?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reprojected_raster</span> <span class="o">=</span> <span class="n">raster</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span><span class="n">XXXX</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reprojected_raster</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">XXX</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="question-11-clip-the-raster-using-a-bounding-box">
-<h3>Question 11: Clip the Raster Using a Bounding Box<a class="headerlink" href="#question-11-clip-the-raster-using-a-bounding-box" title="Permalink to this heading">#</a></h3>
+<section id="question-10">
+<h4>Question 10<a class="headerlink" href="#question-10" title="Permalink to this heading">#</a></h4>
+<p>Clip the reprojected raster Using a Bounding Box</p>
 <ol class="arabic simple">
-<li><p>Define a bounding box (e.g., <code class="docutils literal notranslate"><span class="pre">xmin</span></code>, <code class="docutils literal notranslate"><span class="pre">ymin</span></code>, <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, <code class="docutils literal notranslate"><span class="pre">ymax</span></code>) that covers the land area of Libya.</p></li>
+<li><p>Define a bounding box (e.g., <code class="docutils literal notranslate"><span class="pre">xmin</span></code>, <code class="docutils literal notranslate"><span class="pre">ymin</span></code>, <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, <code class="docutils literal notranslate"><span class="pre">ymax</span></code>) that covers only the city centre of Kampen.</p></li>
 <li><p>Clip the raster dataset using this bounding box.</p></li>
 <li><p>Plot the clipped data to visualize the result.</p></li>
 </ol>
+<p><strong>Display a plot of the clipped raster showing only the flooding for Kampen city centre.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Define a bounding box for the Kampen city centre</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">5.895</span><span class="p">,</span> <span class="mf">52.545</span><span class="p">,</span> <span class="mf">5.920</span><span class="p">,</span> <span class="mf">52.565</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Clip the raster using the bounding box</span>
+<span class="n">clipped</span> <span class="o">=</span> <span class="n">reprojected_raster</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span><span class="n">minx</span><span class="o">=</span><span class="p">,</span> <span class="n">miny</span><span class="o">=</span><span class="p">,</span> <span class="n">maxx</span><span class="o">=</span><span class="p">,</span> <span class="n">maxy</span><span class="o">=</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Plot the clipped data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">clipped</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Longitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="question-12-resample-the-raster-to-a-different-resolution">
-<h3>Question 12: Resample the Raster to a Different Resolution<a class="headerlink" href="#question-12-resample-the-raster-to-a-different-resolution" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Resample the raster dataset to a 3m resolution, using an average resampling method.</p></li>
-<li><p>Check the new dimensions and coordinates after resampling.</p></li>
-<li><p>Save the resampled raster dataset as a new GeoTIFF file.</p></li>
-</ol>
+<section id="question-11">
+<h4>Question 11<a class="headerlink" href="#question-11" title="Permalink to this heading">#</a></h4>
+<p>Resample the original raster dataset to a 100m resolution, using an average resampling method.</p>
+<p><strong>What are the new x and y dimensions after resampling?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">Resampling</span>
+
+<span class="n">raster</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span>
+    <span class="n">raster</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>  <span class="c1"># Keep the same CRS</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="n">XXXX</span><span class="p">,</span>    <span class="c1"># 100m resolution</span>
+    <span class="n">resampling</span><span class="o">=</span><span class="n">Resampling</span><span class="o">.</span><span class="n">XXXX</span>    <span class="c1"># average resampling</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -1005,11 +1081,13 @@ https://github.com/opengeos/datasets/releases/download/raster/Libya-2023-09-13.t
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproject-to-multiple-crs">7. Reproject to Multiple CRS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-band-math-ndvi-calculation">8. Basic Band Math (NDVI Calculation)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">Sample Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-9-load-and-inspect-a-raster-dataset">Question 9: Load and Inspect a Raster Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10-reproject-the-raster-to-a-new-crs">Question 10: Reproject the Raster to a New CRS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-11-clip-the-raster-using-a-bounding-box">Question 11: Clip the Raster Using a Bounding Box</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-12-resample-the-raster-to-a-different-resolution">Question 12: Resample the Raster to a Different Resolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">Sample Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-8">Question 8</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-9">Question 9</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10">Question 10</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-11">Question 11</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
