@@ -431,7 +431,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-exercise">Performing the exercise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-python-packages">1. Introduction to Python Packages</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-a-package">Importing a package</a></li>
 </ul>
@@ -510,19 +509,7 @@ document.write(`
 <hr>
 Make sure that you save this file before you continue, else you will lose everything. To do so, go to Bestand/File and click on Een kopie opslaan in Drive/Save a Copy on Drive!
 <p>Now, rename the file into TAA1_Tutorial2.ipynb. You can do so by clicking on the name in the top of this screen.</p>
-<h2>Tutorial Outline<span class="tocSkip"></span></h2>
-<hr>
-<div class="toc"><ul class="toc-item">
-<li><span><a href="#introduction-to-python-packages" data-toc-modified-id="1.-Introduction-to-Python-Packages-1"> Introduction to Python Packages</a></span></li>
-<li><span><a href="#introduction-to-numpy" data-toc-modified-id="2.-Introduction-to-NumPy-2"> Introduction to NumPy</a></span></li>
-<li><span><a href="#numpy-arrays" data-toc-modified-id="3.-NumPy-Arrays-23"> NumPy Arrays</a></span></li>
-<li><span><a href="#array-operations-and-broadcasting" data-toc-modified-id="4.-Array-Operations-and-Broadcasting-4"> Array Operations and Broadcasting</a></span></li>
-<li><span><a href="#indexing-and-slicing" data-toc-modified-id="5.-Indexing-and-slicing-5"> Indexing and slicing</a></span></li>
-<li><span><a href="#more-useful-mumpy-functions" data-toc-modified-id="6.-More-Useful-NumPy-Functions-6"> More Useful NumPy Functions</a></span></li>
-<li><span><a href="#introduction-to-pandas" data-toc-modified-id="7.-Introduction-to-Pandas-7"> Introduction to Pandas</a></span></li>
-<li><span><a href="#pandas-series" data-toc-modified-id="8.-Pandas-Series-8"> Pandas Series</a></span></li>
-<li><span><a href="#pandas-dataframes" data-toc-modified-id="9.-Pandas-DataFrames-9"> Pandas DataFrames</a></span></li>
-<li><span><a href="#why-ndarrays-and-series-and-dataFrames?" data-toc-modified-id="10.-Why-ndarrays-and-Series-and-DataFrames?-10"> Why ndarrays and Series and DataFrames?</a></span></li></ul></div></section>
+</section>
 <section id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <hr><p><strong>NumPy</strong></p>
@@ -543,11 +530,19 @@ Make sure that you save this file before you continue, else you will lose everyt
 <li><p>Read a standard .csv file from a local path or url using Pandas <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p></li>
 <li><p>Explain the relationship and differences between <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> objects in Python.</p></li>
 </ul>
-</section>
-<section id="performing-the-exercise">
-<h2>Performing the exercise<a class="headerlink" href="#performing-the-exercise" title="Permalink to this heading">#</a></h2>
-<p>You will do so by performing the scripts in this Python Jupyter notebook. To run any script in the code-boxes below use <em>crtl+enter</em>. In some instances, it is necessary to make changes to particular pieces of code in the code-boxes. When this is the case, this will be asked to you before you arrive at the actual script. This is indicated by means of an <strong>Action</strong>. When a script is running this is indicated by the * on the left side of the window.</p>
-</section>
+<h2>Tutorial Outline<span class="tocSkip"></span></h2>
+<hr>
+<div class="toc"><ul class="toc-item">
+<li><span><a href="#introduction-to-python-packages" data-toc-modified-id="1.-Introduction-to-Python-Packages-1"> Introduction to Python Packages</a></span></li>
+<li><span><a href="#introduction-to-numpy" data-toc-modified-id="2.-Introduction-to-NumPy-2"> Introduction to NumPy</a></span></li>
+<li><span><a href="#numpy-arrays" data-toc-modified-id="3.-NumPy-Arrays-23"> NumPy Arrays</a></span></li>
+<li><span><a href="#array-operations-and-broadcasting" data-toc-modified-id="4.-Array-Operations-and-Broadcasting-4"> Array Operations and Broadcasting</a></span></li>
+<li><span><a href="#indexing-and-slicing" data-toc-modified-id="5.-Indexing-and-slicing-5"> Indexing and slicing</a></span></li>
+<li><span><a href="#more-useful-mumpy-functions" data-toc-modified-id="6.-More-Useful-NumPy-Functions-6"> More Useful NumPy Functions</a></span></li>
+<li><span><a href="#introduction-to-pandas" data-toc-modified-id="7.-Introduction-to-Pandas-7"> Introduction to Pandas</a></span></li>
+<li><span><a href="#pandas-series" data-toc-modified-id="8.-Pandas-Series-8"> Pandas Series</a></span></li>
+<li><span><a href="#pandas-dataframes" data-toc-modified-id="9.-Pandas-DataFrames-9"> Pandas DataFrames</a></span></li>
+<li><span><a href="#why-ndarrays-and-series-and-dataFrames?" data-toc-modified-id="10.-Why-ndarrays-and-Series-and-DataFrames?-10"> Why ndarrays and Series and DataFrames?</a></span></li></ul></div></section>
 <section id="introduction-to-python-packages">
 <h2>1. Introduction to Python Packages<a class="headerlink" href="#introduction-to-python-packages" title="Permalink to this heading">#</a></h2>
 <hr><p>Packages are an essential building block in programming. Without packages, we’d spend lots of time writing code that’s already been written. Imagine having to write code from scratch every time you wanted to parse a file in a particular format. You’d never get anything done! That’s why we always want to use packages.</p>
@@ -2413,7 +2408,6 @@ Make sure that you save this file before you continue, else you will lose everyt
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-exercise">Performing the exercise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-python-packages">1. Introduction to Python Packages</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-a-package">Importing a package</a></li>
 </ul>
