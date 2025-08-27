@@ -536,7 +536,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>cdsapi
     <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>geocube
     <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>contextily
-    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>osmnx
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>osmnx
     <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;cdsapi&gt;=0.7.0&#39;</span>
 </pre></div>
 </div>
@@ -558,7 +558,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apikey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#add your personal API</span>
  
-<span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">apikey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://cds-beta.climate.copernicus.eu/api&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">apikey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://cds.climate.copernicus.eu/api&quot;</span><span class="p">)</span>
  
 <span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
     <span class="s1">&#39;sis-european-wind-storm-indicators&#39;</span><span class="p">,</span>
@@ -645,7 +645,7 @@ document.write(`
 <p>We also need to make sure that the functions will know what the exact parameters are that we have to use for our spatial dimenions (e.g. longitude and latitude). It prefers to be named <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. So we use the <code class="docutils literal notranslate"><span class="pre">rename()</span></code> function before we use the <code class="docutils literal notranslate"><span class="pre">set_spatial_dims()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windstorm_europe</span><span class="o">.</span> <span class="c1">#add CRS</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windstorm_europe</span> <span class="o">=</span> <span class="n">windstorm_europe</span><span class="o">.</span> <span class="c1">#add CRS</span>
 <span class="n">windstorm_europe</span> <span class="o">=</span> <span class="n">windstorm_europe</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Latitude&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;Longitude&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">})</span>
 <span class="n">windstorm_europe</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">set_spatial_dims</span><span class="p">(</span><span class="n">x_dim</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y_dim</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -848,7 +848,7 @@ document.write(`
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
 <span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
 
-<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">area_to_check</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">area_to_check</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">. Total area: </span><span class="si">{}</span><span class="s2"> km2&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">place_name</span><span class="p">,</span><span class="n">size</span><span class="p">),</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1360,7 +1360,7 @@ document.write(`
         <span class="n">hazard</span> <span class="o">=</span> <span class="n">hazard</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">reproject_match</span><span class="p">(</span><span class="n">landuse</span><span class="p">)</span>
 
     <span class="c1"># return the new landuse and hazard map</span>
-    <span class="k">return</span> <span class="n">landuse</span><span class="p">,</span><span class="n">hazard</span>
+    <span class="k">return</span> <span class="n">hazard</span><span class="p">,</span><span class="n">landuse</span>
 </pre></div>
 </div>
 </div>
@@ -1368,7 +1368,7 @@ document.write(`
 <p>Now let’s run the <code class="docutils literal notranslate"><span class="pre">match_rasters</span></code> function and let it do its magic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC_region_wind</span><span class="p">,</span> <span class="n">windstorm</span> <span class="o">=</span> <span class="n">match_rasters</span><span class="p">(</span><span class="n">windstorm_europe</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windstorm</span><span class="p">,</span> <span class="n">CLC_region_wind</span> <span class="o">=</span> <span class="n">match_rasters</span><span class="p">(</span><span class="n">windstorm_europe</span><span class="p">,</span>
                                            <span class="n">CLC_region</span><span class="p">,</span>
                                            <span class="n">haz_crs</span><span class="o">=</span><span class="mi">3035</span><span class="p">,</span>
                                            <span class="n">lu_crs</span><span class="o">=</span><span class="mi">3035</span><span class="p">,</span>
@@ -1442,8 +1442,8 @@ document.write(`
 <p>To Assess the flood damage, we are again going to make use of the <a class="reference external" href="https://damagescanner.readthedocs.io/en/latest/">DamageScanner</a>. The Corine Land Cover data is widely used in European flood risk assessments. As such, we can simply make use of pre-developed curves. We are using the damage curves as developed by Huizinga et al. (2007). Again, let’s first load the maximum damages and the depth-damage curves:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_curves</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;https://github.com/ElcoK/BigData_AED/raw/main/week5/damage_curves.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;flood_curves&#39;</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">)</span>
-<span class="n">maxdam</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;https://github.com/ElcoK/BigData_AED/raw/main/week5/damage_curves.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;maxdam&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_curves</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;https://github.com/ElcoK/BigData_AED/raw/main/week4/damage_curves.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;flood_curves&#39;</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">)</span>
+<span class="n">maxdam</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;https://github.com/ElcoK/BigData_AED/raw/main/week4/damage_curves.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;maxdam&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1520,7 +1520,7 @@ document.write(`
 <p>And run the <strong>match_rasters</strong> function now with the new landuse map</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landuse_osm_clc</span><span class="p">,</span> <span class="n">flood_map_osm</span> <span class="o">=</span> <span class="n">match_rasters</span><span class="p">(</span><span class="c1"># add landuse_clc,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_map_osm</span><span class="p">,</span> <span class="n">landuse_osm_clc</span> <span class="o">=</span> <span class="n">match_rasters</span><span class="p">(</span><span class="c1"># add landuse_clc,</span>
                                            <span class="c1">## add landuse_clc,</span>
                                            <span class="n">haz_crs</span><span class="o">=</span><span class="mi">3035</span><span class="p">,</span>
                                            <span class="n">lu_crs</span><span class="o">=</span><span class="c1"># add landuse CRS,</span>
@@ -1632,7 +1632,7 @@ document.write(`
 <p>As you have seen from the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> function, there are quite a few buildings with only very few tags. You could either consider to not include them in your plot at all (for example by using the <code class="docutils literal notranslate"><span class="pre">isin</span></code> function or the <code class="docutils literal notranslate"><span class="pre">query</span></code> function, see also <a class="reference external" href="https://stackoverflow.com/questions/12096252/use-a-list-of-values-to-select-rows-from-a-pandas-dataframe">here</a>), or rename them, similar to how you named the natural land cover classes for the land-use map. Here, we filter the dataframe to include only specific classes of buildings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildings</span> <span class="o">=</span> <span class="n">buildings</span><span class="p">[</span><span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;building&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;house&#39;</span><span class="p">,</span> <span class="s1">&#39;industrial&#39;</span><span class="p">,</span> <span class="s1">&#39;apartment&#39;</span><span class="p">])]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildings</span> <span class="o">=</span> <span class="n">buildings</span><span class="p">[</span><span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;building&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;house&#39;</span><span class="p">,</span> <span class="n">etc</span><span class="p">])]</span>
 </pre></div>
 </div>
 </div>
