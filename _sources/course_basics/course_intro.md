@@ -19,6 +19,6 @@ The key objectives of this course are:
 This course will be a combination of lectures and tutorials. Each week starts with an introductory lecture to the method and/or data type that will be applied and/or analyzed in that particular week. During the lecture, students will gain the required theoretical knowledge to apply the methods during the four TAA's. 
 
 ## Methods of assessment
-There will be two graded assignments. The first assigment will account for 35% of the grade (TAA2), and the second assignment will account for 65% of the grade (TAA4). The weekly assignments will be made in groups of two, whereas the final exam will be individual.
+There will be two graded assignments. The first assigment will account for 35% of the grade (TAA2), and the second assignment will account for 65% of the grade (TAA4). 
 
 You must pass both elements (5.5 or higher). 
