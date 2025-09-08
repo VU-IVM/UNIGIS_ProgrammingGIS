@@ -857,7 +857,7 @@ The Pandas team recommends <strong>Method 2 (re-assign)</strong>, for a <a class
                              <span class="mi">2331</span><span class="p">,</span> <span class="mf">12.67</span><span class="p">,</span> <span class="s2">&quot;Washed and oiled bike last night&quot;</span><span class="p">]],</span>
                            <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
                            <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">])</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">another_row</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">another_row</span><span class="p">])</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -1260,7 +1260,7 @@ The Pandas team recommends <strong>Method 2 (re-assign)</strong>, for a <a class
 <img alt="../_images/groupby_2.png" class="bg-primary mb-1" src="../_images/groupby_2.png" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfg</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfg</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
