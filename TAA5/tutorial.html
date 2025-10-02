@@ -480,9 +480,10 @@ document.write(`
 <section id="important-before-we-start">
 <h2>Important before we start!<a class="headerlink" href="#important-before-we-start" title="Permalink to this heading">#</a></h2>
 <hr>
-<p>⚠️<strong>Questions are indicated in full bold face.</strong> They should be filled in on Canvas, and we suggest explaining your rationale and thoughts, as they are intended to test your understanding of the ML pipeline.</p>
+<p>⚠️<strong>Questions are indicated in full bold face.</strong> They should be filled in on Canvas, and we suggest explaining your rationale and thoughts, as they are intended to test your understanding of the modelling pipeline.</p>
 <p>⚠️ <strong>Make sure that you copy this file before you continue</strong>, else you will lose everything. To do so, go to Bestand/File and click on Een kopie opslaan in Drive/Save a Copy on Drive!</p>
 <p>⚠️ <strong>Partial use of AI is allowed</strong>. You may use it to generate code, and to check your understanding of key concepts. <strong>HOWEVER, don’t use it to generate full answers to questions</strong>. We want to see questions written in your own words!</p>
+<p>⚠️ **In the assignment, you are quite free to select a country in Europe. However, we propose to choose a smaller country that also experience flood impacts. We propose, for example, The Netherlands or Slovenia.</p>
 </section>
 <section id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
@@ -603,7 +604,7 @@ document.write(`
 </div>
 </div>
 <p>Check if the country_bounds and country_geom are not empty. If not empty, you selected an existing ISO3 code!</p>
-<p>Now, we use the derived boundries to clip the population data from worldpop, to get the population of our country. We use the <strong>rio.clip_box(</strong> and <strong>rio.cip(</strong> function again. We used those before in TAA4. Apply them here to clip the world_pop data, to make sure it for sure fits the same spatial extent as the hospital data.</p>
+<p>Now, we use the derived boundries to clip the population data from worldpop, to get the population of our country. We use the <strong>rio.clip_box(</strong> and <strong>rio.cip(</strong> function again. We used those before in TAA2. Apply them here to clip the world_pop data, to make sure it for sure fits the same spatial extent as the hospital data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">world_pop_national</span> <span class="o">=</span> <span class="n">world_pop</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span><span class="n">minx</span><span class="o">..</span>
@@ -620,7 +621,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="n">upscale_factor</span><span class="p">)</span>
 <span class="n">new_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="n">upscale_factor</span><span class="p">)</span>
 
-<span class="n">worldpop_Grided</span> <span class="o">=</span> <span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span>
+<span class="n">worldpop_gridded</span> <span class="o">=</span> <span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span>
     <span class="n">world_pop_national</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
     <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span> <span class="n">new_width</span><span class="p">),</span>
     <span class="n">resampling</span><span class="o">=</span><span class="n">Resampling</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span>
@@ -632,19 +633,13 @@ document.write(`
 <p>Now we remove the missing data from our data points and create a GeoDataFrame for our country.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_worldpop_</span> <span class="o">=</span> <span class="n">worldpop_Grided</span><span class="o">.</span><span class="n">band_data</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
-<span class="n">df_worldpop_</span> <span class="o">=</span> <span class="n">df_worldpop_</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df_worldpop_</span><span class="o">.</span><span class="n">band_data</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_worldpop</span> <span class="o">=</span> <span class="n">worldpop_gridded</span><span class="o">.</span><span class="n">band_data</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">df_worldpop</span> <span class="o">=</span> <span class="n">df_worldpop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df_worldpop</span><span class="o">.</span><span class="n">band_data</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># create geometry values and drop lat lon columns</span>
-<span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span><span class="n">df_worldpop_</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]))))</span>
+<span class="n">df_worldpop</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_worldpop</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span><span class="n">df_worldpop</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]))))</span>
 
-<span class="n">df_worldpop_</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;spatial_ref&#39;</span><span class="p">,</span><span class="s1">&#39;band&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="c1"># dynamically create a variable name for the DataFrame</span>
-<span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;df_pop_</span><span class="si">{</span><span class="n">country_iso3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df_worldpop_</span><span class="p">)</span> 
-
-<span class="c1"># dynamically create a print statement that reflects the current country code (however df_worldpop_ would work as well)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The output is df_pop_</span><span class="si">{</span><span class="n">country_iso3</span><span class="si">}</span><span class="s2"> as a dataframe of the population data of </span><span class="si">{</span><span class="n">country_full_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df_worldpop</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df_worldpop</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;spatial_ref&#39;</span><span class="p">,</span><span class="s1">&#39;band&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1057,8 +1052,8 @@ document.write(`
                 <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span>
             <span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">df_worldpop_</span><span class="p">[</span><span class="s2">&quot;urban_rural&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="c1">### add the values</span>
-<span class="n">df_worldpop_</span><span class="p">[</span><span class="s2">&quot;urban_rural&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="c1">### fill the not a numbers with zeros.</span>
+<span class="n">df_worldpop</span><span class="p">[</span><span class="s2">&quot;urban_rural&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="c1">### add the values</span>
+<span class="n">df_worldpop</span><span class="p">[</span><span class="s2">&quot;urban_rural&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="c1">### fill the not a numbers with zeros.</span>
 </pre></div>
 </div>
 </div>
@@ -1066,7 +1061,7 @@ document.write(`
 <p>lets check the resulted calssified population, as mentioned 1 means urban and 0 rural.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_worldpop_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_worldpop</span>
 </pre></div>
 </div>
 </div>
@@ -1196,8 +1191,8 @@ document.write(`
 <h2>6. Natural hazard disruption<a class="headerlink" href="#natural-hazard-disruption" title="Permalink to this heading">#</a></h2>
 <section id="download-flood-data">
 <h3>Download flood data<a class="headerlink" href="#download-flood-data" title="Permalink to this heading">#</a></h3>
-<p>The flood data we will extract from a repository maintained by the World Resources Institute. We will download river flood hazard maps from their <a class="reference external" href="https://wri-projects.s3.amazonaws.com/AqueductFloodTool/download/v2/index.html">Flood Data Collection</a>.</p>
-<p>Here we do not need to use an API and we also do not need to register ourselves, so we can download any of the files directly. In case you do not have any flood impacts. You could select a more extreme future scenario. But let’s first download the 1/1000 river flood event under historic conditions.</p>
+<p>The flood data we will extract from a repository maintained by JRC. We will download river flood hazard maps from their <a class="reference external" href="https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-EFAS/flood_hazard/">Flood Data Collection</a>.</p>
+<p>Here we do not need to use an API and we also do not need to register ourselves, so we can download any of the files directly. In case you do not have any flood impacts. You could select a more extreme future scenario. But let’s first download the 1/200 river flood event under historic conditions.</p>
 </section>
 <section id="overlay-flood-data-with-hospitals">
 <h3>Overlay flood data with Hospitals<a class="headerlink" href="#overlay-flood-data-with-hospitals" title="Permalink to this heading">#</a></h3>
@@ -1302,7 +1297,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values_and_coverage_per_object</span> <span class="o">=</span> <span class="n">exact_extract</span><span class="p">(</span>
             <span class="n">flood_map</span><span class="p">,</span>
-            <span class="n">HealthCenters</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">3857</span><span class="p">),</span>
+            <span class="n">HealthCenters</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">3035</span><span class="p">),</span>
             <span class="p">[</span><span class="s2">&quot;coverage&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">],</span>
             <span class="n">output</span><span class="o">=</span><span class="s2">&quot;pandas&quot;</span><span class="p">,</span>
         <span class="p">)</span>
