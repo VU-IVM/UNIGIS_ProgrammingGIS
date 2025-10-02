@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>TAA4: Accessibility to healthcare facilities &#8212; UNIGIS - Big Data in Sustainability Science</title>
+    <title>TAA5: Accessibility to healthcare facilities &#8212; UNIGIS - Big Data in Sustainability Science</title>
   
   
   
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA5</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">TAA4: Accessibility to healthcare facilities</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TAA5: Accessibility to healthcare facilities</a></li>
 </ul>
 
     </div>
@@ -422,7 +422,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>TAA4: Accessibility to healthcare facilities</h1>
+    <h1>TAA5: Accessibility to healthcare facilities</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,7 +432,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-packages">Prepare the packages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download-and-preparation">2. Data download and preparation</a></li>
@@ -473,14 +473,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="taa4-accessibility-to-healthcare-facilities">
-<h1>TAA4: Accessibility to healthcare facilities<a class="headerlink" href="#taa4-accessibility-to-healthcare-facilities" title="Permalink to this heading">#</a></h1>
-<p>In this tutorial, we wrap up what you have learned in TAA1-3 by demonstrating their applications and connections. For a European country of your choice, we collect data on the population and their health facilities. Using a classification method, we add rural and urban features to the population data points. Then, with a clustering algorithm, we group population points based on their coordinates and assign each cluster to its closest hospitals. This allows us to calculate the total urban and rural demand for each hospital. Next, we assess the impact of flooding on the hospitals, distinguishing between damaged and undamaged facilities.</p>
+  <section id="taa5-accessibility-to-healthcare-facilities">
+<h1>TAA5: Accessibility to healthcare facilities<a class="headerlink" href="#taa5-accessibility-to-healthcare-facilities" title="Permalink to this heading">#</a></h1>
+<p>In this tutorial, we wrap up what you have learned in TAA1-4 by demonstrating their applications and connections. For a European country of your choice, we collect data on the population and their health facilities. Using a classification method, we add rural and urban features to the population data points. Then, with a clustering algorithm, we group population points based on their coordinates and assign each cluster to its closest hospitals. This allows us to calculate the total urban and rural demand for each hospital. Next, we assess the impact of flooding on the hospitals, distinguishing between damaged and undamaged facilities.</p>
 <p>In the aftermath of the flood, the number of hospitals in service has changed. Your task will be to repeat the clustering process, assign the new clusters to the intact hospitals, and then calculate their urban and rural demand in the post-flood conditions.</p>
 <section id="important-before-we-start">
-<h2>Important before we start<a class="headerlink" href="#important-before-we-start" title="Permalink to this heading">#</a></h2>
-<hr class="docutils" />
-<p>Make sure that you save this file before you continue, else you will lose everything. To do so, go to <strong>Bestand/File</strong> and click on <strong>Een kopie opslaan in Drive/Save a Copy on Drive</strong>!</p>
+<h2>Important before we start!<a class="headerlink" href="#important-before-we-start" title="Permalink to this heading">#</a></h2>
+<hr>
+<p>⚠️<strong>Questions are indicated in full bold face.</strong> They should be filled in on Canvas, and we suggest explaining your rationale and thoughts, as they are intended to test your understanding of the ML pipeline.</p>
+<p>⚠️ <strong>Make sure that you copy this file before you continue</strong>, else you will lose everything. To do so, go to Bestand/File and click on Een kopie opslaan in Drive/Save a Copy on Drive!</p>
+<p>⚠️ <strong>Partial use of AI is allowed</strong>. You may use it to generate code, and to check your understanding of key concepts. <strong>HOWEVER, don’t use it to generate full answers to questions</strong>. We want to see questions written in your own words!</p>
 </section>
 <section id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
@@ -648,7 +650,7 @@ document.write(`
 </div>
 </div>
 <p>And Lets plot the population points of our country of interest.</p>
-<p><strong>Q: Make sure you provide a plot with all its characteristics (title, good colors etc).</strong></p>
+<p>❗<strong>Q1: Make sure you provide a plot with all its characteristics (title, good colors etc).</strong></p>
 <p>Our next step is to extract information of healthcare facilities for the country of interest. We do so using OpenStreetMap. With the latest version of geopandas, it is now possible to directly read <strong>osm.pbf</strong> files from OpenStreetMap.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -870,7 +872,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Q: Briefly explain which classes you included for the urban/rural re-classification.</strong></p>
+<p>❗<strong>Q2: Briefly explain which classes you included for the urban/rural re-classification.</strong></p>
 <p>Let’s make training/validation splits. You can customize this however you see fit, but we suggest balanced sampling, where you control how many positive and how many negative samples are included during training/validation, so as to not over/under-sample one or the other.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -900,7 +902,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Q: Describe your sampling approach. Which approach did you go with, and what is the rationale behind it?</strong></p>
+<p>❗<strong>Q3: Describe your sampling approach. Which approach did you go with, and what is the rationale behind it?</strong></p>
 </section>
 <section id="optimize-on-training-validation-set">
 <h3>Optimize on training &amp; validation set<a class="headerlink" href="#optimize-on-training-validation-set" title="Permalink to this heading">#</a></h3>
@@ -948,10 +950,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Q: Describe the changes you made to the ‘standard’ approach.</strong></p>
+<p>❗<strong>Q4: Describe the changes you made to the ‘standard’ approach.</strong></p>
 <ol class="arabic simple">
 <li><p><strong>Why did you make these changes</strong></p></li>
-<li><p><strong>which impact did each change have on your analysis?</strong></p></li>
+<li><p><strong>Which impact did each change have on your analysis?</strong></p></li>
 <li><p><strong>Which things did you try that did not work out?</strong></p></li>
 </ol>
 </section>
@@ -1016,7 +1018,7 @@ document.write(`
 </div>
 <p>There are no metrics to calculate here - after all, we’re trying to update our reference data. Instead, visually evaluate if you’re happy with the results. When you’re happy with the results, proceed to the next block to export the data from Earth Engine into our local environment.</p>
 <p>(<strong>hint:</strong> don’t go for perfect, this is very hard to achieve in the current setting)</p>
-<p><strong>Q: Describe your map and your results in general.</strong></p>
+<p>❗<strong>Q5: Describe your map and your results in general.</strong></p>
 <ol class="arabic simple">
 <li><p><strong>Where do you still see errors? Are these systemic?</strong></p></li>
 <li><p><strong>How could you further improve your product to clean these up?</strong> <strong>bold text</strong></p></li>
@@ -1150,7 +1152,7 @@ document.write(`
 </section>
 <section id="explore-and-evaluate-baseline-results">
 <h2>5. Explore and evaluate baseline results<a class="headerlink" href="#explore-and-evaluate-baseline-results" title="Permalink to this heading">#</a></h2>
-<p><strong>Q: Plot cluster centers and the location of hospitals</strong></p>
+<p>❗<strong>Q6: Plot cluster centers and the location of hospitals</strong></p>
 <section id="identify-and-plot-population-per-healthcare-facility">
 <h3>Identify and plot population per healthcare facility<a class="headerlink" href="#identify-and-plot-population-per-healthcare-facility" title="Permalink to this heading">#</a></h3>
 <p>Here, we calculate the urban and rural demand for services for each hospital by summing the populations in each cluster assigned to the hospitals. We also calculate the total demand for each hospital.</p>
@@ -1171,7 +1173,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Q: Plot the Hospital locations and their total demand</strong></p>
+<p>❗<strong>Q7: Plot the Hospital locations and their total demand</strong></p>
 <p>Now we check if there is any hospital that has not been assigned to any population cluster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1344,10 +1346,10 @@ document.write(`
 <section id="your-task-here-will-be">
 <h3>Your task here will be:<a class="headerlink" href="#your-task-here-will-be" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Create new clusters of populations and assign them to the remaining hospitals, then determine the post-disaster demand for these hospitals.</p></li>
-<li><p>Calculate the urban, rural and total demand (population in need of services) for each hospital.</p></li>
-<li><p>Plot the remaining hospitals vs their total population in need of service.</p></li>
-<li><p>Let us know how many hospitals were affected by the flood and the total number of rural residents who need to find an alternative hospital.</p></li>
+<li><p>Part 1: Create new clusters of populations and assign them to the remaining hospitals, then determine the post-disaster demand for these hospitals.</p></li>
+<li><p>Part 2: Calculate the urban, rural and total demand (population in need of services) for each hospital.</p></li>
+<li><p>Part 3: Plot the remaining hospitals vs their total population in need of service.</p></li>
+<li><p>Part 4: Let us know how many hospitals were affected by the flood and the total number of rural residents who need to find an alternative hospital.</p></li>
 </ul>
 </section>
 </section>
@@ -1407,7 +1409,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-packages">Prepare the packages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download-and-preparation">2. Data download and preparation</a></li>
