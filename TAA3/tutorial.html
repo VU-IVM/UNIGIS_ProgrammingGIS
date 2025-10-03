@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Tutorial 3: Crop cover classification &#8212; UNIGIS - Big Data in Sustainability Science</title>
+    <title>TAA3: Crop cover classification &#8212; UNIGIS - Big Data in Sustainability Science</title>
   
   
   
@@ -192,7 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA3</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial 3: Crop cover classification</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TAA3: Crop cover classification</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA4</span></p>
@@ -423,7 +423,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tutorial 3: Crop cover classification</h1>
+    <h1>TAA3: Crop cover classification</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -433,7 +433,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 3: Crop cover classification</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TAA3: Crop cover classification</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
@@ -467,8 +467,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="tutorial-3-crop-cover-classification">
-<h1>Tutorial 3: Crop cover classification<a class="headerlink" href="#tutorial-3-crop-cover-classification" title="Permalink to this heading">#</a></h1>
+  <section id="taa3-crop-cover-classification">
+<h1>TAA3: Crop cover classification<a class="headerlink" href="#taa3-crop-cover-classification" title="Permalink to this heading">#</a></h1>
 <p>In this tutorial we are going to explore the power of the <strong>Google Earth Engine</strong> through classifying crop categories on satelite imagery. In particular, we will focus on supervised classification using methods from frequentist statistics. Supervised classification refers to the process of using a training dataset with known labels to guide a mathematical classifier in the task of labeling spectral space. They key characteristic is that the training dataset guides (or “supervises”) the labeling.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> package within the <strong>Google Earth Engine</strong> handles supervised classification by traditional ML algorithms running in Earth Engine. We will use it for testing, but we will also teach you <strong>Scikit-Learn</strong>, the most commonly used ML package in Python. We will be looking at three classifiers, namely logistical regression, decision trees, and random forests. The workflow for classification is as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Collect training data. Assemble features which have a property that stores the known class label and properties storing numeric values for the predictors.
@@ -825,7 +825,7 @@ document.write(`
 </div>
 </div>
 <p>❗<strong>Q4 (4 points): What are the downsides of using a sample randomized 80/20 training/validation split like this? Can you think of other ways to partition the dataset which would be better?</strong></p>
-<p>Finally, let’s visualize a single imge pixel to make sure that everything is included as expected. Contrary to what some might say, preparing and organizing your dataset takes up the bulk of your time when working with machine learning models.</p>
+<p>Finally, let’s visualize a single image pixel to make sure that everything is included as expected. Contrary to what some might say, preparing and organizing your dataset takes up the bulk of your time when working with machine learning models.</p>
 <p>⚠️ <strong>Always double-check your dataset before training, or you’ll find yourself wasting a lot of time</strong>!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1321,7 +1321,7 @@ document.write(`
 </div>
 <p>In principle, the model’s results on the test set are what we would report in a paper. Depending on your expectations, you might be surprised with the results of the model compared to the test set. However, it’s important to remember a few things:</p>
 <ol class="arabic simple">
-<li><p>We haven’t played around much with the input variabes. There are more tricks that we could tap into that we haven’t discussed (e.g. think about how important it is to see what happens around a pixel in order to determine what’s happening inside of it).</p></li>
+<li><p>We haven’t played around much with the input variables. There are more tricks that we could tap into that we haven’t discussed (e.g. think about how important it is to see what happens around a pixel in order to determine what’s happening inside of it).</p></li>
 <li><p>This is a <strong>hard</strong> task for a simple model as we’re dealing with similar classes, and a vague and uncertain reference data definition.</p></li>
 <li><p>We are not consistent with the time of year at which we’re predicting, which for some crop cover classes has a large impact on how it’s perceived.</p></li>
 <li><p>We’re training it on just 25’000 pixels. This is a limited amount for a hard task, and usually we’d prefer to use much more data.</p></li>
@@ -1402,7 +1402,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 3: Crop cover classification</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TAA3: Crop cover classification</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
