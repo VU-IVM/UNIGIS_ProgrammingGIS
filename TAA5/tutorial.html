@@ -475,7 +475,7 @@ document.write(`
                   
   <section id="taa5-accessibility-to-healthcare-facilities">
 <h1>TAA5: Accessibility to healthcare facilities<a class="headerlink" href="#taa5-accessibility-to-healthcare-facilities" title="Permalink to this heading">#</a></h1>
-<p>In this tutorial, we wrap up what you have learned in TAA1-4 by demonstrating their applications and connections. For a European country of your choice, we collect data on the population and their health facilities. Using a classification method, we add rural and urban features to the population data points. Then, with a clustering algorithm, we group population points based on their coordinates and assign each cluster to its closest hospitals. This allows us to calculate the total urban and rural demand for each hospital. Next, we assess the impact of flooding on the hospitals, distinguishing between damaged and undamaged facilities.</p>
+<p>In this tutorial, we wrap up what you have learned in TAA1 through TAA4 by demonstrating their applications and connections. For a European country of your choice, we collect data on the population and their health facilities. Using a classification method, we add rural and urban features to the population data points. Then, with a clustering algorithm, we group population points based on their coordinates and assign each cluster to its closest hospitals. This allows us to calculate the total urban and rural demand for each hospital. Next, we assess the impact of flooding on the hospitals, distinguishing between damaged and undamaged facilities.</p>
 <p>In the aftermath of the flood, the number of hospitals in service has changed. Your task will be to repeat the clustering process, assign the new clusters to the intact hospitals, and then calculate their urban and rural demand in the post-flood conditions.</p>
 <section id="important-before-we-start">
 <h2>Important before we start!<a class="headerlink" href="#important-before-we-start" title="Permalink to this heading">#</a></h2>
@@ -483,7 +483,7 @@ document.write(`
 <p>⚠️<strong>Questions are indicated in full bold face.</strong> They should be filled in on Canvas, and we suggest explaining your rationale and thoughts, as they are intended to test your understanding of the modelling pipeline.</p>
 <p>⚠️ <strong>Make sure that you copy this file before you continue</strong>, else you will lose everything. To do so, go to Bestand/File and click on Een kopie opslaan in Drive/Save a Copy on Drive!</p>
 <p>⚠️ <strong>Partial use of AI is allowed</strong>. You may use it to generate code, and to check your understanding of key concepts. <strong>HOWEVER, don’t use it to generate full answers to questions</strong>. We want to see questions written in your own words!</p>
-<p>⚠️ **In the assignment, you are quite free to select a country in Europe. However, we propose to choose a smaller country that also experience flood impacts. We propose, for example, The Netherlands or Slovenia.</p>
+<p>⚠️ In the assignment, you are free to select any country in Europe. However, <strong>we propose to choose a smaller country that also experience flood impacts</strong>. We propose, for example, The Netherlands or Slovenia.</p>
 </section>
 <section id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
@@ -703,9 +703,9 @@ document.write(`
 </section>
 <section id="classification-of-rural-and-urban-areas">
 <h2>3. Classification of rural and urban areas<a class="headerlink" href="#classification-of-rural-and-urban-areas" title="Permalink to this heading">#</a></h2>
-<p>As you remember, we checked the content of the population data, and there was no information regarding urban or rural areas. Therefore, we need to add this information to our dataset. So, we will use an approach similar to what you learned in TAA1, but for the sake of processing efficiency, we will use Earth Engine’s built-in classifier packages rather than scikit-learn. In this situation we are interested in only two land cover classes: rural and urban. We will have to reclassify the raster, train a model to distinguish between these timesteps, and finally perform the classification on recent images.</p>
+<p>As you remember, we checked the content of the population data, and there was no information regarding urban or rural areas. Therefore, we need to add this information to our dataset. So, we will use an approach similar to what you learned in TAA3, but for the sake of processing efficiency, we will use Earth Engine’s built-in classifier packages rather than scikit-learn. In this situation we will instead work with land use classes, and we are interested in only two classes: rural and urban. We will have to reclassify the raster, train a model to distinguish between these timesteps, and finally perform the classification on recent images.</p>
 <!--  -->
-<p>We have pre-filled most of the code in this section, and you will use a few new tricks to perform the classification. Beyond that, we challenge you to leverage what you have learned in TAA1 to improve the performance of the model, by any means you see fit. You will be evaluated on your reasoning, as well as the creativity of the approaches.</p>
+<p>We have pre-filled most of the code in this section, and you will use a few new tricks to perform the classification. Beyond that, we challenge you to leverage what you have learned in TAA3 to improve the performance of the model, by any means you see fit. You will be evaluated on your reasoning, as well as the creativity of the approaches.</p>
 <section id="set-up">
 <h3>Set-up<a class="headerlink" href="#set-up" title="Permalink to this heading">#</a></h3>
 <p>First, set up your Earth Engine environment as you did before.</p>
@@ -726,6 +726,7 @@ document.write(`
 </section>
 <section id="set-up-training-validation-data">
 <h3>Set-up training &amp; validation data<a class="headerlink" href="#set-up-training-validation-data" title="Permalink to this heading">#</a></h3>
+<p>Next up we will split our data into training and validation datasets. Think back on TAA3 on how we did it there, and if necessary refer back to code.</p>
 <p>We will make use of the following data sources:</p>
 <ol class="arabic simple">
 <li><p>Administrative country boundary to clip to the area of interest</p></li>
@@ -773,7 +774,7 @@ document.write(`
 </section>
 <section id="calculate-image-variables-to-include">
 <h3>Calculate image variables to include<a class="headerlink" href="#calculate-image-variables-to-include" title="Permalink to this heading">#</a></h3>
-<p>Next, we will compute variables to use for our classifier. We have provided the examples you’ve already seen for TAA1, but we challenge you to add your own variables. You can get inspiration from anywhere, but be sure that you are able to explain the reasoning behind including each variable.</p>
+<p>Next, we will compute variables to use for our classifier. We have provided the examples you’ve already seen for TAA3, but we challenge you to add your own variables. You can get inspiration from anywhere, but be sure that you are able to explain the reasoning behind including each variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_s2_variables</span><span class="p">(</span><span class="n">s2_image</span><span class="p">):</span>
@@ -788,7 +789,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">       ToDo: Add your own variables!</span>
 
-<span class="sd">       Think about what you learned in TAA1 - how else can you compute information</span>
+<span class="sd">       Think about what you learned in TAA3 - how else can you compute information</span>
 <span class="sd">       from the spectral bands to include? Look at some papers for inspiration,</span>
 <span class="sd">       or try something out yourself. There&#39;s more than just indices that can help here!</span>
 
@@ -833,7 +834,7 @@ document.write(`
 </section>
 <section id="load-clc2018-and-sample-data">
 <h3>Load CLC2018 and sample data<a class="headerlink" href="#load-clc2018-and-sample-data" title="Permalink to this heading">#</a></h3>
-<p>Now, let’s load labels from CORINE and classify the model.</p>
+<p>Now, let’s load labels from CORINE and classify the model. CORINE Land Cover (CLC) is a harmonized Europe-wide land cover dataset that is commonly used for land cover analyses. CLC consists of a <a class="reference external" href="https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/">3-digit hierarchy</a>, where each level of the hierarchy is a level of detail. For instance, all classes starting with <code class="docutils literal notranslate"><span class="pre">1</span></code> are urban classes, <code class="docutils literal notranslate"><span class="pre">2</span></code> are agriculture, and so forth. Level 1 is a lowest level of detail, while level 3, the full three-digit land cover class, has the highest level of detail. Let’s load reference data that intersects with our study area.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/CORINE/V20/100m/2018&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;landcover&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">mosaic_image</span><span class="o">.</span><span class="n">geometry</span><span class="p">())</span>
@@ -850,13 +851,13 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Next, let’s reclassify the dataset to a binary urban/rural dataset. The choice how to do this is yours, and can be as easy or complicated as you like it to be. As a reminder, CLC consists of a <a class="reference external" href="https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/">3-digit hierarchy</a>, so you can pick which classes you want to include and exclude.</p>
+<p>Next, let’s reclassify the dataset to a binary urban/rural dataset. The choice how to do this is yours, and can be as easy or complicated as you like it to be. Below is the simplest solution, which only considers the level-1 class. You can also consider finer aggregations, such as selections in the level-2 classes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generalize_clc_class</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
     <span class="n">lc_value</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;landcover&#39;</span><span class="p">))</span>
 
-    <span class="c1"># Check if the first character is &#39;1&#39;</span>
+    <span class="c1"># Check if the first character is &#39;1&#39;, reassigns to 1 where true, 0 otherwise.</span>
     <span class="n">set_value</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">lc_value</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="c1"># Set the new binary value for the &#39;landcover&#39; property</span>
@@ -901,10 +902,10 @@ document.write(`
 </section>
 <section id="optimize-on-training-validation-set">
 <h3>Optimize on training &amp; validation set<a class="headerlink" href="#optimize-on-training-validation-set" title="Permalink to this heading">#</a></h3>
-<p>Now that we have sampled data, we will iteratively improve the model. How you want to approach this is up to you, we only provide the basic process here. In TAA1 we taught you a few methods and concepts that you can build on. To give some suggestions:</p>
+<p>Now that we have sampled data, we will iteratively improve the model. How you want to approach this is up to you, we only provide the basic process here. In TAA3 we taught you a few methods and concepts that you can build on. To give some suggestions:</p>
 <ol class="arabic simple">
-<li><p>Analyze the confusion matrix</p></li>
-<li><p>Look at different metrics that might be more informative - for instance, precision and recall</p></li>
+<li><p>Analyze the confusion matrix.</p></li>
+<li><p>Look at different metrics that might be more informative - for instance, precision and recall, but feel free to add your own.</p></li>
 <li><p>Look at redundant variables - you learned this in scikit-learn, but EE has options for this too if you want to search for it.</p></li>
 </ol>
 <p>It’s up to you how to approach this, but we recommend to document what worked and what didn’t work so that you have an easier time reporting your results.</p>
@@ -945,11 +946,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>❗<strong>Q4: Describe the changes you made to the ‘standard’ approach.</strong></p>
+<p><strong>❗Q4: Describe the changes you made to the approach that we suggested. Include the following in your answers:</strong></p>
 <ol class="arabic simple">
-<li><p><strong>Why did you make these changes</strong></p></li>
-<li><p><strong>Which impact did each change have on your analysis?</strong></p></li>
-<li><p><strong>Which things did you try that did not work out?</strong></p></li>
+<li><p>The changes you made to the standard workflow</p></li>
+<li><p>The rationale behind the choices that you made</p></li>
+<li><p>The effects of your choices - did they work out?</p></li>
+<li><p>Optionally, any changes you made that did not work out.</p></li>
 </ol>
 </section>
 <section id="run-on-test-set">
@@ -1013,11 +1015,11 @@ document.write(`
 </div>
 <p>There are no metrics to calculate here - after all, we’re trying to update our reference data. Instead, visually evaluate if you’re happy with the results. When you’re happy with the results, proceed to the next block to export the data from Earth Engine into our local environment.</p>
 <p>(<strong>hint:</strong> don’t go for perfect, this is very hard to achieve in the current setting)</p>
-<p>❗<strong>Q5: Describe your map and your results in general.</strong></p>
+<p>❗<strong>Q5: Describe your map and your results in general. Include the following in your answer</strong></p>
 <ol class="arabic simple">
-<li><p><strong>Where do you still see errors? Are these systemic?</strong></p></li>
-<li><p><strong>How could you further improve your product to clean these up?</strong> <strong>bold text</strong></p></li>
-<li><p><strong>Was there anything you wanted to try, but were unable to?</strong></p></li>
+<li><p>Where do you still see errors? Are these systemic?</p></li>
+<li><p>How could you further improve your product to clean these up?</p></li>
+<li><p>Optionally, was there anything you wanted to try, but were unable to?</p></li>
 </ol>
 </section>
 <section id="export-resulting-image">
