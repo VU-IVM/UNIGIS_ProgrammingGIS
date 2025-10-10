@@ -647,7 +647,7 @@ document.write(`
 </div>
 </div>
 <p>And Lets plot the population points of our country of interest.</p>
-<p>❗<strong>Q1: Make sure you provide a plot with all its characteristics (title, good colors etc).</strong></p>
+<p>❗<strong>Q1 (2 points): Please provide a plot with all its characteristics (title, good colors etc).</strong></p>
 <p>Our next step is to extract information of healthcare facilities for the country of interest. We do so using OpenStreetMap. With the latest version of geopandas, it is now possible to directly read <strong>osm.pbf</strong> files from OpenStreetMap.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -870,7 +870,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>❗<strong>Q2: Briefly explain which classes you included for the urban/rural re-classification.</strong></p>
+<p>❗<strong>Q2 (2 points): Briefly explain which classes you included for the urban/rural re-classification.</strong></p>
 <p>Let’s make training/validation splits. You can customize this however you see fit, but we suggest balanced sampling, where you control how many positive and how many negative samples are included during training/validation, so as to not over/under-sample one or the other.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -900,7 +900,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>❗<strong>Q3: Describe your sampling approach. Which approach did you go with, and what is the rationale behind it?</strong></p>
+<p>❗<strong>Q3 (2 points): Describe your sampling approach. Which approach did you go with, and what is the rationale behind it?</strong></p>
 </section>
 <section id="optimize-on-training-validation-set">
 <h3>Optimize on training &amp; validation set<a class="headerlink" href="#optimize-on-training-validation-set" title="Permalink to this heading">#</a></h3>
@@ -948,7 +948,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>❗Q4: Describe the changes you made to the approach that we suggested. Include the following in your answers:</strong></p>
+<p><strong>❗Q4 (5 points): Describe the changes you made to the approach that we suggested. Include the following in your answers:</strong></p>
 <ol class="arabic simple">
 <li><p>The changes you made to the standard workflow</p></li>
 <li><p>The rationale behind the choices that you made</p></li>
@@ -1017,7 +1017,7 @@ document.write(`
 </div>
 <p>There are no metrics to calculate here - after all, we’re trying to update our reference data. Instead, visually evaluate if you’re happy with the results. When you’re happy with the results, proceed to the next block to export the data from Earth Engine into our local environment.</p>
 <p>(<strong>hint:</strong> don’t go for perfect, this is very hard to achieve in the current setting)</p>
-<p>❗<strong>Q5: Describe your map and your results in general. Include the following in your answer</strong></p>
+<p>❗<strong>Q5 (5 points): Describe your map and your results in general. Include the following in your answer</strong></p>
 <ol class="arabic simple">
 <li><p>Where do you still see errors? Are these systemic?</p></li>
 <li><p>How could you further improve your product to clean these up?</p></li>
@@ -1151,7 +1151,7 @@ document.write(`
 </section>
 <section id="explore-and-evaluate-baseline-results">
 <h2>5. Explore and evaluate baseline results<a class="headerlink" href="#explore-and-evaluate-baseline-results" title="Permalink to this heading">#</a></h2>
-<p>❗<strong>Q6: Plot cluster centers and the location of hospitals</strong></p>
+<p>❗<strong>Q6 (3 points): Plot cluster centers and the location of hospitals.</strong></p>
 <section id="identify-and-plot-population-per-healthcare-facility">
 <h3>Identify and plot population per healthcare facility<a class="headerlink" href="#identify-and-plot-population-per-healthcare-facility" title="Permalink to this heading">#</a></h3>
 <p>Here, we calculate the urban and rural demand for services for each hospital by summing the populations in each cluster assigned to the hospitals. We also calculate the total demand for each hospital.</p>
@@ -1172,7 +1172,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>❗<strong>Q7: Plot the Hospital locations and their total demand</strong></p>
+<p>❗<strong>Q7 (3 points): Plot the Hospital locations and their total demand.</strong></p>
 <p>Now we check if there is any hospital that has not been assigned to any population cluster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1346,18 +1346,18 @@ document.write(`
 <section id="part-1">
 <h3>Part 1<a class="headerlink" href="#part-1" title="Permalink to this heading">#</a></h3>
 <p>Create new clusters of populations and assign them to the remaining hospitals.</p>
-<p>❗<strong>Q8: Create a clear figure that shows the new clusters of the remaining hospitals. Also interpret and describe the figure you have made.</strong></p>
+<p>❗<strong>Q8 (5 points): Create a clear figure that shows the new clusters of the remaining hospitals. Please share the code you have written to do so, and also interpret and describe the figure you have made.</strong></p>
 </section>
 <section id="part-2">
 <h3>Part 2<a class="headerlink" href="#part-2" title="Permalink to this heading">#</a></h3>
 <p>Calculate the urban, rural and total demand (population in need of services) for each hospital.</p>
-<p>❗<strong>Q9: Describe and compare the new urban, rural and total demand with the baseline non-disrupted demands. A comparison figure would be very useful to understand how things have changed between the baseline and new situation.</strong></p>
+<p>❗<strong>Q9 (5 points): Describe and compare the new urban, rural and total demand with the baseline non-disrupted demands. A comparison figure would be very useful to understand how things have changed between the baseline and new situation. Please also share the code you have written to be able to answer this question.</strong></p>
 </section>
 <section id="part-3">
 <h3>Part 3<a class="headerlink" href="#part-3" title="Permalink to this heading">#</a></h3>
 <p>Plot the remaining hospitals vs their total population in need of service.</p>
-<p>❗<strong>Q10: Create a clear figure of the remaining hospitals vs their total population, and compare this to the baseline situation. What has changed? Make sure it is also clear from the figure and your description how the different population “types” (e.g., urban and rural) are potentially differently affected.</strong></p>
-<p>❗<strong>Q11: Reflect on the applied approach. A few elements that would be good to include in your reflection: (i) is the clustering method indeed suitable to understand the impact on healthcare accessibility? And why (not)? (ii) Can you name at least one additional type of analysis you would have liked to include to provide an even more nuanced picture of accessibility?</strong></p>
+<p>❗<strong>Q10 (5 points): Create a clear figure of the remaining hospitals vs their total population, and compare this to the baseline situation. What has changed? Make sure it is also clear from the figure and your description how the different population “types” (e.g., urban and rural) are potentially differently affected. Please also share the code you have written to be able to answer this question.</strong></p>
+<p>❗<strong>Q11 (3 points): Reflect on the applied approach. A few elements that would be good to include in your reflection: (i) is the clustering method indeed suitable to understand the impact on healthcare accessibility? And why (not)? (ii) Can you name at least one additional type of analysis you would have liked to include to provide an even more nuanced picture of accessibility?</strong></p>
 </section>
 </section>
 </section>
