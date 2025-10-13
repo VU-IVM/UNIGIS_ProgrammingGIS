@@ -759,7 +759,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bands</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Fill in this list yourself</span>
-<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="p">,</span> <span class="s1">&#39;bands&#39;</span><span class="p">:</span> <span class="n">bands</span><span class="p">}</span>  <span class="c1"># Limit upper range so you can see detail</span>
+<span class="n">vis_params</span> <span class="o">=</span> <span class="c1"># Pick bands that you want to visualize</span>
 
 <span class="nb">map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
@@ -854,7 +854,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Next, let’s reclassify the dataset to a binary urban/rural dataset. The choice how to do this is yours, and can be as easy or complicated as you like it to be. Below is the simplest solution, which only considers the level-1 class. You can also consider finer aggregations, such as selections in the level-2 classes.</p>
+<p>Next, let’s reclassify the dataset to a binary urban/rural dataset. The choice how to do this is yours, and can be as easy or complicated as you like it to be. Below is the simplest solution, which only considers the level-1 class. You can also consider finer aggregations, such as selections in the level-2 classes. We encourage you to try a more sophisticated solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generalize_clc_class</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
@@ -901,7 +901,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>❗<strong>Q3 (2 points): Describe your sampling approach. Which approach did you go with, and what is the rationale behind it?</strong></p>
+<p>❗<strong>Q3 (3 points): Describe your sampling approach. Which approach did you go with, and what is the rationale behind it?</strong></p>
 </section>
 <section id="optimize-on-training-validation-set">
 <h3>Optimize on training &amp; validation set<a class="headerlink" href="#optimize-on-training-validation-set" title="Permalink to this heading">#</a></h3>
@@ -949,7 +949,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>❗Q4 (5 points): Describe the changes you made to the approach that we suggested. Include the following in your answers:</strong></p>
+<p><strong>❗Q4 (4 points): Describe the changes you made to the pipeline that was suggested by us. Include the following in your answers:</strong></p>
 <ol class="arabic simple">
 <li><p>The changes you made to the standard workflow</p></li>
 <li><p>The rationale behind the choices that you made</p></li>
