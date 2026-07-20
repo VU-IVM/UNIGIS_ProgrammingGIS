@@ -193,16 +193,11 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../TAA3/lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../TAA3/tutorial.html">TAA3: Crop cover classification</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA4</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lecture.html">Lecture: Loading API geodata and clustering</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">TAA4: Unsupervised learning</a></li>
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA5</span></p>
 <ul class="nav bd-sidenav">
@@ -433,13 +428,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TAA4: Unsupervised learning</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-preparation">Dataset preparation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-preparation">Dataset preparation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-for-the-randstad-area">Load data for the Randstad area</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handle-missing-data">Handle missing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing">Visualizing</a></li>
@@ -447,22 +439,17 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing"><strong>Normalizing</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering">Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-and-evaluating-k-means-clustering">Running and evaluating K-Means clustering</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering">Clustering</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-and-evaluating-k-means-clustering">Running and evaluating K-Means clustering</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-clusters">Analysis of clusters</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping up</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-clusters">Analysis of clusters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping up</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pca-to-reduce-dimensionality">Using PCA to reduce dimensionality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#re-run-and-re-interpret">Re-run and re-interpret</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -538,10 +525,10 @@ document.write(`
 </div>
 </div>
 </section>
-</section>
 <section id="dataset-preparation">
-<h1>Dataset preparation<a class="headerlink" href="#dataset-preparation" title="Permalink to this heading">#</a></h1>
+<h2>Dataset preparation<a class="headerlink" href="#dataset-preparation" title="Permalink to this heading">#</a></h2>
 <p>In this tutorial we will load a dataset straight from an API, which as you will see comes with its own set of necessary pre-processing steps. We will first download the dataset, followed by some clean-up and lastly some pre-processing steps to prepare the data for clustering.</p>
+</section>
 <section id="load-data-for-the-randstad-area">
 <h2>Load data for the Randstad area<a class="headerlink" href="#load-data-for-the-randstad-area" title="Permalink to this heading">#</a></h2>
 <p>In order to find patterns in unstructured data, we of course first need data. For our example we will use neighbourhood-level statistics provided by the Central Burea for Statistics (CBS) Netherlands. The bounding box below is set to cover the Randstad area and Noord-Holland at the 4-digit zipcode level. The script below will query the Web Feature Service (WFS) and write a local copy so that we can then load it and analyze it.</p>
@@ -781,11 +768,10 @@ $$</p>
 <p>❗<strong>Q3: z-score normalization isn’t the only way to normalize data. We can also normalize to a 0-1 range by min/max normalizing: <code class="docutils literal notranslate"><span class="pre">(value</span> <span class="pre">-</span> <span class="pre">min)</span> <span class="pre">/</span> <span class="pre">(max</span> <span class="pre">-</span> <span class="pre">min)</span></code>. What are the benefits and downsides of using this method of normalizing, especially compared to z-score normalization? When would it be suitable to use compared to z-score normalization?</strong></p>
 </section>
 </section>
-</section>
 <section id="clustering">
-<h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this heading">#</a></h1>
+<h2>Clustering<a class="headerlink" href="#clustering" title="Permalink to this heading">#</a></h2>
 <section id="running-and-evaluating-k-means-clustering">
-<h2>Running and evaluating K-Means clustering<a class="headerlink" href="#running-and-evaluating-k-means-clustering" title="Permalink to this heading">#</a></h2>
+<h3>Running and evaluating K-Means clustering<a class="headerlink" href="#running-and-evaluating-k-means-clustering" title="Permalink to this heading">#</a></h3>
 <p>Now that we’ve prepared the data, we can move towards clustering it. A constant problem with unsupervised learning is deciding which model is the ‘right’ model. Numerical quantities have been invented for this, which mostly describe the quality of the optimization outcome based on the intended function of KMeans (maximize distance to out-of-cluster points, minimize distance between points within same cluster). Let’s quickly discuss these three metrics in order to understand what they’re supposed to signal.</p>
 <p><strong>Inertia</strong></p>
 <p>$$
@@ -932,7 +918,7 @@ $$</p>
 </section>
 </section>
 <section id="analysis-of-clusters">
-<h1>Analysis of clusters<a class="headerlink" href="#analysis-of-clusters" title="Permalink to this heading">#</a></h1>
+<h2>Analysis of clusters<a class="headerlink" href="#analysis-of-clusters" title="Permalink to this heading">#</a></h2>
 <p>Now that we have our clusters and a spatial understanding of what they mean, we can also attempt to understand them numerically. First, let’s make a dataframe with just the variables so that we can compute summary statistics over them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1020,11 +1006,12 @@ $$</p>
 </ul>
 </section>
 <section id="wrapping-up">
-<h1>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this heading">#</a></h1>
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this heading">#</a></h2>
 <p>That concludes our general introduction to the workflow of exploration using unsupervised learning. Hopefully you now understand why unsupervised methods are quite strongly up to interpretation, but also how they can lead to surprising results and emerging patterns. You’ve learned to prepare data for unsupervised classification, some of the pre-processing decisions that you have to make before exploring, and finally the process of exploration using KMeans Clustering. You’ve learned about the metrics that you can use to analyze this type of unsupervised learning problem, but also learned how these metrics don’t always tell the full story of what the data is trying to express. Lastly, you’ve learned some methods for the post-hoc analysis of clusters, and how you can try to make sense of the main patterns for each cluster. Ultimately, unsupervised learning is an exploration tool that is only as good as its user, and ultimately it still requires human interpretation to understand what each cluster represents.</p>
 <p>So go out there and cluster, but remember to be sure to explain your decisions in the clustering process!</p>
 <p><strong>Bonus!</strong><br>
 While coming up with this tutorial, we also used Principal Component Analysis (PCA) to try to reduce the dimensionality of the data, to see if patterns would change. Ultimately this did not matter, but we decided to keep it in to show you how PCA can be used to reduce the number of variables, which makes the prediction problem easier in case you’re dealing with the curse of dimensionality (more variables than datapoints)</p>
+</section>
 <section id="using-pca-to-reduce-dimensionality">
 <h2>Using PCA to reduce dimensionality<a class="headerlink" href="#using-pca-to-reduce-dimensionality" title="Permalink to this heading">#</a></h2>
 <p>PCA is a method that reduces the dimensionality of data by summarizing the variance (main patterns) across all variables. In that sense, it’s similar to KMeans, but its purpose is usually to reduce the number of variables, rather than to be interpreted. Here, we use PCA to reduce the total number of variables that will be used in the model.</p>
@@ -1175,13 +1162,10 @@ While coming up with this tutorial, we also used Principal Component Analysis (P
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TAA4: Unsupervised learning</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-preparation">Dataset preparation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-preparation">Dataset preparation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-for-the-randstad-area">Load data for the Randstad area</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handle-missing-data">Handle missing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing">Visualizing</a></li>
@@ -1189,22 +1173,17 @@ While coming up with this tutorial, we also used Principal Component Analysis (P
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing"><strong>Normalizing</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering">Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-and-evaluating-k-means-clustering">Running and evaluating K-Means clustering</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering">Clustering</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-and-evaluating-k-means-clustering">Running and evaluating K-Means clustering</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-clusters">Analysis of clusters</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping up</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-clusters">Analysis of clusters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping up</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pca-to-reduce-dimensionality">Using PCA to reduce dimensionality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#re-run-and-re-interpret">Re-run and re-interpret</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

@@ -193,16 +193,11 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lecture.html">Lecture: Introduction to Statistical Learning on Geospatial Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">TAA3: Crop cover classification</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../TAA4/lecture.html">Lecture: Loading API geodata and clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../TAA4/tutorial.html">TAA4: Unsupervised learning</a></li>
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TAA5</span></p>
 <ul class="nav bd-sidenav">
@@ -433,7 +428,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TAA3: Crop cover classification</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
@@ -449,14 +443,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-random-forests">5c. Random Forests</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-test-set-performance">6. Measuring test set performance</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-test-set-performance">6. Measuring test set performance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping up</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -1145,9 +1134,8 @@ document.write(`
 <p>❗<strong>Q11 (2 points): What is depicted in the plots above? What do the metrics tell us about the variables we used? How would you interpret the results of these plots, and based on them, would you remove any variables?</strong></p>
 </section>
 </section>
-</section>
 <section id="measuring-test-set-performance">
-<h1>6. Measuring test set performance<a class="headerlink" href="#measuring-test-set-performance" title="Permalink to this heading">#</a></h1>
+<h2>6. Measuring test set performance<a class="headerlink" href="#measuring-test-set-performance" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>In this section you will use what you have learned before to run the model again on a new test area. You’re in the driver’s seat now - look back on how we’ve defined steps earlier, it will help you out.</p>
 <p>We’ve trained and validated several models, now it’s time to find out how they perform when we provide it with new data one last time. This is called model <mark>testing</mark>. We go through this step only once, and this is generally the metrics that we add to the paper. It’s because we used the validation set to find a set of parameters that should work well on new data, so we shouldn’t then fine-tune on top of the test set.</p>
@@ -1328,6 +1316,7 @@ document.write(`
 </ol>
 <p>And there’s many more reasons we could list. The reality is that modelling is a hard task, and a lot of the trial-and-error and failed models get underreported in papers. By showing you the harsh realities of real-life, difficult modelling problems, we hope to have demonstrated that this type of modelling has strong potential, but also that it doesn’t come easy. With that in mind, let’s reflect a little bit on how we can do better. Please answer the question below, and we will provide feedback and discuss some of the answers.</p>
 <p>❗<strong>Q12 (5 points): What are your thoughts on the final test set results? Which factors of the image, reference data, and our workflow do you think affected the final performance of the model the most? How do you think the model workflow can be improved to provide better predictions?</strong></p>
+</section>
 <section id="wrapping-up">
 <h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this heading">#</a></h2>
 <p>That’s it for this practical. There’s many more nuances we could get into, but we’d need another lecture or two if we want to cover them all. Hopefully this practical gave you some insights into what it means to run a machine learning pipeline. We also hope that you see now that machine learning isn’t a fully-automatic magical problem-solving box, but that there are quite a lot of steps involved and decisions to make. It’s up to you, the modeller, to make the right choices with regards to data set-up and model parameter choices. Since this tutorial is getting lengthy already, we unfortunately can’t go into more detail on how to improve the model further, especially on the test set. We will provide feedback based on the questions, and provide general tips on what makes a successful ML pipeline. We also hope that this tutorial inspires you to look deeper into modelling, while retaining a critical outlook on what it is and what it can do!</p>
@@ -1402,7 +1391,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TAA3: Crop cover classification</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-before-we-start">Important before we start!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-packages">1. Introducing the packages</a></li>
@@ -1418,14 +1406,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-random-forests">5c. Random Forests</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-test-set-performance">6. Measuring test set performance</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-test-set-performance">6. Measuring test set performance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping up</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
