@@ -29,7 +29,7 @@ In this tutorial we only consider `supervised learning`, which is the process of
 ## Reading
 The book [An Introduction to Statistical Learning](https://www.stat.berkeley.edu/users/rabbee/s154/ISLR_First_Printing.pdf) by James, Witten, Hastie, and Tibshirani provides an excellent introduction to statistical learning. For this tutorial, we suggest to read sections 2.1 and 2.2 in its entirety, to gain a foundational understanding of statistical learning. Our goal in this tutorial is to provide the basic *why* understanding of statistical learning, because at the end of the day, modelling is a mindset, and individual models are just tools to support this mindset.
 
-With that in mind, the following sections cover parts of the tutorial that may be useful for further reading, but are entirely optional.
+You are expected to read the following sections:
 - 4.3, for a better understanding of the logistic regression
 - 8.1.2, for a primer on decision tree models
 - 8.2.2, for more infomation about random forest models
@@ -42,6 +42,8 @@ The Google Earth Engine consists of a multi-petabyte analysis-ready data catalog
 The data catalog houses a large repository of publicly available geospatial datasets, including observations from a variety of satellite and aerial imaging systems in both optical and non-optical wavelengths, environmental variables, weather and climate forecasts and hindcasts, land cover, topographic and socio-economic datasets. All of this data is preprocessed to a ready-to-use but information-preserving form that allows efficient access and removes many barriers associated with data management.
 
 Users can access and analyze data from the public catalog as well as their own private data using a library of operators provided by the Earth Engine API. These operators are implemented in a large parallel processing system that automatically subdivides and distributes computations, providing high-throughput analysis capabilities. Users access the API either through a thin client library or through a web-based interactive development environment built on top of that client library.
+
+Beyond providing data, the platform also provides options for running machine learning models on satellite images. This implementation is optimized for the data abstraction that GEE serves to the front-end. This is great if you know exactly what you're trying to achieve, but more difficult for exploration. We therefore prototype using standard Python ML packages. During this tutorial & TAA5 you will experience both ways of working with machine learning models.
 
 ## How to gain access to Google Earth Engine
 To be able to use the Google Earth Engine during the tutorial, we will need to sign up.
