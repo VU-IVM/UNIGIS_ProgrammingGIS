@@ -613,7 +613,7 @@ document.write(`
 </div>
 </div>
 <p>The values in each band are between 1 and 65,535, the 16-bit unsigned integer limit. The values represent the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">reflection</span></code>, the fraction of light that is reflected at each pixel location.</p>
-<p>❗<strong>Q1 (3 points): The surface reflection values are stored as floating point values, rather than decimals, in order to save storage space. How many bytes does it take to store a single pixel in 16-bit uint, versus a signed 64-bit floating point value? Secondly, search online for which other techniques can we use to further reduce the storage-and transmission size of satellite images, and give a brief write-up of your findings here.</strong></p>
+<p>❗<strong>Q1 (2 points): The surface reflection values are stored as floating point values, rather than decimals, in order to save storage space. How many bytes does it take to store a single pixel in 16-bit uint, versus a signed 64-bit floating point value? Secondly, search online for which other techniques can we use to further reduce the storage-and transmission size of satellite images, and give a brief write-up of your findings here.</strong></p>
 <p>❗<strong>Q2 (1 point): Try to visualize the image with a false-colour composite using near-infrared, red, and green bands. Why are these bands are particularly important for the task at hand (crop mapping)? Discuss the spectral properties of the bands in your answers.</strong></p>
 <p>Now that we have the image, let’s add some indices to add some extra information for the model. Together with the raw spectral values, these will be our <mark>input variables</mark>, from which the model will learn how to fit to the reference values.</p>
 <div class="cell docutils container">
@@ -627,7 +627,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>❗<strong>Q3 (2 points): Which other indices like the NDVI could be useful to add here, and why? Add at least one more to the image.</strong></p>
+<p>❗<strong>Q3 (1 points): Which other indices like the NDVI could be useful to add here, and why? Add at least one more to the image.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define your own indices here</span>
