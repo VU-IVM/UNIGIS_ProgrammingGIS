@@ -10,15 +10,5 @@ The course is structured around six main data types and related methods. Specifi
 
 In the first week, we will provide a crash course in Python that will be used throughout the remainder of the course. 
 
-## Objectives
-The key objectives of this course are:
-* to know how and when geospatial data can be used to solve sustainability problems.
-* to gain a better understanding of methods and tools to analyze geospatial data.
-
-## Teaching methods
-This course will be a combination of lectures and tutorials. Each week starts with an introductory lecture to the method and/or data type that will be applied and/or analyzed in that particular week. During the lecture, students will gain the required theoretical knowledge to apply the methods during the four TAA's. 
-
-## Methods of assessment
-There will be two graded assignments. The first assigment will account for 35% of the grade (TAA2), and the second assignment will account for 65% of the grade (TAA4). 
-
-You must pass both elements (5.5 or higher). 
+## Syllabus
+Detailed syllabus information on grading, assessments, and the use of GenAI can be found on the Canvas page
