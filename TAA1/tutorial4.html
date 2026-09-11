@@ -863,14 +863,14 @@ Make sure that you save this file before you continue, else you will lose everyt
 <h3>Question 2<a class="headerlink" href="#question-2" title="Permalink to this heading">#</a></h3>
 <p>Perform a spatial join between the geodataframe we created at the start of this tutorial (<code class="docutils literal notranslate"><span class="pre">gdf</span></code>) and the global data we just loaded from the internet (<code class="docutils literal notranslate"><span class="pre">world</span></code>).</p>
 <ul class="simple">
-<li><p>Set the CRS for the <code class="docutils literal notranslate"><span class="pre">gdf</span></code> dataframe, which was not set yet. The CRS is 4326.</p></li>
+<li><p>Convert the CRS for the <code class="docutils literal notranslate"><span class="pre">gdf</span></code> dataframe. The CRS should be 4326.</p></li>
 <li><p>Check the documentation for the function we are going to use: <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.sjoin.html">https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.sjoin.html</a></p></li>
 <li><p>Think about the order of your spatial join. Do you merge the cities with the world data, or vice versa. If you try both, you can see there is a difference.</p></li>
 </ul>
 <p><strong>What is the difference between the order of your spatial join?</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">set_crs</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_crs</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
