@@ -535,7 +535,10 @@ document.write(`
 <p>In order to find patterns in unstructured data, we of course first need data. For our example we will use neighbourhood-level statistics provided by the Central Burea for Statistics (CBS) Netherlands. The bounding box below is set to cover the Randstad area and Noord-Holland at the 4-digit zipcode level. The script below will query the Web Feature Service (WFS) and write a local copy so that we can then load it and analyze it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># WFS endpoint for CBS Postcode4 2023</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loading PDOK basemap</span>
+<span class="n">pdok</span> <span class="o">=</span> <span class="s2">&quot;https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:3857/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">.png&quot;</span>
+
+<span class="c1"># WFS endpoint for CBS Postcode4 2023</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://service.pdok.nl/cbs/postcode4/2023/wfs/v1_0&quot;</span>
 
 <span class="c1"># Bounding box in EPSG:28992</span>
@@ -577,7 +580,7 @@ document.write(`
 <section id="handle-missing-data">
 <h2>Handle missing data<a class="headerlink" href="#handle-missing-data" title="Permalink to this heading">#</a></h2>
 <p>This dataset is a decent representation of what you can expect working with real-world data. It has no-data columns, as well as rows which had their values omitted for privacy reasons (e.g. in a small neighbourhood, certain demographic stats are hidden). Working with KMeans requires us to make very deliberate choices on how we handle these, as otherwise they might skew the model.</p>
-<p>Let’s first have a look at the scale of the problem. The dataset marks no-data values as any values below zero (as everything is count or demographic data). Let’s first look at the columns with non-included data (code -99995). Write some code to find these columns. If you do it right, you should have 98 columns.</p>
+<p>Let’s first have a look at the scale of the problem. The dataset marks no-data values as any values below zero (as everything is count or demographic data). Let’s first look at the columns with non-included data (code -99995). Write some code to find these columns. If you do it right, you should have 3 missing columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find a way to create a list with columns that are invalid (code -99995)</span>
@@ -585,7 +588,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>That’s about 2/3rds of the dataset! This data is present at a different spatial scale, but not at the 4-digit zipcode level. So, let’s just remove these columns from the dataframe.</p>
+<p>It should just be a couple of empty columns. Let’s remove these from the dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop the columns you identify from the dataframe</span>
@@ -673,7 +676,7 @@ document.write(`
         <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
         <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span>
     <span class="p">)</span>
-    <span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">gdf_filtered_3857</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">OpenStreetMap</span><span class="o">.</span><span class="n">Mapnik</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">gdf_filtered_3857</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">pdok</span><span class="p">)</span>
     <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spatial distribution of </span><span class="si">{</span><span class="n">col_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 
@@ -896,7 +899,7 @@ $$</p>
     <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
     <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span>
 <span class="p">)</span>
-<span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">gdf_norm_3857</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">OpenStreetMap</span><span class="o">.</span><span class="n">Mapnik</span><span class="p">)</span>
+<span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">gdf_norm_3857</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">pdok</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Neighbourhood clusters&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -1086,7 +1089,7 @@ While coming up with this tutorial, we also used Principal Component Analysis (P
     <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
     <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span>
 <span class="p">)</span>
-<span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">gdf_norm_3857</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">OpenStreetMap</span><span class="o">.</span><span class="n">Mapnik</span><span class="p">)</span>
+<span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">gdf_norm_3857</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">pdok</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Neighbourhood clusters&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
