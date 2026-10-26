@@ -965,7 +965,7 @@ document.write(`
              <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="s1">&#39;CLOUDY_PIXEL_PERCENTAGE&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
 <span class="c1"># Create a median composite to reduce cloud cover</span>
-<span class="n">test_mosaic_image</span> <span class="o">=</span> <span class="n">sentinel2</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">country_ROI</span><span class="o">.</span><span class="n">geometry</span><span class="p">())</span>
+<span class="n">test_mosaic_image</span> <span class="o">=</span> <span class="n">test_sentinel2</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">country_ROI</span><span class="o">.</span><span class="n">geometry</span><span class="p">())</span>
 
 <span class="c1"># Add variables</span>
 <span class="n">test_mosaic_image</span> <span class="o">=</span> <span class="n">make_s2_variables</span><span class="p">(</span><span class="n">test_mosaic_image</span><span class="p">)</span>
